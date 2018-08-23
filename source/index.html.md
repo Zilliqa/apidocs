@@ -353,7 +353,9 @@ curl -d '{
 
 ```json
 {
-  result: "a5e238bca907c28d015e50acc76788f8bad79882bf40459215722c414a7b940b"
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": "a5e238bca907c28d015e50acc76788f8bad79882bf40459215722c414a7b940b"
 }
 ```
 

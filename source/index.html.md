@@ -344,6 +344,8 @@ curl -d '{
       "pubKey": "026ad7a7cb2aa230af177ca0ea3c4112a902d296bf7a5f25f5ae4b3df72321f4d0",
       "gasPrice": 1,
       "gasLimit": 1,
+      "code": "",
+      "data": "",
       "signature": "508b838641a6d0f9a7114c5b359a3a6119072e213b06b0f3331f4a33a8c80cde09d3aa7f64c3d767024ab56abbcb2ebd553085d214133c0383d4007828bde0c4"
     }]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"

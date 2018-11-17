@@ -15,7 +15,7 @@ search: true
 
 # Introduction
 
-[JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON. You can use this API to access data in Zilliqa nodes. The JSON-RPC API server runs on port 4201 on a Zilliqa lookup node. All API calls are POST requests made to port 4201 of the machine running the zilliqa node.
+[JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON. You can use this API to access data in Zilliqa nodes. The JSON-RPC API server runs on port 4201 on a Zilliqa lookup node. All API calls are POST requests made to port 4201 of the machine running the Zilliqa node.
 
 All requests follow the standard json-rpc format and include 4 variables in the data object:
 ```
@@ -90,7 +90,6 @@ curl -d '{
       "blockNum": "1",
       "difficulty": 20,
       "leaderPubKey": "0x020273D5EF4691D8EB3DFAB0ACCB213ADE94482B49972841E0F85A3BC49BC982BD",
-      "minerPubKey": "0x03F9BD182E4FC260E04630C2F5F2EDD2883A50772535EDCA6D001A4548730B8D07",
       "nonce": "1530868960",
       "prevhash": "6babe1baa82cf5625c33970b8c7dc0f6ae8f5d0f21575efdf2733e3ecef34c78",
       "timestamp": "1530868880252432"
@@ -131,34 +130,36 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": {
-    "body": {
-      "HeaderSign": "88145A9EE6EAF8CD4C7DC05E8AE559E09E68E990A9D35C51C97895E3ECA252B6338DF929033CA3B68669D3757EA1EA71565B942B6E4D93F9C509BE7D6B1A92B8",
-      "MicroBlockEmpty": [
-        1
-      ],
-      "MicroBlockHashes": [
-        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      ]
-    },
-    "header": {
-      "BlockNum": "100",
-      "DSBlockNum": "3",
-      "GasLimit": "100",
-      "GasUsed": "1",
-      "MinerPubKey": "0x035D872C9F1F2E4113806E34C2114988BC72229015D7EAE4E25CBF27F8ED9A51D7",
-      "NumMicroBlocks": 1,
-      "NumTxns": 0,
-      "StateHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "Timestamp": "1530871942103501",
-      "TxnHash": "5df6e0e2761359d30a8275058e299fcc0381534545f55cf43e41983f5d4c9456",
-      "prevBlockHash": "b6bace0e25f41be5219775db06f8eb4ef2f28b5f041c121128fb050c96c29d22",
-      "type": 1,
-      "version": 0
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":{
+        "body":{
+            "HeaderSign":"AFD7E0A37D6BDC62B5B2C8D4318A8921C917532D5F285FAE9F78FB1DA819771474A1CB130BFBD1B867333A2E66E12B2A7242D720702B56F6544574BD8AABCD91",
+            "MicroBlockEmpty":[1,1,1,1],
+            "MicroBlockHashes":[
+                "c7deb25b595bb978b48d1219cb19415585b664b180046fd2adde242827f2c805",
+                "3d01bbd8658bd07543be34f699102262a0113628e8b869eee4d62c6a687b20d7",
+                "99116f739cd1d58a15f20dae32f8c836042b15e946034230d7df6160e9b29b0d",
+                "dd8cd4bffcdd34708d18bb49c4da4fcb65b2e39ce7558139543684d623a3b01a"
+            ]
+        },
+        "header":{
+            "BlockNum":"100",
+            "DSBlockNum":"3",
+            "GasLimit":"200000",
+            "GasUsed":"0",
+            "MinerPubKey":"0x02271D3B7B7052C0A0A000A21B08E8AB34F4ED6FC8E7DF7CE32CAE84709102C639",
+            "NumMicroBlocks":4,
+            "NumTxns":0,
+            "PrevBlockHash":"af52c80ef9f91d24a614fb18695cc99475c03930d65a55c4146b52c64206ec28",
+            "Rewards":"0",
+            "StateHash":"e81b45cbd0e2f3a09b69ba3b5adeecacc06841ea75f9001cf5d391b469f3c4ce",
+            "Timestamp":"1542364977362827",
+            "TxnHash":"2f6fe4ae2c67516aeb9214b4befd4d1e29c0023b74b4f2c043fe114353cb2ffe",
+            "Type":1,
+            "Version":0
+        }
     }
-  }
 }
 ```
 
@@ -200,7 +201,6 @@ curl -d '{
       "blockNum": "206",
       "difficulty": 20,
       "leaderPubKey": "0x036020EA88FF75732CC11A4CA60BAB9F44152D751B01761D679E3E4104B931AAA4",
-      "minerPubKey": "0x02EB7B0B281AC6AEC919E9D1DB24FDE6D34C847AD636C7971A8A669C8433494C0E",
       "nonce": "1531327584",
       "prevhash": "23d514e64f4f1c7f878eacc239fd7d3e78c1860bcb89ca3e2798ba80b5f62cfb",
       "timestamp": "1531327643176242"
@@ -241,30 +241,34 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": {
-    "body": {
-      "HeaderSign": "10D566A9FFEBF3029DEE6BEACE8CCE8891475978828F7FE3EEC593E5D6A7D363EE8B5D683B7E086C7CE67904C0F7CFBB6B06773A7E16D694D8AC68DCEE018B47",
-      "MicroBlockEmpty": null,
-      "MicroBlockHashes": null
-    },
-    "header": {
-      "BlockNum": "10268",
-      "DSBlockNum": "206",
-      "GasLimit": "0",
-      "GasUsed": "0",
-      "MinerPubKey": "0x02EB7B0B281AC6AEC919E9D1DB24FDE6D34C847AD636C7971A8A669C8433494C0E",
-      "NumMicroBlocks": 0,
-      "NumTxns": 0,
-      "StateHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "Timestamp": "1531328919047014",
-      "TxnHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "prevBlockHash": "833cc52f7daf62abc4542fbaaae5994ba063e3a74f08bb164a464c2b14e24edc",
-      "type": 1,
-      "version": 0
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":{
+        "body":{
+            "HeaderSign":"A4FCCC5AD9EDBE365B082EE3AB2350396F1159000611A4833C60132373CBE8359D84CF675DCBB9941A650B8252AE355234153A04E9E1050C89391D97A012DDE7",
+            "MicroBlockEmpty":[1,1],
+            "MicroBlockHashes":[
+                "0bab8255044b971724af7fb4dd61b9f26267170d9cffc1f02344e1ac9dd95243",
+                "e807e00ed230a0f2e55b34a2771e4f5e3805f5b690d3891bb6b3c77cd2042b32"
+            ]
+        },
+        "header":{
+            "BlockNum":"4054",
+            "DSBlockNum":"82",
+            "GasLimit":"100000",
+            "GasUsed":"0",
+            "MinerPubKey":"0x0347ADF217C1EA8AE0506EA0125DF5BBA544896C46DF768A493555857961CE1715",
+            "NumMicroBlocks":2,
+            "NumTxns":0,
+            "PrevBlockHash":"67b4c69df286ccf59e553d6fb15935895e71bf6c402dfc9cf89f422878140877",
+            "Rewards":"0",
+            "StateHash":"2d31fb48605005bb31dcff8b63b4c8bc76aaded7006c8b5f7121305f1382feee",
+            "Timestamp":"1542430362519960",
+            "TxnHash":"7f55d7f6f8f8a00e2dc2aa09ec0366fcd64510bdd452a7eb2fa0d706d11271ab",
+            "Type":1,
+            "Version":0
+        }
     }
-  }
 }
 ```
 
@@ -291,7 +295,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTransaction",
-    "params": ["43104643E5F35455B71F3CFCB471CE4A4C8B96E00F8E8B77733075662E5FC905"]
+    "params": ["2d1eea871d8845472e98dbe9b7a7d788fbcce226f52e4216612592167b89042c"]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
 ```
 
@@ -299,17 +303,23 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": {
-    "ID": "43104643e5f35455b71f3cfcb471ce4a4c8b96e00f8e8b77733075662e5fc905",
-    "amount": "0",
-    "nonce": "3",
-    "senderPubKey": "0x02DFB1F0B14A1C81EE2D31F43B223FF88207FFCB193F1D01BA38C01DF1DBF0F1FF",
-    "signature": "0x6F52EC8D6B5EC50CB83C57584E3DD33593FE15E7E4AFDCF4D2053586C0D2E4A43ED44A4E87BB6E726E097A02D888320983902578D621BE20804364F008A66DAC",
-    "toAddr": "50e9247a39e87a734355a203666ff7415c8a0802",
-    "version": "0"
-  }
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":{
+        "ID":"2d1eea871d8845472e98dbe9b7a7d788fbcce226f52e4216612592167b89042c",
+        "amount":"10000",
+        "gasLimit":"10",
+        "gasPrice":"1",
+        "nonce":"13",
+        "receipt":{
+            "cumulative_gas":"1",
+            "success":true
+        },
+        "senderPubKey":"0x0205273E54F262F8717A687250591DCFB5755B8CE4E3BD340C7ABEFD0DE1276574",
+        "signature":"0x29AD673848DCD7F5168F205F7A9FCD1E8109408E6C4D7D03E4E869317B9067E636B216A32314DD37176C35D51F9D4C24E0E519BA80E66206457C83C9029A490D",
+        "toAddr":"8ad0357ebb5515f694de597eda6f3f6bdbad0fd9",
+        "version":"1"
+    }
 }
 ```
 
@@ -337,16 +347,16 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "CreateTransaction",
     "params": [{
-      "version": 0,
-      "nonce": 5,
-      "to": "c5a829596fb06a59e2b1ddb6589811c759025d52",
-      "amount": 83,
-      "pubKey": "026ad7a7cb2aa230af177ca0ea3c4112a902d296bf7a5f25f5ae4b3df72321f4d0",
-      "gasPrice": 1,
-      "gasLimit": 1,
+      "version": 1,
+      "nonce": 13,
+      "toAddr": "8AD0357EBB5515F694DE597EDA6F3F6BDBAD0FD9",
+      "amount": "10000",
+      "pubKey": "0205273e54f262f8717a687250591dcfb5755b8ce4e3bd340c7abefd0de1276574",
+      "gasPrice": "1",
+      "gasLimit": "10",
       "code": "",
       "data": "",
-      "signature": "508b838641a6d0f9a7114c5b359a3a6119072e213b06b0f3331f4a33a8c80cde09d3aa7f64c3d767024ab56abbcb2ebd553085d214133c0383d4007828bde0c4"
+      "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
     }]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
 ```
@@ -355,13 +365,16 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": "a5e238bca907c28d015e50acc76788f8bad79882bf40459215722c414a7b940b"
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":{
+        "Info":"Non-contract txn, sent to shard",
+        "TranID":"2d1eea871d8845472e98dbe9b7a7d788fbcce226f52e4216612592167b89042c"
+    }
 }
 ```
 
-Create a new Transaction. See [zilliqajs.util.createTransactionJson()](https://github.com/Zilliqa/Zilliqa-JavaScript-Library/#createtransactionjson) in javascript for an example of how to construct the transaction object.
+Create a new Transaction. See [Quick Start](https://github.com/Zilliqa/Zilliqa-JavaScript-Library#quick-start) in javascript for an example of how to construct a transaction object.
 
 ### HTTP Request
 
@@ -374,14 +387,14 @@ Parameter | Description
 params | object containing the following properties:
 version | the current version
 nonce | counter equal to the number of transactions sent by the transaction sender including this one. It's value is (current account nonce + 1)
-to | destination account address. Incase of new contract account, set as 0000000000000000000000000000000000000000
+toAddr | destination account address. Incase of new contract account, set as 0000000000000000000000000000000000000000
 amount | transaction amount to be transferred to the destination address
 pubKey | object
 gasPrice | amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing (default 1)
 gasLimit | the maximum amount of gas that should be used while processing this transaction (1 - regular transaction, 10 - invoke method, 50 - deploy contract)
 code | (optional) string specifying the contract code. Present only when creating a new contract account
 data | (optional) stringified JSON object specifying initialization parameters. Present when creating or calling a contract account
-signature | an EC-Schnorr signature of the entire object (see )
+signature | an EC-Schnorr signature of the entire object
 method | "CreateTransaction"
 jsonrpc | "2.0"
 id | 1
@@ -394,7 +407,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
-    "params": ["c5a829596fb06a59e2b1ddb6589811c759025d52"]
+    "params": ["8254B2C9ACDF181D5D6796D63320FBB20D4EDD12"]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
 ```
 
@@ -402,25 +415,40 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": [
-    {
-      "address": "50e9247a39e87a734355a203666ff7415c8a0802",
-      "state": [
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":[
         {
-          "type": "String",
-          "value": "\"TESTING\"",
-          "vname": "welcome_msg"
+            "address":"dd2f86fd33fddcb237447642963627d9d1297295",
+            "state":[
+                {
+                    "type":"String",
+                    "value":"Hello World",
+                    "vname":"welcome_msg"
+                },
+                {
+                    "type":"Uint128",
+                    "value":"0",
+                    "vname":"_balance"
+                }
+            ]
         },
         {
-          "type": "Uint128",
-          "value": "0",
-          "vname": "_balance"
+            "address":"fa22b2c24ea3868de5c9bcb843c87104f0fd45dc",
+            "state":[
+                {
+                    "type":"String",
+                    "value":"Hello World",
+                    "vname":"welcome_msg"
+                },
+                {
+                    "type":"Uint128",
+                    "value":"0",
+                    "vname":"_balance"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 ```
 
@@ -447,7 +475,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
-    "params": ["50e9247a39e87a734355a203666ff7415c8a0802"]
+    "params": ["dd2f86fd33fddcb237447642963627d9d1297295"]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
 ```
 
@@ -455,20 +483,20 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": [
-    {
-      "type": "String",
-      "value": "\"TESTING\"",
-      "vname": "welcome_msg"
-    },
-    {
-      "type": "Uint128",
-      "value": "0",
-      "vname": "_balance"
-    }
-  ]
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":[
+        {
+        "type":"String",
+        "value":"Hello World",
+        "vname":"welcome_msg"
+        },
+        {
+        "type":"Uint128",
+        "value":"0",
+        "vname":"_balance"
+        }
+    ]
 }
 ```
 
@@ -534,7 +562,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
-    "params": ["50e9247a39e87a734355a203666ff7415c8a0802"]
+    "params": ["dd2f86fd33fddcb237447642963627d9d1297295"]
 }' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
 ```
 
@@ -542,15 +570,20 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": [
-    {
-      "type": "Address",
-      "value": "0xc5a829596fb06a59e2b1ddb6589811c759025d52",
-      "vname": "owner"
-    }
-  ]
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":[
+        {
+            "type":"ByStr20",
+            "value":"0x8254b2c9acdf181d5d6796d63320fbb20d4edd12",
+            "vname":"owner"
+        },
+        {
+            "type":"BNum",
+            "value":"5169",
+            "vname":"_creation_block"
+        }
+    ]
 }
 ```
 
@@ -585,24 +618,24 @@ curl -d '{
 
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": {
-    "CurrentDSEpoch": "0",
-    "CurrentMiniEpoch": "1",
-    "DSBlockRate": 0,
-    "NumDSBlocks": "1",
-    "NumPeers": 0,
-    "NumTransactions": "0",
-    "NumTxBlocks": "1",
-    "NumTxnsDSEpoch": "0",
-    "NumTxnsTxEpoch": 0,
-    "ShardingStructure": {
-      "Error": "No shards yet"
-    },
-    "TransactionRate": 0,
-    "TxBlockRate": 0
-  }
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":{
+        "CurrentDSEpoch":"84",
+        "CurrentMiniEpoch":"4167",
+        "DSBlockRate":0.001240451642236594,
+        "NumDSBlocks":"85",
+        "NumPeers":20,
+        "NumTransactions":"15",
+        "NumTxBlocks":"4167",
+        "NumTxnsDSEpoch":"0",
+        "NumTxnsTxEpoch":0,
+        "ShardingStructure":{
+            "NumPeers":[10]
+        },
+        "TransactionRate":0,
+        "TxBlockRate":0.060601745931509736
+    }
 }
 ```
 

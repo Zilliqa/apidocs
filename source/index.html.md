@@ -1372,6 +1372,75 @@ jsonrpc | "2.0"
 method | "GetSmartContractState"
 params | A smart contract address.
 
+## GetSmartContracts
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetSmartContracts",
+    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id":"1",
+    "jsonrpc":"2.0",
+    "result":[
+        {
+            "address":"6b3070b0abf4371b2b3b26e23f11f4c073b636e5",
+            "state":[
+                {
+                    "type":"String",
+                    "value":"Hello World",
+                    "vname":"welcome_msg"
+                },
+                {
+                    "type":"Uint128",
+                    "value":"0",
+                    "vname":"_balance"
+                }
+            ]
+        },
+        {
+            "address":"13cf0f8c1ea003779df0b7fa08a97903bc760e80",
+            "state":[
+                {
+                    "type":"String",
+                    "value":"Hello World",
+                    "vname":"welcome_msg"
+                },
+                {
+                    "type":"Uint128",
+                    "value":"0",
+                    "vname":"_balance"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Get the list of smart contracts created by an address.
+
+### HTTP Request
+
++ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
++ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
++ **Local:** `POST http://localhost:4201/`
+
+### Data Parameters
+
+Parameter | Description
+--------- | -------------
+id | 1
+jsonrpc | "2.0"
+method | "GetSmartContracts"
+params | A account address.
+
 ## GetContractAddressFromTransactionID
 
 ```shell

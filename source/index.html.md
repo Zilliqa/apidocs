@@ -18,18 +18,19 @@ search: true
 [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON. You can use this API to access data in Zilliqa nodes.
 The JSON-RPC API server runs on:
 
++ `https://api.zilliqa.com/` when running on Zilliqa _**Maoshanwang**_ testnet.
 + `http://localhost:4201/` when running Zilliqa locally.
-+ `https://api.zilliqa.com/` when running on Zilliqa _Maoshanwang_ testnet.
-+ `https://api-scilla.zilliqa.com/` when running on the small-scale testnet for developers.
 
 All API calls are POST requests made to machine running the Zilliqa lookup node.
 
 All requests follow the standard JSON-RPC format and include 4 variables in the data object:
 
-+ `id: (e.g. "1")`
-+ `jsonrpc: (e.g. "2.0")`
-+ `method: (e.g. "GetBalance")`
-+ `params: (e.g. ["1"])`
+| Data object |      Example      |
+|----------|:-------------|
+| `id` |  e.g. "1" |
+| `jsonrpc` |    e.g. "2.0"   |
+| `method` | e.g. "GetBalance" |
+| `params` | e.g. ["1"] |
 
 Code examples using curl can be viewed in the dark area to the right.
 
@@ -43,7 +44,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNetworkId",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -61,7 +62,6 @@ Get the network ID from the specified lookup node.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -81,7 +81,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetBlockchainInfo",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -114,7 +114,6 @@ Get the current network statistics from the specified lookup node.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -134,7 +133,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetShardingStructure",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -154,7 +153,6 @@ Get the current sharding structure of the network from the specified lookup node
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -174,7 +172,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetDsBlock",
     "params": ["1"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -207,7 +205,6 @@ Get the details of a specified Directory Service block number.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -227,7 +224,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetLatestDsBlock",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -260,7 +257,6 @@ Get the details of the most recent Directory Service block.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -280,7 +276,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNumDSBlocks",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -298,7 +294,6 @@ Get the number of Directory Service blocks in the network so far.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -318,7 +313,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetDSBlockRate",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -336,7 +331,6 @@ Get the current Directory Service blockrate per second.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -356,7 +350,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "DSBlockListing",
     "params": [1]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -418,7 +412,6 @@ Get a paginated list of Directory Service blocks. Pass in page number as paramet
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -437,8 +430,8 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTxBlock",
-    "params": ["100"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+    "params": ["40"]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -449,25 +442,47 @@ curl -d '{
     "jsonrpc":"2.0",
     "result":{
         "body":{
-            "HeaderSign":"88DE8A7BE752A8399ACDEEFF71E0E5515E04AEEC6C27EBB2CBC51B4686D019C70E6D01DA3B60AD8660DD871AA58E4118E866EB02A293BE3AA03407B247663D0B",
-            "MicroBlockInfos":[[],[[]],[[],[[]]],[[],[[]],[[],[[]]]]]},
-            "header":{
-                "BlockNum":"100",
-                "DSBlockNum":"3",
-                "GasLimit":"200000",
-                "GasUsed":"0",
-                "MbInfoHash":"ef2226b10220289ae75d616c62e64e799d98f429af1d230c2f4d3f4e0998597f",
-                "MinerPubKey":"0x0389465277028C9382F3314ED01BACF9CA6DAAC02A48B85756A513C66346F06963",
-                "NumMicroBlocks":4,
-                "NumTxns":0,
-                "PrevBlockHash":"294f14853b92b8f9ed5ac4a708ec928e2aebf4f39afd38f7e0bb7f7728728f9c",
-                "Rewards":"0",
-                "StateDeltaHash":"0000000000000000000000000000000000000000000000000000000000000000",
-                "StateRootHash":"b44f0b4557f5efb5bc4db798540481b102ba6c239acbe403e42dd0b820b32ba9",
-                "Timestamp":"1545026406814544",
-                "Type":1,
-                "Version":0
-            }
+            "HeaderSign":"DE979D13EC26CEF71A3D1439D9C6E33E3410DB45CA2123CA40AAB3FEC894CFB0843B0423287AF58705B1755E7A486E563B4E1C0F09BDD3B2FDFBE7086CB2FF0D",
+            "MicroBlockInfos":[
+                {
+                    "MicroBlockHash":"e5c88a1ef511b93f6256e881fdb3e5a2c7bee78f03e42664a34c6df9ea5b2a0d",
+                    "MicroBlockShardId":0,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"45140cc0e45aeb15256152ecaffd6282d7310b4b0c6f64838a8993467c3bea64",
+                    "MicroBlockShardId":1,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"6cff53e230ee1c94b926e67911845694a75a42f86153fbcd09fac18b51c9430b",
+                    "MicroBlockShardId":2,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"a277d9b7cc5c680faed13914be8101fed6cdaa5363a0bfe2c913220cc6ea76e1",
+                    "MicroBlockShardId":3,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                }
+            ]
+        },
+        "header":{
+            "BlockNum":"40",
+            "DSBlockNum":"9",
+            "GasLimit":"2000000",
+            "GasUsed":"0",
+            "MbInfoHash":"4f2ce32eef3485037f543ebe5fb781f8d3f3c7c2c700df293205f639787e4f85",
+            "MinerPubKey":"0x021C44420BD6086AB8C8CEA8E6932AC58E797002E1DC5B7A4B4BD910651DCFC4DA",
+            "NumMicroBlocks":4,
+            "NumTxns":0,
+            "PrevBlockHash":"369d69f65430710da42a36062c6bcadfd5fc30b277c826e121c373c0727ed8c1",
+            "Rewards":"0",
+            "StateDeltaHash":"0000000000000000000000000000000000000000000000000000000000000000",
+            "StateRootHash":"de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d",
+            "Timestamp":"1545208765463460",
+            "Type":1,
+            "Version":0
+        }
     }
 }
 ```
@@ -477,7 +492,6 @@ Get the details of a specified Transaction block number.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -497,7 +511,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetLatestTxBlock",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -508,23 +522,44 @@ curl -d '{
     "jsonrpc":"2.0",
     "result":{
         "body":{
-            "HeaderSign":"5AA9C0DEEF08985379A5F0981C7DD5982D03629B0C55AE7EE5FA13F276FAF94B38A3A94332E8CC0DFEB2D6952E0280B52A46B8FBA7D5D15D0E49936BA80B06A7",
-            "MicroBlockInfos":[[],[[]],[[],[[]]],[[],[[]],[[],[[]]]]]
+            "HeaderSign":"951379481ED79E1006AD38357F3B60EBD21B9FF86984B45E2326C47C3EA965770D65D95ABFAFC41809CD01E7B8C09319DAB1993FEDFED64556679B4034216058",
+            "MicroBlockInfos":[
+                {
+                    "MicroBlockHash":"2b13ea2863a477152eb951878739979071354953e368d7b83233c4414d7c12e8",
+                    "MicroBlockShardId":0,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"2d3dec5e435daa4d5cb839fdd92f28c956d403a08c0ef032d67495cc9b094164",
+                    "MicroBlockShardId":1,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"5c99d616a52d552c2b23cca001fba88f2afd6b1bcc1d028837e95b0f72b9fbf6",
+                    "MicroBlockShardId":2,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                    "MicroBlockHash":"40420e5a8d95b789462cb03e2c02483507b4bfb2d1836a658b6745440bb3e633",
+                    "MicroBlockShardId":3,
+                    "MicroBlockTxnRootHash":"0000000000000000000000000000000000000000000000000000000000000000"
+                }
+            ]
         },
         "header":{
-            "BlockNum":"960",
-            "DSBlockNum":"20",
-            "GasLimit":"200000",
+            "BlockNum":"49",
+            "DSBlockNum":"10",
+            "GasLimit":"2000000",
             "GasUsed":"0",
-            "MbInfoHash":"37e4f0a90c6bcbc0132d839ba2ce19ccdb42916eda3a2899caeea08550d531d0",
-            "MinerPubKey":"0x03F8CCD04CCFFB273AC3B9E5D7260AFFFE3024C03200B653AF99FCCBFBF2AA269A",
+            "MbInfoHash":"9d7ed24a158f2671f274631db6fb47d6a9ed3f505439ffadc0f76e2d81154b91",
+            "MinerPubKey":"0x023A3C45D844A48816D32A5C6EA219FE11A25C7EFC090F780DE0117ED0218F6636",
             "NumMicroBlocks":4,
             "NumTxns":0,
-            "PrevBlockHash":"80ad8dc0494a04e5f5a182306893645ad18bb5b05ee2e8397dfb2f151f004703",
-            "Rewards":"0",
-            "StateDeltaHash":"0000000000000000000000000000000000000000000000000000000000000000",
-            "StateRootHash":"24b9de6c00ae81db99079aa22e17ab72b1d9f9f6aab34b744931e9a2b3544c61",
-            "Timestamp":"1545040322833958",
+            "PrevBlockHash":"6a6038aff1211baebb0256054c961af40c6d9ab19b0dcbd5a2b65b47d4ec9276",
+            "Rewards":"191780820000000000",
+            "StateDeltaHash":"6b0ac054d4296d329e2c997ec30061549a6f809f9cadc361151079d8799777f4",
+            "StateRootHash":"de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d",
+            "Timestamp":"1545209495904025",
             "Type":1,
             "Version":0
         }
@@ -537,7 +572,6 @@ Get the details of the most recent Transaction block.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -557,7 +591,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNumTxBlocks",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -575,7 +609,6 @@ Get the number of Transaction blocks in the network so far.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -595,7 +628,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetTxBlockRate",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -613,7 +646,6 @@ Get the current Transaction blockrate per second.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -633,7 +665,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "TxBlockListing",
     "params": [1]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -695,7 +727,6 @@ Get a paginated list of Transaction blocks. Pass in page number as parameter. Re
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -715,7 +746,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNumTransactions",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -733,7 +764,6 @@ Get the number of Transactions in the network so far.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -753,7 +783,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetTransactionRate",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -771,7 +801,6 @@ Get the current Transaction rate of the network.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -791,7 +820,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetCurrentMiniEpoch",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -809,7 +838,6 @@ Get the number of Transaction epochs in the network so far.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -829,7 +857,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetCurrentDSEpoch",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -847,7 +875,6 @@ Get the number of DS epochs in the network so far.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -867,7 +894,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetPrevDifficulty",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -885,7 +912,6 @@ Get the minimum shard difficulty of the previous block.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -905,7 +931,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetPrevDSDifficulty",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -923,7 +949,6 @@ Get the minimum shard difficulty of the previous block.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -956,7 +981,7 @@ curl -d '{
       "data": "",
       "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
     }]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -977,7 +1002,6 @@ Create a new Transaction. See [Quick Start](https://github.com/Zilliqa/Zilliqa-J
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1008,7 +1032,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetTransaction",
     "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1039,7 +1063,6 @@ Get details of a Transaction by its hash.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1059,7 +1082,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetRecentTransactions",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1096,12 +1119,11 @@ curl -d '{
 }
 ```
 
-Get the most recent transactions (up to `100`) accepted by the specified zilliqa node.
+Get the most recent transactions (default: `20`, up to `100`) accepted by the specified zilliqa node.
 
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1111,7 +1133,7 @@ Parameter | Description
 id | 1
 jsonrpc | "2.0"
 method | "GetRecentTransactions"
-params | ""
+params | Specified amount of recent transactions to return.
 
 ## GetNumTxnsTxEpoch
 
@@ -1121,7 +1143,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNumTxnsTxEpoch",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1130,7 +1152,7 @@ curl -d '{
 {
     "id":"1",
     "jsonrpc":"2.0",
-    "result":0
+    "result":"0"
 }
 ```
 
@@ -1139,7 +1161,6 @@ Get the number of transactions in this Transaction epoch.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1159,7 +1180,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetNumTxnsDSEpoch",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1177,7 +1198,6 @@ Get the number of transactions in this Directory Service epoch.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1197,7 +1217,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetMinimumGasPrice",
     "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1215,7 +1235,6 @@ Get the minimum gas price of the last DS epoch.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1237,7 +1256,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetSmartContractCode",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1257,7 +1276,6 @@ Get the Scilla code of a smart contract address.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1277,7 +1295,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1311,7 +1329,6 @@ Get the initialization parameters (immutable) of a given smart contract address.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1331,7 +1348,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1360,7 +1377,6 @@ Get the state variables (mutable) of a smart contract address.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1380,7 +1396,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1429,7 +1445,6 @@ Get the list of smart contracts created by an address.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1439,7 +1454,7 @@ Parameter | Description
 id | 1
 jsonrpc | "2.0"
 method | "GetSmartContracts"
-params | A account address.
+params | An User's account address.
 
 ## GetContractAddressFromTransactionID
 
@@ -1449,7 +1464,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetContractAddressFromTransactionID",
     "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1467,7 +1482,6 @@ Get a smart contract address from a transaction ID.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters
@@ -1489,7 +1503,7 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "GetBalance",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
-}' -H "Content-Type: application/json" -X POST "https://api-scilla.zilliqa.com/"
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 > The above command returns JSON structured like this:
@@ -1510,7 +1524,6 @@ Get the balance of an account address.
 ### HTTP Request
 
 + **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Scilla Testnet:** `POST "https://api-scilla.zilliqa.com/"`
 + **Local:** `POST http://localhost:4201/`
 
 ### Data Parameters

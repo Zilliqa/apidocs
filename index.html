@@ -348,21 +348,37 @@
 The JSON-RPC API server runs on:</p>
 
 <ul>
+<li><code>https://api.zilliqa.com/</code> when running on Zilliqa <em><strong>Maoshanwang</strong></em> testnet.</li>
 <li><code>http://localhost:4201/</code> when running Zilliqa locally.</li>
-<li><code>https://api.zilliqa.com/</code> when running on Zilliqa <em>Maoshanwang</em> testnet.</li>
-<li><code>https://api-scilla.zilliqa.com/</code> when running on the small-scale testnet for developers.</li>
 </ul>
 
 <p>All API calls are POST requests made to machine running the Zilliqa lookup node.</p>
 
 <p>All requests follow the standard JSON-RPC format and include 4 variables in the data object:</p>
 
-<ul>
-<li><code>id: (e.g. &quot;1&quot;)</code></li>
-<li><code>jsonrpc: (e.g. &quot;2.0&quot;)</code></li>
-<li><code>method: (e.g. &quot;GetBalance&quot;)</code></li>
-<li><code>params: (e.g. [&quot;1&quot;])</code></li>
-</ul>
+<table><thead>
+<tr>
+<th>Data object</th>
+<th style="text-align: left">Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td style="text-align: left">e.g. &quot;1&quot;</td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td style="text-align: left">e.g. &quot;2.0&quot;</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td style="text-align: left">e.g. &quot;GetBalance&quot;</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td style="text-align: left">e.g. [&quot;1&quot;]</td>
+</tr>
+</tbody></table>
 
 <p>Code examples using curl can be viewed in the dark area to the right.</p>
 <h1 id='blockchain-related-methods'>Blockchain-related methods</h1><h2 id='getnetworkid'>GetNetworkId</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -370,7 +386,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNetworkId",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -385,7 +401,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters'>Data Parameters</h3>
@@ -397,7 +412,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -417,7 +432,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetBlockchainInfo",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -447,7 +462,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-2'>Data Parameters</h3>
@@ -459,7 +473,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -479,7 +493,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetShardingStructure",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -496,7 +510,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-3'>Data Parameters</h3>
@@ -508,7 +521,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -528,7 +541,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetDsBlock",
     "params": ["1"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -558,7 +571,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-4'>Data Parameters</h3>
@@ -570,7 +582,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -590,7 +602,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetLatestDsBlock",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -620,7 +632,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-5'>Data Parameters</h3>
@@ -632,7 +643,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -652,7 +663,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNumDSBlocks",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -667,7 +678,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-6'>Data Parameters</h3>
@@ -679,7 +689,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -699,7 +709,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetDSBlockRate",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -714,7 +724,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-7'>Data Parameters</h3>
@@ -726,7 +735,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -746,7 +755,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "DSBlockListing",
     "params": [1]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -805,7 +814,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-8'>Data Parameters</h3>
@@ -817,7 +825,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -836,8 +844,8 @@ The JSON-RPC API server runs on:</p>
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTxBlock",
-    "params": ["100"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+    "params": ["40"]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -847,25 +855,47 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"body"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"HeaderSign"</span><span class="p">:</span><span class="s2">"88DE8A7BE752A8399ACDEEFF71E0E5515E04AEEC6C27EBB2CBC51B4686D019C70E6D01DA3B60AD8660DD871AA58E4118E866EB02A293BE3AA03407B247663D0B"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MicroBlockInfos"</span><span class="p">:[[],[[]],[[],[[]]],[[],[[]],[[],[[]]]]]},</span><span class="w">
-            </span><span class="s2">"header"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"BlockNum"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"DSBlockNum"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"GasLimit"</span><span class="p">:</span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"GasUsed"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"MbInfoHash"</span><span class="p">:</span><span class="s2">"ef2226b10220289ae75d616c62e64e799d98f429af1d230c2f4d3f4e0998597f"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"MinerPubKey"</span><span class="p">:</span><span class="s2">"0x0389465277028C9382F3314ED01BACF9CA6DAAC02A48B85756A513C66346F06963"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"NumMicroBlocks"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"NumTxns"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"PrevBlockHash"</span><span class="p">:</span><span class="s2">"294f14853b92b8f9ed5ac4a708ec928e2aebf4f39afd38f7e0bb7f7728728f9c"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rewards"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"StateDeltaHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"StateRootHash"</span><span class="p">:</span><span class="s2">"b44f0b4557f5efb5bc4db798540481b102ba6c239acbe403e42dd0b820b32ba9"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Timestamp"</span><span class="p">:</span><span class="s2">"1545026406814544"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Version"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"HeaderSign"</span><span class="p">:</span><span class="s2">"DE979D13EC26CEF71A3D1439D9C6E33E3410DB45CA2123CA40AAB3FEC894CFB0843B0423287AF58705B1755E7A486E563B4E1C0F09BDD3B2FDFBE7086CB2FF0D"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MicroBlockInfos"</span><span class="p">:[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"e5c88a1ef511b93f6256e881fdb3e5a2c7bee78f03e42664a34c6df9ea5b2a0d"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"45140cc0e45aeb15256152ecaffd6282d7310b4b0c6f64838a8993467c3bea64"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"6cff53e230ee1c94b926e67911845694a75a42f86153fbcd09fac18b51c9430b"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"a277d9b7cc5c680faed13914be8101fed6cdaa5363a0bfe2c913220cc6ea76e1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"header"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"BlockNum"</span><span class="p">:</span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"DSBlockNum"</span><span class="p">:</span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"GasLimit"</span><span class="p">:</span><span class="s2">"2000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"GasUsed"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MbInfoHash"</span><span class="p">:</span><span class="s2">"4f2ce32eef3485037f543ebe5fb781f8d3f3c7c2c700df293205f639787e4f85"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MinerPubKey"</span><span class="p">:</span><span class="s2">"0x021C44420BD6086AB8C8CEA8E6932AC58E797002E1DC5B7A4B4BD910651DCFC4DA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"NumMicroBlocks"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"NumTxns"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PrevBlockHash"</span><span class="p">:</span><span class="s2">"369d69f65430710da42a36062c6bcadfd5fc30b277c826e121c373c0727ed8c1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rewards"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"StateDeltaHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"StateRootHash"</span><span class="p">:</span><span class="s2">"de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Timestamp"</span><span class="p">:</span><span class="s2">"1545208765463460"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Version"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -873,7 +903,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-9'>Data Parameters</h3>
@@ -885,7 +914,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -905,7 +934,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetLatestTxBlock",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -915,23 +944,44 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"body"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"HeaderSign"</span><span class="p">:</span><span class="s2">"5AA9C0DEEF08985379A5F0981C7DD5982D03629B0C55AE7EE5FA13F276FAF94B38A3A94332E8CC0DFEB2D6952E0280B52A46B8FBA7D5D15D0E49936BA80B06A7"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MicroBlockInfos"</span><span class="p">:[[],[[]],[[],[[]]],[[],[[]],[[],[[]]]]]</span><span class="w">
+            </span><span class="s2">"HeaderSign"</span><span class="p">:</span><span class="s2">"951379481ED79E1006AD38357F3B60EBD21B9FF86984B45E2326C47C3EA965770D65D95ABFAFC41809CD01E7B8C09319DAB1993FEDFED64556679B4034216058"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MicroBlockInfos"</span><span class="p">:[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"2b13ea2863a477152eb951878739979071354953e368d7b83233c4414d7c12e8"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"2d3dec5e435daa4d5cb839fdd92f28c956d403a08c0ef032d67495cc9b094164"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"5c99d616a52d552c2b23cca001fba88f2afd6b1bcc1d028837e95b0f72b9fbf6"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MicroBlockHash"</span><span class="p">:</span><span class="s2">"40420e5a8d95b789462cb03e2c02483507b4bfb2d1836a658b6745440bb3e633"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockShardId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"MicroBlockTxnRootHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"header"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"BlockNum"</span><span class="p">:</span><span class="s2">"960"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"DSBlockNum"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"GasLimit"</span><span class="p">:</span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BlockNum"</span><span class="p">:</span><span class="s2">"49"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"DSBlockNum"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"GasLimit"</span><span class="p">:</span><span class="s2">"2000000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"GasUsed"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MbInfoHash"</span><span class="p">:</span><span class="s2">"37e4f0a90c6bcbc0132d839ba2ce19ccdb42916eda3a2899caeea08550d531d0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MinerPubKey"</span><span class="p">:</span><span class="s2">"0x03F8CCD04CCFFB273AC3B9E5D7260AFFFE3024C03200B653AF99FCCBFBF2AA269A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MbInfoHash"</span><span class="p">:</span><span class="s2">"9d7ed24a158f2671f274631db6fb47d6a9ed3f505439ffadc0f76e2d81154b91"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MinerPubKey"</span><span class="p">:</span><span class="s2">"0x023A3C45D844A48816D32A5C6EA219FE11A25C7EFC090F780DE0117ED0218F6636"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"NumMicroBlocks"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"NumTxns"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"PrevBlockHash"</span><span class="p">:</span><span class="s2">"80ad8dc0494a04e5f5a182306893645ad18bb5b05ee2e8397dfb2f151f004703"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rewards"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"StateDeltaHash"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"StateRootHash"</span><span class="p">:</span><span class="s2">"24b9de6c00ae81db99079aa22e17ab72b1d9f9f6aab34b744931e9a2b3544c61"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Timestamp"</span><span class="p">:</span><span class="s2">"1545040322833958"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PrevBlockHash"</span><span class="p">:</span><span class="s2">"6a6038aff1211baebb0256054c961af40c6d9ab19b0dcbd5a2b65b47d4ec9276"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rewards"</span><span class="p">:</span><span class="s2">"191780820000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"StateDeltaHash"</span><span class="p">:</span><span class="s2">"6b0ac054d4296d329e2c997ec30061549a6f809f9cadc361151079d8799777f4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"StateRootHash"</span><span class="p">:</span><span class="s2">"de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Timestamp"</span><span class="p">:</span><span class="s2">"1545209495904025"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Version"</span><span class="p">:</span><span class="mi">0</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -942,7 +992,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-10'>Data Parameters</h3>
@@ -954,7 +1003,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -974,7 +1023,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNumTxBlocks",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -989,7 +1038,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-11'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-11'>Data Parameters</h3>
@@ -1001,7 +1049,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1021,7 +1069,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetTxBlockRate",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1036,7 +1084,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-12'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-12'>Data Parameters</h3>
@@ -1048,7 +1095,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1068,7 +1115,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "TxBlockListing",
     "params": [1]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1127,7 +1174,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-13'>Data Parameters</h3>
@@ -1139,7 +1185,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1159,7 +1205,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNumTransactions",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1174,7 +1220,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-14'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-14'>Data Parameters</h3>
@@ -1186,7 +1231,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1206,7 +1251,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetTransactionRate",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1221,7 +1266,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-15'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-15'>Data Parameters</h3>
@@ -1233,7 +1277,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1253,7 +1297,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetCurrentMiniEpoch",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1268,7 +1312,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-16'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-16'>Data Parameters</h3>
@@ -1280,7 +1323,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1300,7 +1343,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetCurrentDSEpoch",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1315,7 +1358,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-17'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-17'>Data Parameters</h3>
@@ -1327,7 +1369,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1347,7 +1389,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetPrevDifficulty",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1362,7 +1404,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-18'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-18'>Data Parameters</h3>
@@ -1374,7 +1415,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1394,7 +1435,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetPrevDSDifficulty",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1409,7 +1450,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-19'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-19'>Data Parameters</h3>
@@ -1421,7 +1461,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1452,7 +1492,7 @@ The JSON-RPC API server runs on:</p>
       "data": "",
       "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
     }]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1470,7 +1510,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-20'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-20'>Data Parameters</h3>
@@ -1482,7 +1521,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1546,7 +1585,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetTransaction",
     "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1574,7 +1613,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-21'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-21'>Data Parameters</h3>
@@ -1586,7 +1624,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1606,7 +1644,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetRecentTransactions",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1641,11 +1679,10 @@ The JSON-RPC API server runs on:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the most recent transactions (up to <code>100</code>) accepted by the specified zilliqa node.</p>
+<p>Get the most recent transactions (default: <code>20</code>, up to <code>100</code>) accepted by the specified zilliqa node.</p>
 <h3 id='http-request-22'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-22'>Data Parameters</h3>
@@ -1657,7 +1694,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1669,7 +1706,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>&quot;&quot;</td>
+<td>Specified amount of recent transactions to return.</td>
 </tr>
 </tbody></table>
 <h2 id='getnumtxnstxepoch'>GetNumTxnsTxEpoch</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1677,7 +1714,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNumTxnsTxEpoch",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1685,14 +1722,13 @@ The JSON-RPC API server runs on:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Get the number of transactions in this Transaction epoch.</p>
 <h3 id='http-request-23'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-23'>Data Parameters</h3>
@@ -1704,7 +1740,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1724,7 +1760,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetNumTxnsDSEpoch",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1739,7 +1775,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-24'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-24'>Data Parameters</h3>
@@ -1751,7 +1786,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1771,7 +1806,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetMinimumGasPrice",
     "params": [""]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1786,7 +1821,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-25'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-25'>Data Parameters</h3>
@@ -1798,7 +1832,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1818,7 +1852,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetSmartContractCode",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1835,7 +1869,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-26'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-26'>Data Parameters</h3>
@@ -1847,7 +1880,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1867,7 +1900,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1898,7 +1931,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-27'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-27'>Data Parameters</h3>
@@ -1910,7 +1942,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1930,7 +1962,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1956,7 +1988,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-28'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-28'>Data Parameters</h3>
@@ -1968,7 +1999,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -1988,7 +2019,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2034,7 +2065,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-29'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-29'>Data Parameters</h3>
@@ -2046,7 +2076,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -2058,7 +2088,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A account address.</td>
+<td>An User&#39;s account address.</td>
 </tr>
 </tbody></table>
 <h2 id='getcontractaddressfromtransactionid'>GetContractAddressFromTransactionID</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -2066,7 +2096,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetContractAddressFromTransactionID",
     "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2081,7 +2111,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-30'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-30'>Data Parameters</h3>
@@ -2093,7 +2122,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>
@@ -2113,7 +2142,7 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "GetBalance",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
-}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api-scilla.zilliqa.com/"</span>
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2131,7 +2160,6 @@ The JSON-RPC API server runs on:</p>
 <h3 id='http-request-31'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
-<li><strong>Scilla Testnet:</strong> <code>POST &quot;https://api-scilla.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
 <h3 id='data-parameters-31'>Data Parameters</h3>
@@ -2143,7 +2171,7 @@ The JSON-RPC API server runs on:</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>1</td>
+<td>&quot;1&quot;</td>
 </tr>
 <tr>
 <td>jsonrpc</td>

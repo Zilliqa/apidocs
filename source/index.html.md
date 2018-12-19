@@ -68,7 +68,7 @@ Get the network ID from the specified lookup node.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNetworkId"
 params | ""
@@ -120,7 +120,7 @@ Get the current network statistics from the specified lookup node.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetBlockchainInfo"
 params | ""
@@ -159,7 +159,7 @@ Get the current sharding structure of the network from the specified lookup node
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetShardingStructure"
 params | ""
@@ -211,7 +211,7 @@ Get the details of a specified Directory Service block number.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetDsBlock"
 params | A specified DS block number.
@@ -263,7 +263,7 @@ Get the details of the most recent Directory Service block.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetLatestDsBlock"
 params | ""
@@ -300,7 +300,7 @@ Get the number of Directory Service blocks in the network so far.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNumDSBlocks"
 params | ""
@@ -337,7 +337,7 @@ Get the current Directory Service blockrate per second.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetDSBlockRate"
 params | ""
@@ -418,7 +418,7 @@ Get a paginated list of Directory Service blocks. Pass in page number as paramet
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "DSBlockListing"
 params | Page number (of type `Int`) of the listings (`1` being the latest block).
@@ -498,7 +498,7 @@ Get the details of a specified Transaction block number.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetTxBlock"
 params | A specified Transaction block number.
@@ -578,7 +578,7 @@ Get the details of the most recent Transaction block.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetLatestTxBlock"
 params | ""
@@ -615,7 +615,7 @@ Get the number of Transaction blocks in the network so far.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNumTxBlocks"
 params | ""
@@ -652,7 +652,7 @@ Get the current Transaction blockrate per second.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetTxBlockRate"
 params | ""
@@ -733,7 +733,7 @@ Get a paginated list of Transaction blocks. Pass in page number as parameter. Re
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "TxBlockListing"
 params | Page number (of type `Int`) of the listings (`1` being the latest block).
@@ -770,7 +770,7 @@ Get the number of Transactions in the network so far.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNumTransactions"
 params | ""
@@ -807,7 +807,7 @@ Get the current Transaction rate of the network.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetTransactionRate"
 params | ""
@@ -844,7 +844,7 @@ Get the number of Transaction epochs in the network so far.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetCurrentMiniEpoch"
 params | ""
@@ -881,7 +881,7 @@ Get the number of DS epochs in the network so far.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetCurrentDSEpoch"
 params | ""
@@ -918,7 +918,7 @@ Get the minimum shard difficulty of the previous block.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetPrevDifficulty"
 params | ""
@@ -955,7 +955,7 @@ Get the minimum shard difficulty of the previous block.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetPrevDSDifficulty"
 params | ""
@@ -1008,7 +1008,7 @@ Create a new Transaction. See [Quick Start](https://github.com/Zilliqa/Zilliqa-J
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "CreateTransaction"
 params | An object containing the following properties:
@@ -1069,7 +1069,7 @@ Get details of a Transaction by its hash.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetTransaction"
 params | Hash of the transaction to retrieve.
@@ -1130,7 +1130,7 @@ Get the most recent transactions (default: `20`, up to `100`) accepted by the sp
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetRecentTransactions"
 params | Specified amount of recent transactions to return.
@@ -1167,7 +1167,7 @@ Get the number of transactions in this Transaction epoch.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNumTxnsTxEpoch"
 params | ""
@@ -1204,7 +1204,7 @@ Get the number of transactions in this Directory Service epoch.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetNumTxnsDSEpoch"
 params | ""
@@ -1241,7 +1241,7 @@ Get the minimum gas price of the last DS epoch.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetMinimumGasPrice"
 params | ""
@@ -1282,7 +1282,7 @@ Get the Scilla code of a smart contract address.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractCode"
 params | A smart contract address.
@@ -1335,7 +1335,7 @@ Get the initialization parameters (immutable) of a given smart contract address.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractInit"
 params | A smart contract address.
@@ -1383,7 +1383,7 @@ Get the state variables (mutable) of a smart contract address.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractState"
 params | A smart contract address.
@@ -1451,7 +1451,7 @@ Get the list of smart contracts created by an address.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContracts"
 params | An User's account address.
@@ -1488,7 +1488,7 @@ Get a smart contract address from a transaction ID.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetContractAddressFromTransactionID"
 params | A Transaction ID.
@@ -1530,7 +1530,7 @@ Get the balance of an account address.
 
 Parameter | Description
 --------- | -------------
-id | 1
+id | "1"
 jsonrpc | "2.0"
 method | "GetBalance"
 params | ""

@@ -944,7 +944,7 @@ curl -d '{
 }
 ```
 
-Get the minimum shard difficulty of the previous block.
+Get the minimum DS difficulty of the previous block.
 
 ### HTTP Request
 

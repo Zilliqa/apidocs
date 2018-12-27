@@ -289,7 +289,7 @@ curl -d '{
 }
 ```
 
-Returns the number of Directory Service blocks in the network so far.
+Returns the number of Directory Service blocks in the network so far. This is represented as a `String`.
 
 ### HTTP Request
 
@@ -759,7 +759,7 @@ curl -d '{
 }
 ```
 
-Returns the number of Transactions validated in the network so far.
+Returns the number of Transactions validated in the network so far. This is represented as a `String`.
 
 ### HTTP Request
 
@@ -1022,7 +1022,7 @@ gasPrice | An amount that the sender is willing to pay per unit of gas for compu
 gasLimit | The maximum amount of gas that should be used while processing this transaction. <br> For regular transaction, please use `"1"`. <br> For smart contract transaction, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
 code | **(optional)** `String` specifying the contract code. Present only when deploying a new contract.
 data | **(optional)** `String`ified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.
-signature | An EC-Schnorr signature of the entire object. This is represented as a `String`.
+signature | An EC-Schnorr signature of 64 bytes of the entire object. This is represented as a `String`.
 
 ## GetTransaction
 
@@ -1059,7 +1059,7 @@ curl -d '{
 }
 ```
 
-Returns details of a Transaction by its hash.
+Returns the details of a Transaction by its hash.
 
 ### HTTP Request
 
@@ -1441,7 +1441,7 @@ curl -d '{
 }
 ```
 
-Returns the list of smart contracts created by an User's account address.
+Returns the list of smart contract addresses created by an User's account address and their latest states.
 
 ### HTTP Request
 

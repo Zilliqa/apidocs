@@ -57,7 +57,7 @@ curl -d '{
 }
 ```
 
-Get the network ID from the specified lookup node.
+Returns the network ID represented as a `String` from the specified network's lookup node.
 
 ### HTTP Request
 
@@ -109,7 +109,7 @@ curl -d '{
 }
 ```
 
-Get the current network statistics from the specified lookup node.
+Returns the current network statistics from the specified network's lookup node.
 
 ### HTTP Request
 
@@ -148,7 +148,7 @@ curl -d '{
 }
 ```
 
-Get the current sharding structure of the network from the specified lookup node.
+Returns the current sharding structure of the network from the specified network's lookup node.
 
 ### HTTP Request
 
@@ -200,7 +200,7 @@ curl -d '{
 }
 ```
 
-Get the details of a specified Directory Service block number.
+Returns the details of a specified Directory Service block number.
 
 ### HTTP Request
 
@@ -214,7 +214,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetDsBlock"
-params | A specified DS block number.
+params | A specified DS block number represented as `String`.
 
 ## GetLatestDsBlock
 
@@ -252,7 +252,7 @@ curl -d '{
 }
 ```
 
-Get the details of the most recent Directory Service block.
+Returns the details of the most recent Directory Service block.
 
 ### HTTP Request
 
@@ -289,7 +289,7 @@ curl -d '{
 }
 ```
 
-Get the number of Directory Service blocks in the network so far.
+Returns the number of Directory Service blocks in the network so far.
 
 ### HTTP Request
 
@@ -326,7 +326,7 @@ curl -d '{
 }
 ```
 
-Get the current Directory Service blockrate per second.
+Returns the current Directory Service blockrate per second.
 
 ### HTTP Request
 
@@ -407,7 +407,7 @@ curl -d '{
 }
 ```
 
-Get a paginated list of Directory Service blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
+Returns a paginated list of Directory Service blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
 
 ### HTTP Request
 
@@ -487,7 +487,7 @@ curl -d '{
 }
 ```
 
-Get the details of a specified Transaction block number.
+Returns the details of a specified Transaction block number.
 
 ### HTTP Request
 
@@ -501,7 +501,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetTxBlock"
-params | A specified Transaction block number.
+params | A specified Transaction block number represented as `String`.
 
 ## GetLatestTxBlock
 
@@ -567,7 +567,7 @@ curl -d '{
 }
 ```
 
-Get the details of the most recent Transaction block.
+Returns the details of the most recent Transaction block.
 
 ### HTTP Request
 
@@ -604,7 +604,7 @@ curl -d '{
 }
 ```
 
-Get the number of Transaction blocks in the network so far.
+Returns the number of Transaction blocks in the network so far, this is represented as `String`.
 
 ### HTTP Request
 
@@ -641,7 +641,7 @@ curl -d '{
 }
 ```
 
-Get the current Transaction blockrate per second.
+Returns the current Transaction blockrate per second.
 
 ### HTTP Request
 
@@ -722,7 +722,7 @@ curl -d '{
 }
 ```
 
-Get a paginated list of Transaction blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
+Returns a paginated list of Transaction blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
 
 ### HTTP Request
 
@@ -759,7 +759,7 @@ curl -d '{
 }
 ```
 
-Get the number of Transactions in the network so far.
+Returns the number of Transactions validated in the network so far.
 
 ### HTTP Request
 
@@ -796,7 +796,7 @@ curl -d '{
 }
 ```
 
-Get the current Transaction rate of the network.
+Returns the current Transaction rate of the network.
 
 ### HTTP Request
 
@@ -833,7 +833,7 @@ curl -d '{
 }
 ```
 
-Get the number of Transaction epochs in the network so far.
+Returns the number of TX epochs in the network so far represented as `String`.
 
 ### HTTP Request
 
@@ -870,7 +870,7 @@ curl -d '{
 }
 ```
 
-Get the number of DS epochs in the network so far.
+Returns the number of DS epochs in the network so far represented as `String`.
 
 ### HTTP Request
 
@@ -907,7 +907,7 @@ curl -d '{
 }
 ```
 
-Get the minimum shard difficulty of the previous block.
+Returns the minimum shard difficulty of the previous block, this is represented as an `Uint8`.
 
 ### HTTP Request
 
@@ -944,7 +944,7 @@ curl -d '{
 }
 ```
 
-Get the minimum DS difficulty of the previous block.
+Returns the minimum DS difficulty of the previous block, this is represented as an `Uint8`.
 
 ### HTTP Request
 
@@ -1013,16 +1013,16 @@ jsonrpc | "2.0"
 method | "CreateTransaction"
 params | An object containing the following properties:
 ------ | -----------------------------------------------
-version | The current version of Zilliqa.
-nonce | Counter equal to the number of transactions sent by the sender's account, including this one. It's value is = `current account nonce + 1`.
-toAddr | Recipient's account address. For deploying new contracts, set this as `0000000000000000000000000000000000000000`.
-amount | Transaction amount to be transferred to the destination address
-pubKey | Public key of the sender.
-gasPrice | An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing.
-gasLimit | The maximum amount of gas that should be used while processing this transaction (For regular transaction, please use `1`. For smart contract transactions, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing)).
-code | **(optional)** String specifying the contract code. Present only when deploying a new contract.
-data | **(optional)** Stringified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.
-signature | an EC-Schnorr signature of the entire object
+version | The current version of Zilliqa. This is represented as an unsigned integer.
+nonce | A counter equal to the number of transactions sent by the sender's account, including this one. <br> It's value is = `Current account nonce + 1`. This is represented as an unsigned integer.
+toAddr | Recipient's account address. This is represented as a `String`. <br> For deploying new contracts, set this as `"0000000000000000000000000000000000000000"`.
+amount | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
+pubKey | Public key of the sender. This is represented as a `String`.
+gasPrice | An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
+gasLimit | The maximum amount of gas that should be used while processing this transaction. <br> For regular transaction, please use `"1"`. <br> For smart contract transaction, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
+code | **(optional)** `String` specifying the contract code. Present only when deploying a new contract.
+data | **(optional)** `String`ified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.
+signature | An EC-Schnorr signature of the entire object. This is represented as a `String`.
 
 ## GetTransaction
 
@@ -1059,7 +1059,7 @@ curl -d '{
 }
 ```
 
-Get details of a Transaction by its hash.
+Returns details of a Transaction by its hash.
 
 ### HTTP Request
 
@@ -1073,7 +1073,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetTransaction"
-params | Hash of the transaction to retrieve.
+params | Target transaction hash of 32 bytes represented as `String`.
 
 ## GetRecentTransactions
 
@@ -1120,7 +1120,7 @@ curl -d '{
 }
 ```
 
-Get the most recent transactions (default: `20`, up to `100`) accepted by the specified zilliqa node.
+Returns the most recent transactions (default: `20`, up to `100`) accepted by the specified Zilliqa node.
 
 ### HTTP Request
 
@@ -1134,7 +1134,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetRecentTransactions"
-params | Specified amount of recent transactions to return.
+params | Specified amount of recent transactions to return represented as `String`.
 
 ## GetNumTxnsTxEpoch
 
@@ -1157,7 +1157,7 @@ curl -d '{
 }
 ```
 
-Get the number of transactions in this Transaction epoch.
+Returns the number of transactions in this Transaction epoch, this is represented as `String`.
 
 ### HTTP Request
 
@@ -1194,7 +1194,7 @@ curl -d '{
 }
 ```
 
-Get the number of transactions in this Directory Service epoch.
+Returns the number of transactions in this Directory Service epoch, this is represented as `String`.
 
 ### HTTP Request
 
@@ -1231,7 +1231,7 @@ curl -d '{
 }
 ```
 
-Get the minimum gas price of the last DS epoch.
+Returns the minimum gas price of the last DS epoch represented as `String`. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa.
 
 ### HTTP Request
 
@@ -1267,12 +1267,12 @@ curl -d '{
     "id":"1",
     "jsonrpc":"2.0",
     "result":{
-        "code":"scilla_version 0\n\n    (* HelloWorld contract *)\n    \n    import ListUtils\n    \n    (***************************************************)\n    (*               Associated library                *)\n    (***************************************************)\n    library HelloWorld\n    \n    let one_msg = \n      fun (msg : Message) => \n      let nil_msg = Nil {Message} in\n      Cons {Message} msg nil_msg\n    \n    let not_owner_code = Int32 1\n    let set_hello_code = Int32 2\n    \n    (***************************************************)\n    (*             The contract definition             *)\n    (***************************************************)\n    \n    contract HelloWorld\n    (owner: ByStr20)\n    \n    field welcome_msg : String = \"\"\n    \n    transition setHello (msg : String)\n      is_owner = builtin eq owner _sender;\n      match is_owner with\n      | False =>\n        msg = {_tag : \"Main\"; _recipient : _sender; _amount : Uint128 0; code : not_owner_code};\n        msgs = one_msg msg;\n        send msgs\n      | True =>\n        welcome_msg := msg;\n        msg = {_tag : \"Main\"; _recipient : _sender; _amount : Uint128 0; code : set_hello_code};\n        msgs = one_msg msg;\n        send msgs\n      end\n    end\n    \n    \n    transition getHello ()\n        r <- welcome_msg;\n        e = {_eventname: \"getHello()\"; msg: r};\n        event e\n    end"
+        "code":"scilla_version 0\n\n    (* HelloWorld contract *)\n    \n    import ListUtils\n    \n    (***************************************************)\n    (*               Associated library                *)\n    (***************************************************)\n    library HelloWorld\n    \n    let one_msg = \n      fun (msg : Message) => \n      let nil_msg = Nil {Message} in\n      Cons {Message} msg nil_msg\n    \n    let not_owner_code = Int32 1\n    let set_hello_code = Int32 2\n    \n    (***************************************************)\n    (*             The contract definition             *)\n    (***************************************************)\n    \n    contract HelloWorld\n    (owner: ByStr20)\n    \n    field welcome_msg : `String` = \"\"\n    \n    transition setHello (msg : `String`)\n      is_owner = builtin eq owner _sender;\n      match is_owner with\n      | False =>\n        msg = {_tag : \"Main\"; _recipient : _sender; _amount : Uint128 0; code : not_owner_code};\n        msgs = one_msg msg;\n        send msgs\n      | True =>\n        welcome_msg := msg;\n        msg = {_tag : \"Main\"; _recipient : _sender; _amount : Uint128 0; code : set_hello_code};\n        msgs = one_msg msg;\n        send msgs\n      end\n    end\n    \n    \n    transition getHello ()\n        r <- welcome_msg;\n        e = {_eventname: \"getHello()\"; msg: r};\n        event e\n    end"
     }
 }
 ```
 
-Get the Scilla code of a smart contract address.
+Returns the Scilla code of a smart contract address represented as a `String`.
 
 ### HTTP Request
 
@@ -1286,7 +1286,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractCode"
-params | A smart contract address.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContractInit
 
@@ -1325,7 +1325,7 @@ curl -d '{
 }
 ```
 
-Get the initialization parameters (immutable) of a given smart contract address.
+Returns the initialization parameters (immutable) of a given smart contract address represented in a JSON format.
 
 ### HTTP Request
 
@@ -1339,7 +1339,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractInit"
-params | A smart contract address.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContractState
 
@@ -1360,7 +1360,7 @@ curl -d '{
     "jsonrpc":"2.0",
     "result":[
         {
-            "type":"String",
+            "type":"`String`",
             "value":"Hello World",
             "vname":"welcome_msg"
         },
@@ -1373,7 +1373,7 @@ curl -d '{
 }
 ```
 
-Get the state variables (mutable) of a smart contract address.
+Returns the state variables (mutable) of a smart contract address represented in a JSON format.
 
 ### HTTP Request
 
@@ -1387,7 +1387,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractState"
-params | A smart contract address.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContracts
 
@@ -1411,7 +1411,7 @@ curl -d '{
             "address":"6b3070b0abf4371b2b3b26e23f11f4c073b636e5",
             "state":[
                 {
-                    "type":"String",
+                    "type":"`String`",
                     "value":"Hello World",
                     "vname":"welcome_msg"
                 },
@@ -1426,7 +1426,7 @@ curl -d '{
             "address":"13cf0f8c1ea003779df0b7fa08a97903bc760e80",
             "state":[
                 {
-                    "type":"String",
+                    "type":"`String`",
                     "value":"Hello World",
                     "vname":"welcome_msg"
                 },
@@ -1441,7 +1441,7 @@ curl -d '{
 }
 ```
 
-Get the list of smart contracts created by an address.
+Returns the list of smart contracts created by an User's account address.
 
 ### HTTP Request
 
@@ -1455,7 +1455,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContracts"
-params | An User's account address.
+params | An User's account address of 20 bytes represented as a `String`.
 
 ## GetContractAddressFromTransactionID
 
@@ -1478,7 +1478,7 @@ curl -d '{
 }
 ```
 
-Get a smart contract address from a transaction ID.
+Returns a smart contract address of 20 bytes from a transaction ID, represented as a `String` .
 
 ### HTTP Request
 
@@ -1492,7 +1492,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetContractAddressFromTransactionID"
-params | A Transaction ID.
+params | A Transaction ID of 32 bytes represented as a `String`.
 
 # Account-related methods
 
@@ -1520,7 +1520,7 @@ curl -d '{
 }
 ```
 
-Get the balance of an account address.
+Returns the balance of an User's account address that is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa. This is represented as `String`.
 
 ### HTTP Request
 
@@ -1534,4 +1534,4 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetBalance"
-params | ""
+params | An User's account address of 20 bytes represented as a `String`.

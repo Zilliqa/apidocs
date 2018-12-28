@@ -397,7 +397,7 @@ The JSON-RPC API server runs on:</p>
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestNet"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the network ID from the specified lookup node.</p>
+<p>Returns the network ID represented as a <code>String</code> from the specified network&#39;s lookup node.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -458,7 +458,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the current network statistics from the specified lookup node.</p>
+<p>Returns the current network statistics from the specified network&#39;s lookup node.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -506,7 +506,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the current sharding structure of the network from the specified lookup node.</p>
+<p>Returns the current sharding structure of the network from the specified network&#39;s lookup node.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -567,7 +567,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the details of a specified Directory Service block number.</p>
+<p>Returns the details of a specified Directory Service block number.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -594,7 +594,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A specified DS block number.</td>
+<td>A specified DS block number represented as <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getlatestdsblock'>GetLatestDsBlock</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -628,7 +628,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the details of the most recent Directory Service block.</p>
+<p>Returns the details of the most recent Directory Service block.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -674,7 +674,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"27"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of Directory Service blocks in the network so far.</p>
+<p>Returns the number of Directory Service blocks in the network so far. This is represented as a <code>String</code>.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -720,7 +720,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mf">1.9217623126238637e-08</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the current Directory Service blockrate per second.</p>
+<p>Returns the current Directory Service blockrate per second.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -810,7 +810,7 @@ The JSON-RPC API server runs on:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get a paginated list of Directory Service blocks. Pass in page number as parameter. Returns a <code>maxPages</code> variable that specifies the max number of pages. <code>1</code> being latest block.</p>
+<p>Returns a paginated list of Directory Service blocks. Pass in page number as parameter. Returns a <code>maxPages</code> variable that specifies the max number of pages. <code>1</code> being latest block.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -899,7 +899,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the details of a specified Transaction block number.</p>
+<p>Returns the details of a specified Transaction block number.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -926,7 +926,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A specified Transaction block number.</td>
+<td>A specified Transaction block number represented as <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getlatesttxblock'>GetLatestTxBlock</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -988,7 +988,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the details of the most recent Transaction block.</p>
+<p>Returns the details of the most recent Transaction block.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1034,7 +1034,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"1000"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of Transaction blocks in the network so far.</p>
+<p>Returns the number of Transaction blocks in the network so far, this is represented as <code>String</code>.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1080,7 +1080,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mf">6.5499873692751224e-07</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the current Transaction blockrate per second.</p>
+<p>Returns the current Transaction blockrate per second.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1170,7 +1170,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get a paginated list of Transaction blocks. Pass in page number as parameter. Returns a <code>maxPages</code> variable that specifies the max number of pages. <code>1</code> being latest block.</p>
+<p>Returns a paginated list of Transaction blocks. Pass in page number as parameter. Returns a <code>maxPages</code> variable that specifies the max number of pages. <code>1</code> being latest block.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1216,7 +1216,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"19"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of Transactions in the network so far.</p>
+<p>Returns the number of Transactions validated in the network so far. This is represented as a <code>String</code>.</p>
 <h3 id='http-request-14'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1262,7 +1262,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the current Transaction rate of the network.</p>
+<p>Returns the current Transaction rate of the network.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1308,7 +1308,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"1068"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of Transaction epochs in the network so far.</p>
+<p>Returns the number of TX epochs in the network so far represented as <code>String</code>.</p>
 <h3 id='http-request-16'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1354,7 +1354,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"22"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of DS epochs in the network so far.</p>
+<p>Returns the number of DS epochs in the network so far represented as <code>String</code>.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1400,7 +1400,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the minimum shard difficulty of the previous block.</p>
+<p>Returns the minimum shard difficulty of the previous block, this is represented as an <code>Uint8</code>.</p>
 <h3 id='http-request-18'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1446,7 +1446,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">16</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the minimum DS difficulty of the previous block.</p>
+<p>Returns the minimum DS difficulty of the previous block, this is represented as an <code>Uint8</code>.</p>
 <h3 id='http-request-19'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1541,43 +1541,43 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>version</td>
-<td>The current version of Zilliqa.</td>
+<td>The current version of Zilliqa. This is represented as an unsigned integer.</td>
 </tr>
 <tr>
 <td>nonce</td>
-<td>Counter equal to the number of transactions sent by the sender&#39;s account, including this one. It&#39;s value is = <code>current account nonce + 1</code>.</td>
+<td>A counter equal to the number of transactions sent by the sender&#39;s account, including this one. <br> It&#39;s value is = <code>Current account nonce + 1</code>. This is represented as an unsigned integer.</td>
 </tr>
 <tr>
 <td>toAddr</td>
-<td>Recipient&#39;s account address. For deploying new contracts, set this as <code>0000000000000000000000000000000000000000</code>.</td>
+<td>Recipient&#39;s account address. This is represented as a <code>String</code>. <br> For deploying new contracts, set this as <code>&quot;0000000000000000000000000000000000000000&quot;</code>.</td>
 </tr>
 <tr>
 <td>amount</td>
-<td>Transaction amount to be transferred to the destination address</td>
+<td>Transaction amount to be sent to the recipent&#39;s address. This is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa, and it is represented as a <code>String</code>.</td>
 </tr>
 <tr>
 <td>pubKey</td>
-<td>Public key of the sender.</td>
+<td>Public key of the sender. This is represented as a <code>String</code>.</td>
 </tr>
 <tr>
 <td>gasPrice</td>
-<td>An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing.</td>
+<td>An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing. This is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa, and it is represented as a <code>String</code>.</td>
 </tr>
 <tr>
 <td>gasLimit</td>
-<td>The maximum amount of gas that should be used while processing this transaction (For regular transaction, please use <code>1</code>. For smart contract transactions, please check out the <a href="https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing">gas documentation</a>).</td>
+<td>The maximum amount of gas that should be used while processing this transaction. <br> For regular transaction, please use <code>&quot;1&quot;</code>. <br> For smart contract transaction, please check out the <a href="https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing">gas documentation</a>.</td>
 </tr>
 <tr>
 <td>code</td>
-<td><strong>(optional)</strong> String specifying the contract code. Present only when deploying a new contract.</td>
+<td><strong>(optional)</strong> <code>String</code> specifying the contract code. Present only when deploying a new contract.</td>
 </tr>
 <tr>
 <td>data</td>
-<td><strong>(optional)</strong> Stringified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.</td>
+<td><strong>(optional)</strong> <code>String</code>ified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.</td>
 </tr>
 <tr>
 <td>signature</td>
-<td>an EC-Schnorr signature of the entire object</td>
+<td>An EC-Schnorr signature of 64 bytes of the entire object. This is represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1610,7 +1610,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get details of a Transaction by its hash.</p>
+<p>Returns the details of a Transaction by its hash.</p>
 <h3 id='http-request-21'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1637,7 +1637,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>Hash of the transaction to retrieve.</td>
+<td>Target transaction hash of 32 bytes represented as <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getrecenttransactions'>GetRecentTransactions</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1680,7 +1680,7 @@ The JSON-RPC API server runs on:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the most recent transactions (default: <code>20</code>, up to <code>100</code>) accepted by the specified zilliqa node.</p>
+<p>Returns the most recent transactions (default: <code>20</code>, up to <code>100</code>) accepted by the specified Zilliqa node.</p>
 <h3 id='http-request-22'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1707,7 +1707,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>Specified amount of recent transactions to return.</td>
+<td>Specified amount of recent transactions to return represented as <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getnumtxnstxepoch'>GetNumTxnsTxEpoch</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1726,7 +1726,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of transactions in this Transaction epoch.</p>
+<p>Returns the number of transactions in this Transaction epoch, this is represented as <code>String</code>.</p>
 <h3 id='http-request-23'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1772,7 +1772,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the number of transactions in this Directory Service epoch.</p>
+<p>Returns the number of transactions in this Directory Service epoch, this is represented as <code>String</code>.</p>
 <h3 id='http-request-24'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1818,7 +1818,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"100"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the minimum gas price of the last DS epoch.</p>
+<p>Returns the minimum gas price of the last DS epoch represented as <code>String</code>. This is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa.</p>
 <h3 id='http-request-25'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1862,11 +1862,11 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"scilla_version 0</span><span class="se">\n\n</span><span class="s2">    (* HelloWorld contract *)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    import ListUtils</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    (*               Associated library                *)</span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    library HelloWorld</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    let one_msg = </span><span class="se">\n</span><span class="s2">      fun (msg : Message) =&gt; </span><span class="se">\n</span><span class="s2">      let nil_msg = Nil {Message} in</span><span class="se">\n</span><span class="s2">      Cons {Message} msg nil_msg</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    let not_owner_code = Int32 1</span><span class="se">\n</span><span class="s2">    let set_hello_code = Int32 2</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    (*             The contract definition             *)</span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    contract HelloWorld</span><span class="se">\n</span><span class="s2">    (owner: ByStr20)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    field welcome_msg : String = </span><span class="se">\"\"\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    transition setHello (msg : String)</span><span class="se">\n</span><span class="s2">      is_owner = builtin eq owner _sender;</span><span class="se">\n</span><span class="s2">      match is_owner with</span><span class="se">\n</span><span class="s2">      | False =&gt;</span><span class="se">\n</span><span class="s2">        msg = {_tag : </span><span class="se">\"</span><span class="s2">Main</span><span class="se">\"</span><span class="s2">; _recipient : _sender; _amount : Uint128 0; code : not_owner_code};</span><span class="se">\n</span><span class="s2">        msgs = one_msg msg;</span><span class="se">\n</span><span class="s2">        send msgs</span><span class="se">\n</span><span class="s2">      | True =&gt;</span><span class="se">\n</span><span class="s2">        welcome_msg := msg;</span><span class="se">\n</span><span class="s2">        msg = {_tag : </span><span class="se">\"</span><span class="s2">Main</span><span class="se">\"</span><span class="s2">; _recipient : _sender; _amount : Uint128 0; code : set_hello_code};</span><span class="se">\n</span><span class="s2">        msgs = one_msg msg;</span><span class="se">\n</span><span class="s2">        send msgs</span><span class="se">\n</span><span class="s2">      end</span><span class="se">\n</span><span class="s2">    end</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    transition getHello ()</span><span class="se">\n</span><span class="s2">        r &lt;- welcome_msg;</span><span class="se">\n</span><span class="s2">        e = {_eventname: </span><span class="se">\"</span><span class="s2">getHello()</span><span class="se">\"</span><span class="s2">; msg: r};</span><span class="se">\n</span><span class="s2">        event e</span><span class="se">\n</span><span class="s2">    end"</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"scilla_version 0</span><span class="se">\n\n</span><span class="s2">    (* HelloWorld contract *)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    import ListUtils</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    (*               Associated library                *)</span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    library HelloWorld</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    let one_msg = </span><span class="se">\n</span><span class="s2">      fun (msg : Message) =&gt; </span><span class="se">\n</span><span class="s2">      let nil_msg = Nil {Message} in</span><span class="se">\n</span><span class="s2">      Cons {Message} msg nil_msg</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    let not_owner_code = Int32 1</span><span class="se">\n</span><span class="s2">    let set_hello_code = Int32 2</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    (*             The contract definition             *)</span><span class="se">\n</span><span class="s2">    (***************************************************)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    contract HelloWorld</span><span class="se">\n</span><span class="s2">    (owner: ByStr20)</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    field welcome_msg : `String` = </span><span class="se">\"\"\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    transition setHello (msg : `String`)</span><span class="se">\n</span><span class="s2">      is_owner = builtin eq owner _sender;</span><span class="se">\n</span><span class="s2">      match is_owner with</span><span class="se">\n</span><span class="s2">      | False =&gt;</span><span class="se">\n</span><span class="s2">        msg = {_tag : </span><span class="se">\"</span><span class="s2">Main</span><span class="se">\"</span><span class="s2">; _recipient : _sender; _amount : Uint128 0; code : not_owner_code};</span><span class="se">\n</span><span class="s2">        msgs = one_msg msg;</span><span class="se">\n</span><span class="s2">        send msgs</span><span class="se">\n</span><span class="s2">      | True =&gt;</span><span class="se">\n</span><span class="s2">        welcome_msg := msg;</span><span class="se">\n</span><span class="s2">        msg = {_tag : </span><span class="se">\"</span><span class="s2">Main</span><span class="se">\"</span><span class="s2">; _recipient : _sender; _amount : Uint128 0; code : set_hello_code};</span><span class="se">\n</span><span class="s2">        msgs = one_msg msg;</span><span class="se">\n</span><span class="s2">        send msgs</span><span class="se">\n</span><span class="s2">      end</span><span class="se">\n</span><span class="s2">    end</span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    </span><span class="se">\n</span><span class="s2">    transition getHello ()</span><span class="se">\n</span><span class="s2">        r &lt;- welcome_msg;</span><span class="se">\n</span><span class="s2">        e = {_eventname: </span><span class="se">\"</span><span class="s2">getHello()</span><span class="se">\"</span><span class="s2">; msg: r};</span><span class="se">\n</span><span class="s2">        event e</span><span class="se">\n</span><span class="s2">    end"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the Scilla code of a smart contract address.</p>
+<p>Returns the Scilla code of a smart contract address represented as a <code>String</code>.</p>
 <h3 id='http-request-26'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1893,7 +1893,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontractinit'>GetSmartContractInit</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1928,7 +1928,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the initialization parameters (immutable) of a given smart contract address.</p>
+<p>Returns the initialization parameters (immutable) of a given smart contract address represented in a JSON format.</p>
 <h3 id='http-request-27'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1955,7 +1955,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontractstate'>GetSmartContractState</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -1973,7 +1973,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"`String`"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Hello World"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vname"</span><span class="p">:</span><span class="s2">"welcome_msg"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1985,7 +1985,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the state variables (mutable) of a smart contract address.</p>
+<p>Returns the state variables (mutable) of a smart contract address represented in a JSON format.</p>
 <h3 id='http-request-28'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -2012,7 +2012,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontracts'>GetSmartContracts</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -2033,7 +2033,7 @@ The JSON-RPC API server runs on:</p>
             </span><span class="s2">"address"</span><span class="p">:</span><span class="s2">"6b3070b0abf4371b2b3b26e23f11f4c073b636e5"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"state"</span><span class="p">:[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"`String`"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Hello World"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"vname"</span><span class="p">:</span><span class="s2">"welcome_msg"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -2048,7 +2048,7 @@ The JSON-RPC API server runs on:</p>
             </span><span class="s2">"address"</span><span class="p">:</span><span class="s2">"13cf0f8c1ea003779df0b7fa08a97903bc760e80"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"state"</span><span class="p">:[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"`String`"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Hello World"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"vname"</span><span class="p">:</span><span class="s2">"welcome_msg"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -2062,7 +2062,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the list of smart contracts created by an address.</p>
+<p>Returns the list of smart contract addresses created by an User&#39;s account address and their latest states.</p>
 <h3 id='http-request-29'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -2089,7 +2089,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>An User&#39;s account address.</td>
+<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='getcontractaddressfromtransactionid'>GetContractAddressFromTransactionID</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -2108,7 +2108,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"c458f39c106582c1a49bac6bc76ec603e2ae0497"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get a smart contract address from a transaction ID.</p>
+<p>Returns a smart contract address of 20 bytes from a transaction ID, represented as a <code>String</code> .</p>
 <h3 id='http-request-30'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -2135,7 +2135,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A Transaction ID.</td>
+<td>A Transaction ID of 32 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 <h1 id='account-related-methods'>Account-related methods</h1><h2 id='getbalance'>GetBalance</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -2157,7 +2157,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the balance of an account address.</p>
+<p>Returns the balance of an User&#39;s account address that is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa. This is represented as <code>String</code>.</p>
 <h3 id='http-request-31'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -2184,7 +2184,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>&quot;&quot;</td>
+<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>.</td>
 </tr>
 </tbody></table>
 

@@ -1400,7 +1400,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the minimum shard difficulty of the previous block, this is represented as an <code>Uint8</code>.</p>
+<p>Returns the minimum shard difficulty of the previous block, this is represented as an <code>Number</code>.</p>
 <h3 id='http-request-18'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1446,7 +1446,7 @@ The JSON-RPC API server runs on:</p>
     </span><span class="s2">"result"</span><span class="p">:</span><span class="mi">16</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the minimum DS difficulty of the previous block, this is represented as an <code>Uint8</code>.</p>
+<p>Returns the minimum DS difficulty of the previous block, this is represented as an <code>Number</code>.</p>
 <h3 id='http-request-19'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
@@ -1481,13 +1481,13 @@ The JSON-RPC API server runs on:</p>
     "jsonrpc": "2.0",
     "method": "CreateTransaction",
     "params": [{
-      "version": 1,
+      "version": 65537,
       "nonce": 1,
-      "toAddr": "8AD0357EBB5515F694DE597EDA6F3F6BDBAD0FD9",
-      "amount": "10000",
+      "toAddr": "0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
+      "amount": "1000000000000",
       "pubKey": "0205273e54f262f8717a687250591dcfb5755b8ce4e3bd340c7abefd0de1276574",
-      "gasPrice": "1",
-      "gasLimit": "10",
+      "gasPrice": "1000000000",
+      "gasLimit": "1",
       "code": "",
       "data": "",
       "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
@@ -1541,15 +1541,15 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>version</td>
-<td>The current version of Zilliqa. This is represented as an unsigned integer.</td>
+<td>The version number is the decimal conversion of the bitwise concatenation of <code>CHAIN_ID</code> and <code>TX_VERSION</code>. This is represented as an <code>Number</code>. <br> - For the current <code>TX_VERSION</code> (<code>1</code>) on Zilliqa mainnet (<code>CHAINID</code> = <code>1</code>), this number is <code>65537</code>. <br> - For the current <code>TX_VERSION</code> (<code>1</code>) on Zilliqa testnet (<code>CHAINID</code> = <code>2</code>), this number is <code>131073</code>.</td>
 </tr>
 <tr>
 <td>nonce</td>
-<td>A counter equal to the number of transactions sent by the sender&#39;s account, including this one. <br> It&#39;s value is = <code>Current account nonce + 1</code>. This is represented as an unsigned integer.</td>
+<td>A counter equal to the number of transactions sent by the sender&#39;s account, including this one. This is represented as an <code>Number</code>. <br> It&#39;s value is = <code>Current account nonce + 1</code>.</td>
 </tr>
 <tr>
 <td>toAddr</td>
-<td>Recipient&#39;s account address. This is represented as a <code>String</code>. <br> For deploying new contracts, set this as <code>&quot;0000000000000000000000000000000000000000&quot;</code>.</td>
+<td>Recipient&#39;s account address. This is represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional. <br> For deploying new contracts, set this as <code>&quot;0000000000000000000000000000000000000000&quot;</code>.</td>
 </tr>
 <tr>
 <td>amount</td>
@@ -1557,7 +1557,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>pubKey</td>
-<td>Public key of the sender. This is represented as a <code>String</code>.</td>
+<td>Public key of the sender of 33 bytes. This is represented as a <code>String</code>.</td>
 </tr>
 <tr>
 <td>gasPrice</td>
@@ -1565,7 +1565,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>gasLimit</td>
-<td>The maximum amount of gas that should be used while processing this transaction. <br> For regular transaction, please use <code>&quot;1&quot;</code>. <br> For smart contract transaction, please check out the <a href="https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing">gas documentation</a>.</td>
+<td>The maximum amount of gas that should be used while processing this transaction. This is represented as a <code>String</code>. <br> For regular transaction, please use <code>&quot;1&quot;</code>. <br> For smart contract transaction, please check out the <a href="https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing">gas documentation</a>.</td>
 </tr>
 <tr>
 <td>code</td>
@@ -1605,8 +1605,8 @@ The JSON-RPC API server runs on:</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"senderPubKey"</span><span class="p">:</span><span class="s2">"0x0237AECBF98D57A10DABB66A710B10844765A355645223AA2A2F77AA484228C03A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"0xE44E0DDC6A968233C177FB27D6E326C69EB79A23DDEBBC5A70183039D34CCA39665B2C0526F164F9ADBB1810C8BE028EA17D5357F6BC4A7BCE676B6A96B8987B"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"toAddr"</span><span class="p">:</span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"version"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+        </span><span class="s2">"toAddr"</span><span class="p">:</span><span class="s2">"0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"version"</span><span class="p">:</span><span class="s2">"65537"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1852,7 +1852,7 @@ The JSON-RPC API server runs on:</p>
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractCode",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
@@ -1893,14 +1893,14 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontractinit'>GetSmartContractInit</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
@@ -1955,14 +1955,14 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontractstate'>GetSmartContractState</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
@@ -2012,14 +2012,14 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>A smart contract address of 20 bytes represented as a <code>String</code>.</td>
+<td>A smart contract address of 20 bytes represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional.</td>
 </tr>
 </tbody></table>
 <h2 id='getsmartcontracts'>GetSmartContracts</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
-    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
@@ -2089,7 +2089,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>.</td>
+<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional.</td>
 </tr>
 </tbody></table>
 <h2 id='getcontractaddressfromtransactionid'>GetContractAddressFromTransactionID</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
@@ -2142,7 +2142,7 @@ The JSON-RPC API server runs on:</p>
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetBalance",
-    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre>
 <blockquote>
@@ -2184,7 +2184,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 <tr>
 <td>params</td>
-<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>.</td>
+<td>An User&#39;s account address of 20 bytes represented as a <code>String</code>. <br> <strong>NOTE:</strong> This address has to be checksummed for every 6th bit, but the &quot;0x&quot; prefix is optional.</td>
 </tr>
 </tbody></table>
 

@@ -907,7 +907,7 @@ curl -d '{
 }
 ```
 
-Returns the minimum shard difficulty of the previous block, this is represented as an `Uint8`.
+Returns the minimum shard difficulty of the previous block, this is represented as an `Number`.
 
 ### HTTP Request
 
@@ -944,7 +944,7 @@ curl -d '{
 }
 ```
 
-Returns the minimum DS difficulty of the previous block, this is represented as an `Uint8`.
+Returns the minimum DS difficulty of the previous block, this is represented as an `Number`.
 
 ### HTTP Request
 
@@ -970,13 +970,13 @@ curl -d '{
     "jsonrpc": "2.0",
     "method": "CreateTransaction",
     "params": [{
-      "version": 1,
+      "version": 65537,
       "nonce": 1,
-      "toAddr": "8AD0357EBB5515F694DE597EDA6F3F6BDBAD0FD9",
-      "amount": "10000",
+      "toAddr": "0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
+      "amount": "1000000000000",
       "pubKey": "0205273e54f262f8717a687250591dcfb5755b8ce4e3bd340c7abefd0de1276574",
-      "gasPrice": "1",
-      "gasLimit": "10",
+      "gasPrice": "1000000000",
+      "gasLimit": "1",
       "code": "",
       "data": "",
       "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
@@ -1013,13 +1013,13 @@ jsonrpc | "2.0"
 method | "CreateTransaction"
 params | An object containing the following properties:
 ------ | -----------------------------------------------
-version | The current version of Zilliqa. This is represented as an unsigned integer.
-nonce | A counter equal to the number of transactions sent by the sender's account, including this one. <br> It's value is = `Current account nonce + 1`. This is represented as an unsigned integer.
-toAddr | Recipient's account address. This is represented as a `String`. <br> For deploying new contracts, set this as `"0000000000000000000000000000000000000000"`.
+version | The version number is the decimal conversion of the bitwise concatenation of `CHAIN_ID` and `TX_VERSION`. This is represented as an `Number`. <br> - For the current `TX_VERSION` (`1`) on Zilliqa mainnet (`CHAINID` = `1`), this number is `65537`. <br> - For the current `TX_VERSION` (`1`) on Zilliqa testnet (`CHAINID` = `2`), this number is `131073`.
+nonce | A counter equal to the number of transactions sent by the sender's account, including this one. This is represented as an `Number`. <br> It's value is = `Current account nonce + 1`.
+toAddr | Recipient's account address. This is represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional. <br> For deploying new contracts, set this as `"0000000000000000000000000000000000000000"`.
 amount | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
-pubKey | Public key of the sender. This is represented as a `String`.
+pubKey | Public key of the sender of 33 bytes. This is represented as a `String`.
 gasPrice | An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
-gasLimit | The maximum amount of gas that should be used while processing this transaction. <br> For regular transaction, please use `"1"`. <br> For smart contract transaction, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
+gasLimit | The maximum amount of gas that should be used while processing this transaction. This is represented as a `String`. <br> For regular transaction, please use `"1"`. <br> For smart contract transaction, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
 code | **(optional)** `String` specifying the contract code. Present only when deploying a new contract.
 data | **(optional)** `String`ified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.
 signature | An EC-Schnorr signature of 64 bytes of the entire object. This is represented as a `String`.
@@ -1053,8 +1053,8 @@ curl -d '{
         },
         "senderPubKey":"0x0237AECBF98D57A10DABB66A710B10844765A355645223AA2A2F77AA484228C03A",
         "signature":"0xE44E0DDC6A968233C177FB27D6E326C69EB79A23DDEBBC5A70183039D34CCA39665B2C0526F164F9ADBB1810C8BE028EA17D5357F6BC4A7BCE676B6A96B8987B",
-        "toAddr":"0000000000000000000000000000000000000000",
-        "version":"0"
+        "toAddr":"0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
+        "version":"65537"
     }
 }
 ```
@@ -1256,7 +1256,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractCode",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1286,7 +1286,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractCode"
-params | A smart contract address of 20 bytes represented as a `String`.
+params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
 
 ## GetSmartContractInit
 
@@ -1295,7 +1295,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1339,7 +1339,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractInit"
-params | A smart contract address of 20 bytes represented as a `String`.
+params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
 
 ## GetSmartContractState
 
@@ -1348,7 +1348,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1387,7 +1387,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractState"
-params | A smart contract address of 20 bytes represented as a `String`.
+params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
 
 ## GetSmartContracts
 
@@ -1396,7 +1396,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
-    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1455,7 +1455,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContracts"
-params | An User's account address of 20 bytes represented as a `String`.
+params | An User's account address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
 
 ## GetContractAddressFromTransactionID
 
@@ -1503,7 +1503,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetBalance",
-    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1534,4 +1534,4 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetBalance"
-params | An User's account address of 20 bytes represented as a `String`.
+params | An User's account address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.

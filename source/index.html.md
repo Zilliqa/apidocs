@@ -1039,22 +1039,23 @@ curl -d '{
 
 ```json
 {
-    "id":"1",
-    "jsonrpc":"2.0",
-    "result":{
-        "ID":"aaf3089596437a7c6984fa2627b6f38b5f5b80faeaac6993c2e82c6a8ee2615e",
-        "amount":"0",
-        "gasLimit":"50000",
-        "gasPrice":"100",
-        "nonce":"4",
-        "receipt":{
-            "cumulative_gas":"50",
-            "success":false
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "463f20976c0bc91c7aaad9c8b31835c9554a28cd2e69992fd80d70e8d3746fe7",
+        "amount": "1344901",
+        "gasLimit": "1",
+        "gasPrice": "1000000000",
+        "nonce": "1344901",
+        "receipt": {
+            "cumulative_gas": "1",
+            "epoch_num": "5986",
+            "success": true
         },
-        "senderPubKey":"0x0237AECBF98D57A10DABB66A710B10844765A355645223AA2A2F77AA484228C03A",
-        "signature":"0xE44E0DDC6A968233C177FB27D6E326C69EB79A23DDEBBC5A70183039D34CCA39665B2C0526F164F9ADBB1810C8BE028EA17D5357F6BC4A7BCE676B6A96B8987B",
-        "toAddr":"0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
-        "version":"65537"
+        "senderPubKey": "0x0276C8C0A21F38A7B18B356C9FBFF9AE9EE2CDF8F93051D4014CDB2042DEE184E8",
+        "signature": "0xBF16A0563D0D2FF57B045866EF1D955044175DA5558E22B772D7134DF09195B2A016489295BAB4C37D470F3022DAE5E4C3A1FF51F32B338C14427DA9A84C6024",
+        "toAddr": "ad299429924fda0a194cf5442337bcaa47a78592",
+        "version": "65537"
     }
 }
 ```
@@ -1256,7 +1257,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractCode",
-    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1286,7 +1287,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractCode"
-params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContractInit
 
@@ -1295,7 +1296,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractInit",
-    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1339,7 +1340,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractInit"
-params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContractState
 
@@ -1348,7 +1349,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractState",
-    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1387,7 +1388,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContractState"
-params | A smart contract address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
+params | A smart contract address of 20 bytes represented as a `String`.
 
 ## GetSmartContracts
 
@@ -1396,7 +1397,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContracts",
-    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
+    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1408,7 +1409,7 @@ curl -d '{
     "jsonrpc":"2.0",
     "result":[
         {
-            "address":"3BAF5faDA8e5Db92C3d3242618c5B47133AE003D",
+            "address":"6b3070b0abf4371b2b3b26e23f11f4c073b636e5",
             "state":[
                 {
                     "type":"`String`",
@@ -1423,7 +1424,7 @@ curl -d '{
             ]
         },
         {
-            "address":"4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
+            "address":"13cf0f8c1ea003779df0b7fa08a97903bc760e80",
             "state":[
                 {
                     "type":"`String`",
@@ -1455,7 +1456,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetSmartContracts"
-params | An User's account address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
+params | An User's account address of 20 bytes represented as a `String`.
 
 ## GetContractAddressFromTransactionID
 
@@ -1474,7 +1475,7 @@ curl -d '{
 {
     "id":"1",
     "jsonrpc":"2.0",
-    "result":"4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"
+    "result":"c458f39c106582c1a49bac6bc76ec603e2ae0497"
 }
 ```
 
@@ -1503,7 +1504,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetBalance",
-    "params": ["0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"]
+    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1534,4 +1535,4 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetBalance"
-params | An User's account address of 20 bytes represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional.
+params | An User's account address of 20 bytes represented as a `String`.

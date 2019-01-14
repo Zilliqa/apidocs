@@ -88,24 +88,28 @@ curl -d '{
 
 ```json
 {
-    "id":"1",
-    "jsonrpc":"2.0",
-    "result":{
-        "CurrentDSEpoch":"26",
-        "CurrentMiniEpoch":"1250",
-        "DSBlockRate":1.9217623126238637e-08,
-        "NumDSBlocks":"27",
-        "NumPeers":40,
-        "NumTransactions":"16038",
-        "NumTxBlocks":"1250",
-        "NumTxnsDSEpoch":"8970",
-        "NumTxnsTxEpoch":0,
-        "ShardingStructure":{
-            "NumPeers":[10,10,10]
-        },
-        "TransactionRate":0,
-        "TxBlockRate":8.0917876984482132e-07
-    }
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "CurrentDSEpoch": "10",
+    "CurrentMiniEpoch": "906",
+    "DSBlockRate": 0.0001324694641012551,
+    "NumDSBlocks": "11",
+    "NumPeers": 2400,
+    "NumTransactions": "1114482",
+    "NumTxBlocks": "906",
+    "NumTxnsDSEpoch": "15750",
+    "NumTxnsTxEpoch": "5250",
+    "ShardingStructure": {
+      "NumPeers": [
+        600,
+        600,
+        600
+      ]
+    },
+    "TransactionRate": 92.51249993656286,
+    "TxBlockRate": 0.010826202125962327
+  }
 }
 ```
 

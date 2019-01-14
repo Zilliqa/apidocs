@@ -296,6 +296,9 @@
                     <a href="#getrecenttransactions" class="toc-h2 toc-link" data-title="GetRecentTransactions">GetRecentTransactions</a>
                   </li>
                   <li>
+                    <a href="#gettransactionsfortxblock" class="toc-h2 toc-link" data-title="GetTransactionsForTxBlock">GetTransactionsForTxBlock</a>
+                  </li>
+                  <li>
                     <a href="#getnumtxnstxepoch" class="toc-h2 toc-link" data-title="GetNumTxnsTxEpoch">GetNumTxnsTxEpoch</a>
                   </li>
                   <li>
@@ -1711,6 +1714,73 @@ The JSON-RPC API server runs on:</p>
 <td>Specified amount of recent transactions to return represented as <code>String</code>.</td>
 </tr>
 </tbody></table>
+<h2 id='gettransactionsfortxblock'>GetTransactionsForTxBlock</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetTransactionsForTxBlock",
+    "params": ["2", 0]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"2398362e23635582ed58f83dbcff7af2d8ccb017f6ff2bb49d343e7b8bb8bd68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3f337358c07c4e984714da804985f23eca9a9dd14aa8ba1ddd89583cf5110bf0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"35823ae3377b91792fa34fa5577fa267385374e08da51555f63a537942d5adb6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"04e5f20de988a4afea17408c87a8d4f73d14082f13df552cce849e4ddd4cfffc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"5830a93aafe6571099aa38e99218c4495a2af73d481a28aba8a34c45768d0fb9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"9250ce07210b75ef8ec5fcf42f3b5afa4cd4b60414b338be0caddcfb316293cf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"60fe6307f27e084bfb84ff5b6cafcbb05e1bc450d1b67d9102d57066d931ba7f"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"92562be5d4fd4b39ea44f22e010636163b6500561ddab58aca0a90ac7c11f04c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"9cfe6d32b31cf31267bc46b2a99f0b243266f4842d140dab5b3ee31369ae9926"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"3526b2b8f226fff6643c60deea71129dcd98c320521c8e96715e2f02c651a081"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"477a9c79acaa9aa2060b9d21f2e01760a31499b32723e0e2e1cb2cb8c4e4be7e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"a1fa8ec4253c8ad125b81f8ee952f4e12abc445c80f56d85e18a9246541b7f37"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"251ce0e4a60be05363cad225b61f48ae4dd017230b0b3c58c7257239ec51aa09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"452471a31af62ecd48cadc1536a4fef3b7ac243dd1023d8f9a12b1448f096c69"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"a5b1c0354433304ca6a3d3bc95eb41bae856b8aea5eb6d7ea28fff19e4b1033b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"adba475e9ae7419a91107987c93838ac72c305937c5683aecee2d98024002eca"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"0f0cf6f5e4ba6ed7302db5b00f958b305e33d28e5a5a7297f87f51307b59aa82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"d05be491318e6bbadb4705d436daf0c46762de1e14bf8d4794ff34782584f027"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2157babdc5c65e7b4ca5e774782119d811d54d4dcc9b64a176120f1ac3c73c1c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dafc9b289def10232da12efcc6fa37a142982c832357628e830e616e9663501e"</span><span class="p">,</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the transactions included within a micro-block created by a specific shard.</p>
+<h3 id='http-request-23'>HTTP Request</h3>
+<ul>
+<li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
+<li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
+</ul>
+<h3 id='data-parameters-23'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>&quot;1&quot;</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>&quot;2.0&quot;</td>
+</tr>
+<tr>
+<td>method</td>
+<td>&quot;GetRecentTransactions&quot;</td>
+</tr>
+<tr>
+<td>params</td>
+<td><strong>1)</strong> Transaction block no. to query, represented as <code>String</code>. <br> <strong>2)</strong> ShardID to query, represented as <code>Number</code>. <br> (<strong>NOTE:</strong> ShardID starts from <code>0</code>.)</td>
+</tr>
+</tbody></table>
 <h2 id='getnumtxnstxepoch'>GetNumTxnsTxEpoch</h2><pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
     "id": "1",
     "jsonrpc": "2.0",
@@ -1728,12 +1798,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of transactions in this Transaction epoch, this is represented as <code>String</code>.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-23'>Data Parameters</h3>
+<h3 id='data-parameters-24'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1774,12 +1844,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of transactions in this Directory Service epoch, this is represented as <code>String</code>.</p>
-<h3 id='http-request-24'>HTTP Request</h3>
+<h3 id='http-request-25'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-24'>Data Parameters</h3>
+<h3 id='data-parameters-25'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1820,12 +1890,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the minimum gas price of the last DS epoch represented as <code>String</code>. This is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa.</p>
-<h3 id='http-request-25'>HTTP Request</h3>
+<h3 id='http-request-26'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-25'>Data Parameters</h3>
+<h3 id='data-parameters-26'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1868,12 +1938,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the Scilla code of a smart contract address represented as a <code>String</code>.</p>
-<h3 id='http-request-26'>HTTP Request</h3>
+<h3 id='http-request-27'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-26'>Data Parameters</h3>
+<h3 id='data-parameters-27'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1930,12 +2000,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the initialization parameters (immutable) of a given smart contract address represented in a JSON format.</p>
-<h3 id='http-request-27'>HTTP Request</h3>
+<h3 id='http-request-28'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-27'>Data Parameters</h3>
+<h3 id='data-parameters-28'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1987,12 +2057,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the state variables (mutable) of a smart contract address represented in a JSON format.</p>
-<h3 id='http-request-28'>HTTP Request</h3>
+<h3 id='http-request-29'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-28'>Data Parameters</h3>
+<h3 id='data-parameters-29'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2064,12 +2134,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the list of smart contract addresses created by an User&#39;s account address and their latest states.</p>
-<h3 id='http-request-29'>HTTP Request</h3>
+<h3 id='http-request-30'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-29'>Data Parameters</h3>
+<h3 id='data-parameters-30'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2110,12 +2180,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns a smart contract address of 20 bytes from a transaction ID, represented as a <code>String</code> .</p>
-<h3 id='http-request-30'>HTTP Request</h3>
+<h3 id='http-request-31'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-30'>Data Parameters</h3>
+<h3 id='data-parameters-31'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2159,12 +2229,12 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the balance of an User&#39;s account address that is measured in the smallest price unit <strong>Qa</strong> (10^-12 <strong>Zil</strong>) in Zilliqa. This is represented as <code>String</code>.</p>
-<h3 id='http-request-31'>HTTP Request</h3>
+<h3 id='http-request-32'>HTTP Request</h3>
 <ul>
 <li><strong><em>Maoshanwang</em> Testnet:</strong> <code>POST &quot;https://api.zilliqa.com/&quot;</code></li>
 <li><strong>Local:</strong> <code>POST http://localhost:4201/</code></li>
 </ul>
-<h3 id='data-parameters-31'>Data Parameters</h3>
+<h3 id='data-parameters-32'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

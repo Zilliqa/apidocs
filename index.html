@@ -441,24 +441,28 @@ The JSON-RPC API server runs on:</p>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"CurrentDSEpoch"</span><span class="p">:</span><span class="s2">"26"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"CurrentMiniEpoch"</span><span class="p">:</span><span class="s2">"1250"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"DSBlockRate"</span><span class="p">:</span><span class="mf">1.9217623126238637e-08</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumDSBlocks"</span><span class="p">:</span><span class="s2">"27"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumPeers"</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumTransactions"</span><span class="p">:</span><span class="s2">"16038"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumTxBlocks"</span><span class="p">:</span><span class="s2">"1250"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumTxnsDSEpoch"</span><span class="p">:</span><span class="s2">"8970"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NumTxnsTxEpoch"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ShardingStructure"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"NumPeers"</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"TransactionRate"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"TxBlockRate"</span><span class="p">:</span><span class="mf">8.0917876984482132e-07</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"CurrentDSEpoch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CurrentMiniEpoch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"906"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DSBlockRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0001324694641012551</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumDSBlocks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumPeers"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumTransactions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1114482"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumTxBlocks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"906"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumTxnsDSEpoch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15750"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"NumTxnsTxEpoch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5250"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ShardingStructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"NumPeers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="mi">600</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"TransactionRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">92.51249993656286</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"TxBlockRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.010826202125962327</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the current network statistics from the specified network&#39;s lookup node.</p>

@@ -53,11 +53,12 @@ curl -d '{
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "TestNet"
+  "result": "1"
 }
 ```
 
-Returns the network ID represented as a `String` from the specified network's lookup node.
+Returns the `CHAIN_ID` of the specified network, represented as a `String`.
+<br> `CHAIN_ID` is `1` for Mainnet, and `2` for Testnet.
 
 ### HTTP Request
 
@@ -218,7 +219,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetDsBlock"
-params | A specified DS block number represented as `String`.
+params | A specified DS block number represented as a `String`.
 
 ## GetLatestDsBlock
 
@@ -608,7 +609,7 @@ curl -d '{
 }
 ```
 
-Returns the number of Transaction blocks in the network so far, this is represented as `String`.
+Returns the number of Transaction blocks in the network so far, this is represented as a `String`.
 
 ### HTTP Request
 
@@ -837,7 +838,7 @@ curl -d '{
 }
 ```
 
-Returns the number of TX epochs in the network so far represented as `String`.
+Returns the number of TX epochs in the network so far represented as a `String`.
 
 ### HTTP Request
 
@@ -874,7 +875,7 @@ curl -d '{
 }
 ```
 
-Returns the number of DS epochs in the network so far represented as `String`.
+Returns the number of DS epochs in the network so far represented as a `String`.
 
 ### HTTP Request
 
@@ -1017,15 +1018,15 @@ jsonrpc | "2.0"
 method | "CreateTransaction"
 params | An object containing the following properties:
 ------ | -----------------------------------------------
-version | The version number is the decimal conversion of the bitwise concatenation of `CHAIN_ID` and `TX_VERSION`. This is represented as an `Number`. <br> - For the current `TX_VERSION` (`1`) on Zilliqa mainnet (`CHAINID` = `1`), this number is `65537`. <br> - For the current `TX_VERSION` (`1`) on Zilliqa testnet (`CHAINID` = `2`), this number is `131073`.
-nonce | A counter equal to the number of transactions sent by the sender's account, including this one. This is represented as an `Number`. <br> It's value is = `Current account nonce + 1`.
+version | The version number is the decimal conversion of the bitwise concatenation of `CHAIN_ID` and `MSG_VERSION`. This is represented as an `Number`. <br> - For `MSG_VERSION` = `1` on Zilliqa mainnet (`CHAIN_ID` = `1`), this number is `65537`. <br> - For `MSG_VERSION` = `1` on Zilliqa testnet (`CHAIN_ID` = `2`), this number is `131073`.
+nonce | A counter equals to the number of transactions sent by the sender's account, including this one. This is represented as an `Number`. <br> It's value should be `Current account nonce + 1`.
 toAddr | Recipient's account address. This is represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional. <br> For deploying new contracts, set this as `"0000000000000000000000000000000000000000"`.
 amount | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
 pubKey | Public key of the sender of 33 bytes. This is represented as a `String`.
 gasPrice | An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
-gasLimit | The maximum amount of gas that should be used while processing this transaction. This is represented as a `String`. <br> For regular transaction, please use `"1"`. <br> For smart contract transaction, please check out the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
-code | **(optional)** `String` specifying the contract code. Present only when deploying a new contract.
-data | **(optional)** `String`ified JSON object specifying parameters to be passed to a contract for execution. Present when creating or calling a smart contract.
+gasLimit | The maximum amount of gas that should be used while processing this transaction. This is represented as a `String`. <br><br> - For regular transaction, please use `"1"`. <br> - For smart contract transaction, please consult the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
+code | **(optional)** A `String` specifying the smart contract code. This is present only when deploying a new contract.
+data | **(optional)** `String`ified JSON object specifying the parameters to be passed to a contract for execution. <br><br> - When creating a contract, this JSON object contains the init parameters. <br> - When calling a contract, this JSON object contains the msg parameters. <br><br> _For more information on the Scilla interpreter, please visit the [documentation](https://scilla.readthedocs.io/en/latest/interface.html)._
 signature | An EC-Schnorr signature of 64 bytes of the entire object. This is represented as a `String`.
 
 ## GetTransaction
@@ -1078,7 +1079,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetTransaction"
-params | Target transaction hash of 32 bytes represented as `String`.
+params | Target transaction hash of 32 bytes represented as a `String`.
 
 ## GetRecentTransactions
 
@@ -1125,7 +1126,7 @@ curl -d '{
 }
 ```
 
-Returns the most recent transactions (default: `20`, up to `100`) accepted by the specified Zilliqa node.
+Returns the most recent transactions accepted and validated by the Zilliqa network.
 
 ### HTTP Request
 
@@ -1139,7 +1140,7 @@ Parameter | Description
 id | "1"
 jsonrpc | "2.0"
 method | "GetRecentTransactions"
-params | Specified amount of recent transactions to return represented as `String`.
+params | Specified amount of recent transactions to return, represented as a `String`. <br> Default input amount is `20`, and maximum amount is `100`.
 
 ## GetTransactionsForTxBlock
 
@@ -1148,7 +1149,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTransactionsForTxBlock",
-    "params": ["2", 0]
+    "params": ["2"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
@@ -1159,31 +1160,39 @@ curl -d '{
   "id": "1",
   "jsonrpc": "2.0",
   "result": [
-    "2398362e23635582ed58f83dbcff7af2d8ccb017f6ff2bb49d343e7b8bb8bd68",
-    "3f337358c07c4e984714da804985f23eca9a9dd14aa8ba1ddd89583cf5110bf0",
-    "35823ae3377b91792fa34fa5577fa267385374e08da51555f63a537942d5adb6",
-    "04e5f20de988a4afea17408c87a8d4f73d14082f13df552cce849e4ddd4cfffc",
-    "5830a93aafe6571099aa38e99218c4495a2af73d481a28aba8a34c45768d0fb9",
-    "9250ce07210b75ef8ec5fcf42f3b5afa4cd4b60414b338be0caddcfb316293cf",
-    "60fe6307f27e084bfb84ff5b6cafcbb05e1bc450d1b67d9102d57066d931ba7f",
-    "92562be5d4fd4b39ea44f22e010636163b6500561ddab58aca0a90ac7c11f04c",
-    "9cfe6d32b31cf31267bc46b2a99f0b243266f4842d140dab5b3ee31369ae9926",
-    "3526b2b8f226fff6643c60deea71129dcd98c320521c8e96715e2f02c651a081",
-    "477a9c79acaa9aa2060b9d21f2e01760a31499b32723e0e2e1cb2cb8c4e4be7e",
-    "a1fa8ec4253c8ad125b81f8ee952f4e12abc445c80f56d85e18a9246541b7f37",
-    "251ce0e4a60be05363cad225b61f48ae4dd017230b0b3c58c7257239ec51aa09",
-    "452471a31af62ecd48cadc1536a4fef3b7ac243dd1023d8f9a12b1448f096c69",
-    "a5b1c0354433304ca6a3d3bc95eb41bae856b8aea5eb6d7ea28fff19e4b1033b",
-    "adba475e9ae7419a91107987c93838ac72c305937c5683aecee2d98024002eca",
-    "0f0cf6f5e4ba6ed7302db5b00f958b305e33d28e5a5a7297f87f51307b59aa82",
-    "d05be491318e6bbadb4705d436daf0c46762de1e14bf8d4794ff34782584f027",
-    "2157babdc5c65e7b4ca5e774782119d811d54d4dcc9b64a176120f1ac3c73c1c",
-    "dafc9b289def10232da12efcc6fa37a142982c832357628e830e616e9663501e",
+    [
+        "2398362e23635582ed58f83dbcff7af2d8ccb017f6ff2bb49d343e7b8bb8bd68",
+        "3f337358c07c4e984714da804985f23eca9a9dd14aa8ba1ddd89583cf5110bf0",
+        "35823ae3377b91792fa34fa5577fa267385374e08da51555f63a537942d5adb6",
+        "04e5f20de988a4afea17408c87a8d4f73d14082f13df552cce849e4ddd4cfffc"
+    ],
+    [
+        "5830a93aafe6571099aa38e99218c4495a2af73d481a28aba8a34c45768d0fb9",
+        "9250ce07210b75ef8ec5fcf42f3b5afa4cd4b60414b338be0caddcfb316293cf",
+        "60fe6307f27e084bfb84ff5b6cafcbb05e1bc450d1b67d9102d57066d931ba7f",
+        "92562be5d4fd4b39ea44f22e010636163b6500561ddab58aca0a90ac7c11f04c"
+    ],
+    [
+        "9cfe6d32b31cf31267bc46b2a99f0b243266f4842d140dab5b3ee31369ae9926",
+        "3526b2b8f226fff6643c60deea71129dcd98c320521c8e96715e2f02c651a081",
+        "477a9c79acaa9aa2060b9d21f2e01760a31499b32723e0e2e1cb2cb8c4e4be7e",
+        "a1fa8ec4253c8ad125b81f8ee952f4e12abc445c80f56d85e18a9246541b7f37",
+        "251ce0e4a60be05363cad225b61f48ae4dd017230b0b3c58c7257239ec51aa09",
+        "452471a31af62ecd48cadc1536a4fef3b7ac243dd1023d8f9a12b1448f096c69",
+        "a5b1c0354433304ca6a3d3bc95eb41bae856b8aea5eb6d7ea28fff19e4b1033b"
+    ],
+    [
+        "adba475e9ae7419a91107987c93838ac72c305937c5683aecee2d98024002eca",
+        "0f0cf6f5e4ba6ed7302db5b00f958b305e33d28e5a5a7297f87f51307b59aa82",
+        "d05be491318e6bbadb4705d436daf0c46762de1e14bf8d4794ff34782584f027",
+        "2157babdc5c65e7b4ca5e774782119d811d54d4dcc9b64a176120f1ac3c73c1c",
+        "dafc9b289def10232da12efcc6fa37a142982c832357628e830e616e9663501e"
+    ]
   ]
 }
 ```
 
-Returns the transactions included within a micro-block created by a specific shard.
+Returns the transactions included within a final Transaction block.
 
 ### HTTP Request
 
@@ -1196,8 +1205,8 @@ Parameter | Description
 --------- | -------------
 id | "1"
 jsonrpc | "2.0"
-method | "GetRecentTransactions"
-params | **1)** Transaction block no. to query, represented as `String`. <br> **2)** ShardID to query, represented as `Number`. <br> (**NOTE:** ShardID starts from `0`.)
+method | "GetTransactionsForTxBlock"
+params | Transaction block number to query, represented as a `String`.
 
 ## GetNumTxnsTxEpoch
 
@@ -1294,7 +1303,7 @@ curl -d '{
 }
 ```
 
-Returns the minimum gas price of the last DS epoch represented as `String`. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa.
+Returns the minimum gas price of the last DS epoch represented as a `String`. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa.
 
 ### HTTP Request
 
@@ -1366,25 +1375,30 @@ curl -d '{
 
 ```json
 {
-    "id":"1",
-    "jsonrpc":"2.0",
-    "result":[
-        {
-            "type":"Uint32",
-            "value":"0",
-            "vname":"_scilla_version"
-        },
-        {
-            "type":"ByStr20",
-            "value":"0x1eefc4f453539e5ee732b49eb4792b268c2f3908",
-            "vname":"owner"
-        },
-        {
-            "type":"BNum",
-            "value":"1583",
-            "vname":"_creation_block"
-        }
-    ]
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "type": "Uint32",
+      "value": "0",
+      "vname": "_scilla_version"
+    },
+    {
+      "type": "ByStr20",
+      "value": "0x67a08f4aefbe1798970be37dc3d0c7954be349de",
+      "vname": "owner"
+    },
+    {
+      "type": "BNum",
+      "value": "140",
+      "vname": "_creation_block"
+    },
+    {
+      "type": "ByStr20",
+      "value": "0x65fc5463805e3d7c753392e8a1e721aebda8d27f",
+      "vname": "_this_address"
+    }
+  ]
 }
 ```
 
@@ -1423,7 +1437,7 @@ curl -d '{
     "jsonrpc":"2.0",
     "result":[
         {
-            "type":"`String`",
+            "type":"String",
             "value":"Hello World",
             "vname":"welcome_msg"
         },
@@ -1474,7 +1488,7 @@ curl -d '{
             "address":"6b3070b0abf4371b2b3b26e23f11f4c073b636e5",
             "state":[
                 {
-                    "type":"`String`",
+                    "type":"String",
                     "value":"Hello World",
                     "vname":"welcome_msg"
                 },
@@ -1489,7 +1503,7 @@ curl -d '{
             "address":"13cf0f8c1ea003779df0b7fa08a97903bc760e80",
             "state":[
                 {
-                    "type":"`String`",
+                    "type":"String",
                     "value":"Hello World",
                     "vname":"welcome_msg"
                 },
@@ -1504,7 +1518,7 @@ curl -d '{
 }
 ```
 
-Returns the list of smart contract addresses created by an User's account address and their latest states.
+Returns the list of smart contract addresses created by an User's account address and the latest contracts' states.
 
 ### HTTP Request
 
@@ -1583,7 +1597,7 @@ curl -d '{
 }
 ```
 
-Returns the balance of an User's account address that is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa. This is represented as `String`.
+Returns the `balance` (measured in the smallest accounting unit **Qa**, or 10^-12 **Zil**) and the current `nonce` of an User's account. <br> The `balance` is represented as a `String` and the `nonce` is represented as an `Number`.
 
 ### HTTP Request
 

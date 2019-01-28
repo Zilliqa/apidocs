@@ -15,28 +15,31 @@ search: true
 
 # Introduction
 
-[JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON. You can use this API to access data in Zilliqa nodes.
+[JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON. You can use this API to access data from the Zilliqa nodes.
 The JSON-RPC API server runs on:
 
-+ `https://api.zilliqa.com/` when running on Zilliqa _**Maoshanwang**_ testnet.
-+ `http://localhost:4201/` when running Zilliqa locally.
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-All API calls are POST requests made to machine running the Zilliqa lookup node.
+All API calls are POST requests made to machine running the Zilliqa seed node.
 
 All requests follow the standard JSON-RPC format and include 4 variables in the data object:
 
 | Data object |      Example      |
 |----------|:-------------|
-| `id` |  e.g. "1" |
-| `jsonrpc` |    e.g. "2.0"   |
-| `method` | e.g. "GetBalance" |
-| `params` | e.g. ["1"] |
-
-Code examples using curl can be viewed in the dark area to the right.
+| `id` |  e.g. `"1"` |
+| `jsonrpc` |    e.g. `"2.0"`   |
+| `method` | e.g. `"GetBalance"` |
+| `params` | e.g. `["1"]` |
 
 # Blockchain-related methods
 
 ## GetNetworkId
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -47,7 +50,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -57,24 +60,35 @@ curl -d '{
 }
 ```
 
-Returns the `CHAIN_ID` of the specified network, represented as a `String`.
-<br> `CHAIN_ID` is `1` for Mainnet, and `2` for Testnet.
+Returns the `CHAIN_ID` of the specified network. This is represented as a `String`. <br> See table below for the `CHAIN_ID` for different chains:
 
-### HTTP Request
+Chain(s) | `CHAIN_ID` |
+---------- | --------- |
+**Zilliqa Mainnet** | `1` |
+**Developer testnet** | `333` |
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+**NOTE:** `CHAIN_ID` from `2` to `9` are reserved for Zilliqa Core use.
 
-### Data Parameters
+### HTTP REQUEST
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNetworkId"
-params | ""
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
+
+### ARGUMENTS
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNetworkId"`
+`params` | string | Required | Empty string `""`
 
 ## GetBlockchainInfo
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -85,7 +99,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -114,23 +128,28 @@ curl -d '{
 }
 ```
 
-Returns the current network statistics from the specified network's lookup node.
+Returns the current network statistics for the specified network.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetBlockchainInfo"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetBlockchainInfo"`
+`params` | string | Required | Empty string `""`
 
 ## GetShardingStructure
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -141,7 +160,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -153,23 +172,28 @@ curl -d '{
 }
 ```
 
-Returns the current sharding structure of the network from the specified network's lookup node.
+Returns the current network sharding structure and the number of peers within each shard for the specified network.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetShardingStructure"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetShardingStructure"`
+`params` | string | Required | Empty string `""`
 
 ## GetDsBlock
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -180,7 +204,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -205,23 +229,28 @@ curl -d '{
 }
 ```
 
-Returns the details of a specified Directory Service block number.
+Returns the details of a specified Directory Service block.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetDsBlock"
-params | A specified DS block number represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetDsBlock"`
+`params` | string | Required | Specifed DS block number to return. Example: `"40"`
 
 ## GetLatestDsBlock
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -232,7 +261,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -259,21 +288,26 @@ curl -d '{
 
 Returns the details of the most recent Directory Service block.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetLatestDsBlock"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetLatestDsBlock"`
+`params` | string | Required | Empty string `""`
 
 ## GetNumDSBlocks
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -284,7 +318,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -294,23 +328,28 @@ curl -d '{
 }
 ```
 
-Returns the number of Directory Service blocks in the network so far. This is represented as a `String`.
+Returns the current number of validated Directory Service blocks in the network. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNumDSBlocks"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNumDSBlocks"`
+`params` | string | Required | Empty string `""`
 
 ## GetDSBlockRate
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -321,7 +360,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -333,21 +372,26 @@ curl -d '{
 
 Returns the current Directory Service blockrate per second.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetDSBlockRate"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetDSBlockRate"`
+`params` | string | Required | Empty string `""`
 
 ## DSBlockListing
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -358,7 +402,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -412,23 +456,28 @@ curl -d '{
 }
 ```
 
-Returns a paginated list of Directory Service blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
+Returns a paginated list of up to **10** Directory Service (DS) blocks and their block hashes for a specified page. The `maxPages` variable that specifies the maximum number of pages available is also returned.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "DSBlockListing"
-params | Page number (of type `Int`) of the listings (`1` being the latest block).
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"DSBlockListing"`
+`params` | number | Required | Specifed page of DS blocks listing to return. Example: `1`
 
 ## GetTxBlock
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -439,7 +488,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -492,23 +541,28 @@ curl -d '{
 }
 ```
 
-Returns the details of a specified Transaction block number.
+Returns the details of a specified Transaction block.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetTxBlock"
-params | A specified Transaction block number represented as `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetTxBlock"`
+`params` | string | Required | Specifed TX block number to return. Example: `"40"`
 
 ## GetLatestTxBlock
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -519,7 +573,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -574,21 +628,26 @@ curl -d '{
 
 Returns the details of the most recent Transaction block.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetLatestTxBlock"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetLatestTxBlock"`
+`params` | string | Required | Empty string `""`
 
 ## GetNumTxBlocks
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -599,7 +658,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -609,23 +668,28 @@ curl -d '{
 }
 ```
 
-Returns the number of Transaction blocks in the network so far, this is represented as a `String`.
+Returns the current number of Transaction blocks in the network. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNumTxBlocks"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNumTxBlocks"`
+`params` | string | Required | Empty string `""`
 
 ## GetTxBlockRate
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -636,7 +700,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -646,23 +710,28 @@ curl -d '{
 }
 ```
 
-Returns the current Transaction blockrate per second.
+Returns the current Transaction blockrate per second for the network.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetTxBlockRate"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetTxBlockRate"`
+`params` | string | Required | Empty string `""`
 
 ## TxBlockListing
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -673,7 +742,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -727,23 +796,28 @@ curl -d '{
 }
 ```
 
-Returns a paginated list of Transaction blocks. Pass in page number as parameter. Returns a `maxPages` variable that specifies the max number of pages. `1` being latest block.
+Returns a paginated list of up to **10** Transaction blocks and their block hashes for a specified page. The `maxPages` variable that specifies the maximum number of pages available is also returned.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "TxBlockListing"
-params | Page number (of type `Int`) of the listings (`1` being the latest block).
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"TxBlockListing"`
+`params` | number | Required | Specifed page of TX blocks listing to return. Example: `1`
 
 ## GetNumTransactions
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -754,7 +828,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -764,23 +838,28 @@ curl -d '{
 }
 ```
 
-Returns the number of Transactions validated in the network so far. This is represented as a `String`.
+Returns the current number of validated Transactions in the network. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNumTransactions"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNumTransactions"`
+`params` | string | Required | Empty string `""`
 
 ## GetTransactionRate
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -791,7 +870,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -801,23 +880,28 @@ curl -d '{
 }
 ```
 
-Returns the current Transaction rate of the network.
+Returns the current Transaction rate per second **(TPS)** of the network. <br> This is represented as an `Number`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetTransactionRate"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetTransactionRate"`
+`params` | string | Required | Empty string `""`
 
 ## GetCurrentMiniEpoch
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -828,7 +912,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -838,23 +922,28 @@ curl -d '{
 }
 ```
 
-Returns the number of TX epochs in the network so far represented as a `String`.
+Returns the current TX block number of the network. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetCurrentMiniEpoch"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetCurrentMiniEpoch"`
+`params` | string | Required | Empty string `""`
 
 ## GetCurrentDSEpoch
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -865,7 +954,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -875,23 +964,28 @@ curl -d '{
 }
 ```
 
-Returns the number of DS epochs in the network so far represented as a `String`.
+Returns the current number of DS blocks in the network. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetCurrentDSEpoch"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetCurrentDSEpoch"`
+`params` | string | Required | Empty string `""`
 
 ## GetPrevDifficulty
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -902,7 +996,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -912,23 +1006,28 @@ curl -d '{
 }
 ```
 
-Returns the minimum shard difficulty of the previous block, this is represented as an `Number`.
+Returns the minimum shard difficulty of the previous block. <br> This is represented as an `Number`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetPrevDifficulty"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetPrevDifficulty"`
+`params` | string | Required | Empty string `""`
 
 ## GetPrevDSDifficulty
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -939,7 +1038,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -949,25 +1048,30 @@ curl -d '{
 }
 ```
 
-Returns the minimum DS difficulty of the previous block, this is represented as an `Number`.
+Returns the minimum DS difficulty of the previous block. <br> This is represented as an `Number`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetPrevDSDifficulty"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetPrevDSDifficulty"`
+`params` | string | Required | Empty string `""`
 
 # Transaction-related methods
 
 ## CreateTransaction
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -985,11 +1089,12 @@ curl -d '{
       "code": "",
       "data": "",
       "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
+      "priority": false
     }]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1002,86 +1107,101 @@ curl -d '{
 }
 ```
 
-Create a new Transaction. See [Quick Start](https://github.com/Zilliqa/Zilliqa-JavaScript-Library#quick-start) in javascript for an example of how to construct a transaction object.
+Create a new Transaction object and send it to the network to be process. <br> See [Quick Start](https://github.com/Zilliqa/Zilliqa-JavaScript-Library#quick-start) in Javascript-SDK for an example of how to construct a Transaction object.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "CreateTransaction"
-params | An object containing the following properties:
------- | -----------------------------------------------
-version | The version number is the decimal conversion of the bitwise concatenation of `CHAIN_ID` and `MSG_VERSION`. This is represented as an `Number`. <br> - For `MSG_VERSION` = `1` on Zilliqa mainnet (`CHAIN_ID` = `1`), this number is `65537`. <br> - For `MSG_VERSION` = `1` on Zilliqa testnet (`CHAIN_ID` = `2`), this number is `131073`.
-nonce | A counter equals to the number of transactions sent by the sender's account, including this one. This is represented as an `Number`. <br> It's value should be `Current account nonce + 1`.
-toAddr | Recipient's account address. This is represented as a `String`. <br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional. <br> For deploying new contracts, set this as `"0000000000000000000000000000000000000000"`.
-amount | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
-pubKey | Public key of the sender of 33 bytes. This is represented as a `String`.
-gasPrice | An amount that the sender is willing to pay per unit of gas for computations incurred in transaction processing. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa, and it is represented as a `String`.
-gasLimit | The maximum amount of gas that should be used while processing this transaction. This is represented as a `String`. <br><br> - For regular transaction, please use `"1"`. <br> - For smart contract transaction, please consult the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
-code | **(optional)** A `String` specifying the smart contract code. This is present only when deploying a new contract.
-data | **(optional)** `String`ified JSON object specifying the parameters to be passed to a contract for execution. <br><br> - When creating a contract, this JSON object contains the init parameters. <br> - When calling a contract, this JSON object contains the msg parameters. <br><br> _For more information on the Scilla interpreter, please visit the [documentation](https://scilla.readthedocs.io/en/latest/interface.html)._
-signature | An EC-Schnorr signature of 64 bytes of the entire object. This is represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"CreateTransaction"`
+`params` | N/A | Required | See table below for the Transaction parameters required:
+
+### TRANSACTION PARAMETERS
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------------------------------------
+`version` | number | Required | The decimal conversion of the bitwise concatenation of `CHAIN_ID` and `MSG_VERSION` parameters. <br><br> **-** For mainnet, it is `65537`. <br> **-** For Developer testnet, it is `131073`.
+`nonce` | number | Required | A transaction counter in each account. This prevents replay attacks where a transaction sending eg. 20 coins from A to B can be replayed by B over and over to continually drain A's balance. <br><br> It's value should be `Current account nonce + 1`.
+`toAddr` | string | Required | Recipient's account address. This is represented as a `String`. <br><br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional. <br><br> For deploying new contracts, set this to `"0000000000000000000000000000000000000000"`.
+`amount` | string | Required | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.
+`pubKey` | string | Required | Sender's public key of 33 bytes.
+`gasPrice` | string | Required | An amount that a sender is willing to pay per unit of gas for processing this transaction. This is measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.
+`gasLimit` | string | Required | The amount of gas units that is needed to be process this transaction. <br><br> **-** For **regular transaction**, please use `"1"`. <br> **-** For **smart contract transaction**, please consult the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).
+`code` | string | Optional | The smart contract source code. This is present only when deploying a new contract.
+`data` | string | Optional | `String`-ified JSON object specifying the transition parameters to be passed to a specified smart contract. <br><br> - When creating a contract, this JSON object contains the **init** parameters. <br> - When calling a contract, this JSON object contains the **msg** parameters. <br><br> _For more information on the Scilla interpreter, please visit the [documentation](https://scilla.readthedocs.io/en/latest/interface.html)._
+`signature` | string | Required | An **EC-Schnorr** signature of 64 bytes of the entire Transaction object as stipulated above.
+`priority` | boolean | Optional | A flag for this transaction to be processed by the DS committee. <br><br> This is required for only for [Category III transactions](https://blog.zilliqa.com/provisioning-sharding-for-smart-contracts-a-design-for-zilliqa-cd8d012ee735), but it can be used for other transaction categories too.
 
 ## GetTransaction
+
+> **Example request:**
 
 ```shell
 curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTransaction",
-    "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
+    "params": ["655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "463f20976c0bc91c7aaad9c8b31835c9554a28cd2e69992fd80d70e8d3746fe7",
-        "amount": "1344901",
-        "gasLimit": "1",
-        "gasPrice": "1000000000",
-        "nonce": "1344901",
-        "receipt": {
-            "cumulative_gas": "1",
-            "epoch_num": "5986",
-            "success": true
-        },
-        "senderPubKey": "0x0276C8C0A21F38A7B18B356C9FBFF9AE9EE2CDF8F93051D4014CDB2042DEE184E8",
-        "signature": "0xBF16A0563D0D2FF57B045866EF1D955044175DA5558E22B772D7134DF09195B2A016489295BAB4C37D470F3022DAE5E4C3A1FF51F32B338C14427DA9A84C6024",
-        "toAddr": "ad299429924fda0a194cf5442337bcaa47a78592",
-        "version": "65537"
-    }
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "ID": "655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2",
+    "amount": "0",
+    "gasLimit": "10000",
+    "gasPrice": "1000000000",
+    "nonce": "20",
+    "receipt": {
+      "cumulative_gas": "1662",
+      "epoch_num": "134",
+      "success": true
+    },
+    "senderPubKey": "0x03EBCBAEEDD5F98F428BCEBC83E609E5F98136470708A57D61B71BF0B332200EEA",
+    "signature": "0x6DEA9FE535AB3557963CA47323B150979CB7C3990515389AF18AFFDD1049ECF3C5AEB5107A64636A946E75219B9482AFE9C7E1D8E5C59D55A1A28A24C0B877B6",
+    "toAddr": "0000000000000000000000000000000000000000",
+    "version": "131073"
+  }
 }
 ```
 
-Returns the details of a Transaction by its hash.
+Returns the details of a specified Transaction.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetTransaction"
-params | Target transaction hash of 32 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetTransaction"`
+`params` | string | Required | Transaction hash of 32 bytes of a specified transaction.
 
 ## GetRecentTransactions
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1092,7 +1212,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1121,28 +1241,33 @@ curl -d '{
       "962da9dd3b7e394b6ed79fb7b278c13202c34d4f2e167bb7bdd6f5b85ad802ae",
       "ace1376174f12adda4dcaa2ed01a48cf9e8c02419bdeab4477cd6d60f7239223",
     ],
-    "number": 20
+    "number": 100
   }
 }
 ```
 
-Returns the most recent transactions accepted and validated by the Zilliqa network.
+Returns the most recent **100** transactions that are validated by the Zilliqa network.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetRecentTransactions"
-params | Specified amount of recent transactions to return, represented as a `String`. <br> Default input amount is `20`, and maximum amount is `100`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetRecentTransactions"`
+`params` | string | Required | Empty string `""`
 
 ## GetTransactionsForTxBlock
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1153,7 +1278,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1192,23 +1317,28 @@ curl -d '{
 }
 ```
 
-Returns the transactions included within a final Transaction block.
+Returns the validated transactions included within a specfied final Transaction block.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetTransactionsForTxBlock"
-params | Transaction block number to query, represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetTransactionsForTxBlock"`
+`params` | string | Required | Specifed TX block number to return. Example: `"2"`
 
 ## GetNumTxnsTxEpoch
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1219,7 +1349,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1229,23 +1359,28 @@ curl -d '{
 }
 ```
 
-Returns the number of transactions in this Transaction epoch, this is represented as `String`.
+Returns the number of validated transactions included in this Transaction epoch. <br> This is represented as `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNumTxnsTxEpoch"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNumTxnsTxEpoch"`
+`params` | string | Required | Empty string `""`
 
 ## GetNumTxnsDSEpoch
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1256,7 +1391,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1266,23 +1401,28 @@ curl -d '{
 }
 ```
 
-Returns the number of transactions in this Directory Service epoch, this is represented as `String`.
+Returns the number of validated transactions included in this DS epoch. <br> This is represented as `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetNumTxnsDSEpoch"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetNumTxnsDSEpoch"`
+`params` | string | Required | Empty string `""`
 
 ## GetMinimumGasPrice
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1293,7 +1433,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1303,25 +1443,31 @@ curl -d '{
 }
 ```
 
-Returns the minimum gas price of the last DS epoch represented as a `String`. This is measured in the smallest price unit **Qa** (10^-12 **Zil**) in Zilliqa.
+Returns the minimum gas price for this DS epoch, measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.
+<br><br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetMinimumGasPrice"
-params | ""
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetMinimumGasPrice"`
+`params` | string | Required | Empty string `""`
 
 # Contract-related methods
 
 ## GetSmartContractCode
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1332,7 +1478,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1344,23 +1490,28 @@ curl -d '{
 }
 ```
 
-Returns the Scilla code of a smart contract address represented as a `String`.
+Returns the Scilla code associated with a smart contract address. <br> This is represented as a `String`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetSmartContractCode"
-params | A smart contract address of 20 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetSmartContractCode"`
+`params` | string | Required | A smart contract address of 20 bytes. <br> Example: `"fe001824823b12b58708bf24edd94d8b5e1cfcf7"`
 
 ## GetSmartContractInit
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1371,7 +1522,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1402,23 +1553,28 @@ curl -d '{
 }
 ```
 
-Returns the initialization parameters (immutable) of a given smart contract address represented in a JSON format.
+Returns the initialization (immutable) parameters of a given smart contract, represented in a JSON format.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetSmartContractInit"
-params | A smart contract address of 20 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetSmartContractInit"`
+`params` | string | Required | A smart contract address of 20 bytes. <br> Example: `"fe001824823b12b58708bf24edd94d8b5e1cfcf7"`
 
 ## GetSmartContractState
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1429,7 +1585,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1450,23 +1606,28 @@ curl -d '{
 }
 ```
 
-Returns the state variables (mutable) of a smart contract address represented in a JSON format.
+Returns the state (mutable) variables of a smart contract address, represented in a JSON format.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetSmartContractState"
-params | A smart contract address of 20 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetSmartContractState"`
+`params` | string | Required | A smart contract address of 20 bytes. <br> Example: `"fe001824823b12b58708bf24edd94d8b5e1cfcf7"`
 
 ## GetSmartContracts
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1477,7 +1638,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1518,23 +1679,28 @@ curl -d '{
 }
 ```
 
-Returns the list of smart contract addresses created by an User's account address and the latest contracts' states.
+Returns the list of smart contract addresses created by an User's account and the contracts' latest states.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetSmartContracts"
-params | An User's account address of 20 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetSmartContracts"`
+`params` | string | Required | An User's account address of 20 bytes. <br> Example: `"1eefc4f453539e5ee732b49eb4792b268c2f3908"`
 
 ## GetContractAddressFromTransactionID
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1545,7 +1711,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1555,25 +1721,31 @@ curl -d '{
 }
 ```
 
-Returns a smart contract address of 20 bytes from a transaction ID, represented as a `String` .
+Returns a smart contract address of 20 bytes. This is represented as a `String`. <br>
+**NOTE:** This only works for contract deployment transactions.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetContractAddressFromTransactionID"
-params | A Transaction ID of 32 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetSmartContracts"`
+`params` | string | Required | A Transaction ID of 32 bytes. <br> Example: `"AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"`
 
 # Account-related methods
 
 ## GetBalance
+
+> **Example request:**
 
 ```shell
 curl -d '{
@@ -1584,7 +1756,7 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
-> The above command returns JSON structured like this:
+> **Example response:**
 
 ```json
 {
@@ -1597,18 +1769,22 @@ curl -d '{
 }
 ```
 
-Returns the `balance` (measured in the smallest accounting unit **Qa**, or 10^-12 **Zil**) and the current `nonce` of an User's account. <br> The `balance` is represented as a `String` and the `nonce` is represented as an `Number`.
+- Returns the current `balance` of an account, measured in the smallest accounting unit **Qa** (or 10^-12 **Zil**). This is represented as a `String` <br><br>
+- Returns the current `nonce` of an account. This is represented as an `Number`.
 
-### HTTP Request
+### HTTP REQUEST
 
-+ **_Maoshanwang_ Testnet:** `POST "https://api.zilliqa.com/"`
-+ **Local:** `POST http://localhost:4201/`
+Chain(s) | URL(s) |
+-------- | ------ |
+**Zilliqa Mainnet** | https://api.zilliqa.com/ |
+**Developer testnet** | https://dev-api.zilliqa.com/ |
+**Local testnet** | http://localhost:4201/ |
 
-### Data Parameters
+### ARGUMENTS
 
-Parameter | Description
---------- | -------------
-id | "1"
-jsonrpc | "2.0"
-method | "GetBalance"
-params | An User's account address of 20 bytes represented as a `String`.
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+`id` | string | Required | `"1"`
+`jsonrpc` | string | Required | `"2.0"`
+`method` | string | Required | `"GetBalance"`
+`params` | string | Required | An User's account address of 20 bytes. <br> Example: `"1eefc4f453539e5ee732b49eb4792b268c2f3908"`

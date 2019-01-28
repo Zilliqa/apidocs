@@ -1,0 +1,79 @@
+<h2 id='getbalance'>GetBalance</h2>
+<blockquote>
+<p><strong>Example request:</strong></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetBalance",
+    "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre>
+<blockquote>
+<p><strong>Example response:</strong></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"18446744073637511711"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nonce"</span><span class="p">:</span><span class="mi">16</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the <code>balance</code> of an account, measured in the smallest accounting unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>). This is represented as a <code>String</code> <br>
+Returns the current <code>nonce</code> of an account. This is represented as an <code>Number</code>.</p>
+<h3 id='http-request'>HTTP REQUEST</h3>
+<table><thead>
+<tr>
+<th>Chain(s)</th>
+<th>URL(s)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Zilliqa Mainnet</td>
+<td>https://api.zilliqa.com/</td>
+</tr>
+<tr>
+<td>Developer testnet</td>
+<td>https://dev-api.zilliqa.com/</td>
+</tr>
+<tr>
+<td>Local testnet</td>
+<td>http://localhost:4201/</td>
+</tr>
+</tbody></table>
+<h3 id='arguments'>ARGUMENTS</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;1&quot;</code></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;2.0&quot;</code></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;GetBalance&quot;</code></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>string</td>
+<td>Required</td>
+<td>An User&#39;s account address of 20 bytes. <br> Example: <code>&quot;1eefc4f453539e5ee732b49eb4792b268c2f3908&quot;</code></td>
+</tr>
+</tbody></table>

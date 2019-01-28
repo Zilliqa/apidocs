@@ -1130,7 +1130,7 @@ Parameter | Type | Required | Description
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------------------------------------
-`version` | number | Required | The decimal conversion of the bitwise concatenation of `CHAIN_ID` and `MSG_VERSION` parameters. <br><br> **-** For mainnet, it is `65537`. <br> **-** For Developer testnet, it is `131073`.
+`version` | number | Required | The decimal conversion of the bitwise concatenation of `CHAIN_ID` and `MSG_VERSION` parameters. <br><br> **-** For mainnet, it is `65537`. <br> **-** For Developer testnet, it is `21823489`.
 `nonce` | number | Required | A transaction counter in each account. This prevents replay attacks where a transaction sending eg. 20 coins from A to B can be replayed by B over and over to continually drain A's balance. <br><br> It's value should be `Current account nonce + 1`.
 `toAddr` | string | Required | Recipient's account address. This is represented as a `String`. <br><br> **NOTE:** This address has to be checksummed for every 6th bit, but the "0x" prefix is optional. <br><br> For deploying new contracts, set this to `"0000000000000000000000000000000000000000"`.
 `amount` | string | Required | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.

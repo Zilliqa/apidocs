@@ -1,8 +1,8 @@
 <p align="center">
-    <img src="https://github.com/Zilliqa/Zilliqa/blob/master/img/zilliqa-logo-color.png" width="200" height="200">
+    <a href="https://github.com/Zilliqa/Zilliqa" target="_blank"><img src="https://github.com/Zilliqa/Zilliqa/blob/master/img/zilliqa-logo-color.png" width="200" height="200"></a>
 </p>
 
-<p align="center">Zilliqa JSON-RPC API documentation. Powered by Slate.</p>
+<p align="center">Zilliqa JSON-RPC API documentation. Powered by <a href="https://github.com/lord/slate" target="_blank">Slate</a>.</p>
 
 ## Overview
 

@@ -1,5 +1,14 @@
-<!--
-⚠️ 🚨 ⚠️  STOP AND READ THIS ⚠️ 🚨 ⚠️
+## Description
+<!-- What is the overall goal of your pull request? -->
+<!-- What is the context of your pull request? -->
+<!-- What are the related issues and pull requests? -->
 
-👆👆 see that 'base fork' dropdown above? You should change it! The default value of "lord/slate" submits your change to ALL USERS OF SLATE, not just your company. This is PROBABLY NOT WHAT YOU WANT.
--->
+## Review Suggestion
+<!-- How should the reviewers get started on reviewing your pull request-->
+<!-- How can the reviewers verify the pull request is working as expected -->
+
+## Status
+
+### Implementation
+<!-- Add more TODOs before "ready for review", if any  -->
+- [ ] **ready for review**

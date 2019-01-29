@@ -7,10 +7,10 @@
 
 ## Overview
 
-Zilliqa apidocs contains the documentation of JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for following all languages:
+Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for following languages:
 
 * cURL
-* [Javascript](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
+* Javascript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
 
 ## Prerequisites
 
@@ -21,6 +21,8 @@ You're going to need the following to contribute:
 * **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
 ## Contributing to Zilliqa apidocs
+
+### Running apidocs locally
 
 1. Fork this repository on GitHub.
 2. Clone *your forked repository* (not our original one) to your hard drive with
@@ -40,6 +42,8 @@ You're going to need the following to contribute:
 
 You can now see the docs at http://localhost:4567.
 
-Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
+### Contributing guidelines
 
-Please adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
+* Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
+* Please adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
+* Please use the [PR template](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this apidocs repository.

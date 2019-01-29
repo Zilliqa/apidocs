@@ -25,7 +25,7 @@ Chain(s) | URL(s) |
 **Developer testnet** | https://dev-api.zilliqa.com/ |
 **Local testnet** | http://localhost:4201/ |
 
-All API calls are POST requests made to a machine running a Zilliqa seed node.
+All API calls are POST requests.
 
 All requests follow the standard JSON-RPC format and include 4 variables in the data object:
 

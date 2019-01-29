@@ -1871,6 +1871,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const contractAddress = await zilliqa.blockchain.getContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E");
+console.log(contractAddress.result);
+```
+
 > **Example response:**
 
 ```json

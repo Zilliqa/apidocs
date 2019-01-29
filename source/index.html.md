@@ -2,11 +2,12 @@
 title: Zilliqa JSON-RPC API Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - shell: cURL
+  - javascript: node.js
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
-  - <a href='http://scilla.readthedocs.io/'>Scilla Docs</a>
+  - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
 
 includes:
 
@@ -24,7 +25,7 @@ Chain(s) | URL(s) |
 **Developer testnet** | https://dev-api.zilliqa.com/ |
 **Local testnet** | http://localhost:4201/ |
 
-All API calls are POST requests made to machine running the Zilliqa seed node.
+All API calls are POST requests made to a machine running a Zilliqa seed node.
 
 All requests follow the standard JSON-RPC format and include 4 variables in the data object:
 
@@ -48,6 +49,11 @@ curl -d '{
     "method": "GetNetworkId",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const NetworkId = await zilliqa.network.GetNetworkId();
+console.log(NetworkId);
 ```
 
 > **Example response:**
@@ -97,6 +103,11 @@ curl -d '{
     "method": "GetBlockchainInfo",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const blockChainInfo = await zilliqa.blockchain.getBlockChainInfo();
+console.log(blockChainInfo);
 ```
 
 > **Example response:**
@@ -160,6 +171,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const shardingStructure = await zilliqa.blockchain.getShardingStructure();
+console.log(shardingStructure);
+```
+
 > **Example response:**
 
 ```json
@@ -202,6 +218,11 @@ curl -d '{
     "method": "GetDsBlock",
     "params": ["1"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const dsBlock = await zilliqa.blockchain.getDSBlock(1);
+console.log(dsBlock);
 ```
 
 > **Example response:**
@@ -261,6 +282,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const dsBlock = await zilliqa.blockchain.getLatestDSBlock();
+console.log(dsBlock);
+```
+
 > **Example response:**
 
 ```json
@@ -318,6 +344,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const numDsBlock = await zilliqa.blockchain.getNumDSBlocks();
+console.log(numDsBlock);
+```
+
 > **Example response:**
 
 ```json
@@ -360,6 +391,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const dsBlockRate = await zilliqa.blockchain.getDSBlockRate();
+console.log(dsBlockRate);
+```
+
 > **Example response:**
 
 ```json
@@ -400,6 +436,11 @@ curl -d '{
     "method": "DSBlockListing",
     "params": [1]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const dsBlockListing = await zilliqa.blockchain.getDSBlockListing();
+console.log(dsBlockListing);
 ```
 
 > **Example response:**
@@ -488,6 +529,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const txBlock = await zilliqa.blockchain.getTxBlock(1);
+console.log(txBlock);
+```
+
 > **Example response:**
 
 ```json
@@ -571,6 +617,11 @@ curl -d '{
     "method": "GetLatestTxBlock",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const txBlock = await zilliqa.blockchain.getLatestTxBlock();
+console.log(txBlock);
 ```
 
 > **Example response:**
@@ -658,6 +709,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const numTxBlock = await zilliqa.blockchain.getNumTxBlocks();
+console.log(numTxBlock);
+```
+
 > **Example response:**
 
 ```json
@@ -700,6 +756,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const txBlockRate = await zilliqa.blockchain.getTxBlockRate();
+console.log(txBlockRate);
+```
+
 > **Example response:**
 
 ```json
@@ -740,6 +801,11 @@ curl -d '{
     "method": "TxBlockListing",
     "params": [1]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const txBlockListing = await zilliqa.blockchain.getTxBlockListing(1);
+console.log(txBlockListing);
 ```
 
 > **Example response:**
@@ -828,6 +894,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const numTransactions = await zilliqa.blockchain.getNumTransactions();
+console.log(numTransactions);
+```
+
 > **Example response:**
 
 ```json
@@ -868,6 +939,11 @@ curl -d '{
     "method": "GetTransactionRate",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const transactionRate = await zilliqa.blockchain.getTransactionRate();
+console.log(transactionRate);
 ```
 
 > **Example response:**
@@ -912,6 +988,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const currentMiniEpoch = await zilliqa.blockchain.getCurrentMiniEpoch();
+console.log(currentMiniEpoch);
+```
+
 > **Example response:**
 
 ```json
@@ -952,6 +1033,11 @@ curl -d '{
     "method": "GetCurrentDSEpoch",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const currentDSEpoch = await zilliqa.blockchain.getCurrentDSEpoch();
+console.log(currentDSEpoch);
 ```
 
 > **Example response:**
@@ -996,6 +1082,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const prevDifficulty = await zilliqa.blockchain.getPrevDifficulty();
+console.log(prevDifficulty);
+```
+
 > **Example response:**
 
 ```json
@@ -1036,6 +1127,11 @@ curl -d '{
     "method": "GetPrevDSDifficulty",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const prevDSDifficulty = await zilliqa.blockchain.getPrevDSDifficulty();
+console.log(prevDSDifficulty);
 ```
 
 > **Example response:**
@@ -1092,6 +1188,20 @@ curl -d '{
       "priority": false
     }]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+let tx = zilliqa.transactions.new({
+    version: 65537,
+    toAddr: '0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C',
+    amount: units.toQa('1', units.Units.Zil),
+    gasPrice: units.toQa('1000', units.Units.Li),
+    gasLimit: Long.fromNumber(1),
+});
+
+// Send a transaction to the network
+tx = await zilliqa.blockchain.createTransaction(tx);
+console.log(tx.id);
 ```
 
 > **Example response:**
@@ -1155,6 +1265,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const txn = await zilliqa.blockchain.getTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
+console.log(txn);
+```
+
 > **Example response:**
 
 ```json
@@ -1210,6 +1325,11 @@ curl -d '{
     "method": "GetRecentTransactions",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const recentTransactions = await zilliqa.blockchain.getRecentTransactions();
+console.log(recentTransactions);
 ```
 
 > **Example response:**
@@ -1276,6 +1396,11 @@ curl -d '{
     "method": "GetTransactionsForTxBlock",
     "params": ["2"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const txns = await zilliqa.blockchain.getTransactionsForTxBlock(2);
+console.log(txns);
 ```
 
 > **Example response:**
@@ -1349,6 +1474,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const numTxnsTxEpoch = await zilliqa.blockchain.getNumTxnsTxEpoch();
+console.log(numTxnsTxEpoch);
+```
+
 > **Example response:**
 
 ```json
@@ -1389,6 +1519,11 @@ curl -d '{
     "method": "GetNumTxnsDSEpoch",
     "params": [""]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const numTxnsDSEpoch = await zilliqa.blockchain.getNumTxnsDSEpoch();
+console.log(numTxnsDSEpoch);
 ```
 
 > **Example response:**
@@ -1433,6 +1568,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const minimumGasPrice = await zilliqa.blockchain.getMinimumGasPrice();
+console.log(minimumGasPrice);
+```
+
 > **Example response:**
 
 ```json
@@ -1444,7 +1584,7 @@ curl -d '{
 ```
 
 Returns the minimum gas price for this DS epoch, measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.
-<br><br> This is represented as a `String`.
+<br> This is represented as a `String`.
 
 ### HTTP REQUEST
 
@@ -1476,6 +1616,11 @@ curl -d '{
     "method": "GetSmartContractCode",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const smartContractCode = await zilliqa.blockchain.getSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+console.log(smartContractCode);
 ```
 
 > **Example response:**
@@ -1520,6 +1665,11 @@ curl -d '{
     "method": "GetSmartContractInit",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const smartContractInit = await zilliqa.blockchain.getSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+console.log(smartContractInit);
 ```
 
 > **Example response:**
@@ -1585,6 +1735,11 @@ curl -d '{
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
+```javascript
+const smartContractState = await zilliqa.blockchain.getSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+console.log(smartContractState);
+```
+
 > **Example response:**
 
 ```json
@@ -1636,6 +1791,11 @@ curl -d '{
     "method": "GetSmartContracts",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const smartContracts = await zilliqa.blockchain.getSmartContracts("1eefc4f453539e5ee732b49eb4792b268c2f3908");
+console.log(smartContracts);
 ```
 
 > **Example response:**
@@ -1754,6 +1914,11 @@ curl -d '{
     "method": "GetBalance",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const balance = await zilliqa.blockchain.getBalance('1eefc4f453539e5ee732b49eb4792b268c2f3908');
+console.log(balance);
 ```
 
 > **Example response:**

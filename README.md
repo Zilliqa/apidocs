@@ -4,8 +4,6 @@
 
 <p align="center">Zilliqa JSON-RPC API documentation. Powered by Slate.</p>
 
-# Zilliqa apidocs
-
 ## Overview
 
 Zilliqa apidocs contains the documentation of JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for following all languages:

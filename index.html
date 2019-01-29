@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,8 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="javascript">node.js</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -340,7 +341,7 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a></li>
-            <li><a href='http://scilla.readthedocs.io/'>Scilla Docs</a></li>
+            <li><a href='http://scilla.readthedocs.io/'>Scilla Documentation</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -370,7 +371,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 </tbody></table>
 
-<p>All API calls are POST requests made to machine running the Zilliqa seed node.</p>
+<p>All API calls are POST requests made to a machine running a Zilliqa seed node.</p>
 
 <p>All requests follow the standard JSON-RPC format and include 4 variables in the data object:</p>
 
@@ -407,6 +408,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNetworkId",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">NetworkId</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">network</span><span class="p">.</span><span class="nx">GetNetworkId</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">NetworkId</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -500,6 +503,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetBlockchainInfo",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">blockChainInfo</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getBlockChainInfo</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">blockChainInfo</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -594,6 +599,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetShardingStructure",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">shardingStructure</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getShardingStructure</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">shardingStructure</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -671,6 +678,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetDsBlock",
     "params": ["1"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlock</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -761,6 +770,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetLatestDsBlock",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getLatestDSBlock</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -851,6 +862,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNumDSBlocks",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numDsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumDSBlocks</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numDsBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -926,6 +939,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetDSBlockRate",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlockRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlockRate</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlockRate</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1001,6 +1016,8 @@ The JSON-RPC API server runs on:</p>
     "method": "DSBlockListing",
     "params": [1]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlockListing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlockListing</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlockListing</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1120,6 +1137,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetTxBlock",
     "params": ["40"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlock</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1238,6 +1257,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetLatestTxBlock",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getLatestTxBlock</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1356,6 +1377,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNumTxBlocks",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxBlocks</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxBlock</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1431,6 +1454,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetTxBlockRate",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlockRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlockRate</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlockRate</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1506,6 +1531,8 @@ The JSON-RPC API server runs on:</p>
     "method": "TxBlockListing",
     "params": [1]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlockListing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlockListing</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlockListing</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1625,6 +1652,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNumTransactions",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTransactions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTransactions</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTransactions</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1700,6 +1729,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetTransactionRate",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transactionRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransactionRate</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">transactionRate</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1775,6 +1806,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetCurrentMiniEpoch",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">currentMiniEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getCurrentMiniEpoch</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">currentMiniEpoch</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1850,6 +1883,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetCurrentDSEpoch",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">currentDSEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getCurrentDSEpoch</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">currentDSEpoch</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1925,6 +1960,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetPrevDifficulty",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">prevDifficulty</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getPrevDifficulty</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prevDifficulty</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2000,6 +2037,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetPrevDSDifficulty",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">prevDSDifficulty</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getPrevDSDifficulty</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prevDSDifficulty</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2087,6 +2126,17 @@ The JSON-RPC API server runs on:</p>
       "priority": false
     }]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">transactions</span><span class="p">.</span><span class="k">new</span><span class="p">({</span>
+    <span class="na">version</span><span class="p">:</span> <span class="mi">65537</span><span class="p">,</span>
+    <span class="na">toAddr</span><span class="p">:</span> <span class="s1">'0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C'</span><span class="p">,</span>
+    <span class="na">amount</span><span class="p">:</span> <span class="nx">units</span><span class="p">.</span><span class="nx">toQa</span><span class="p">(</span><span class="s1">'1'</span><span class="p">,</span> <span class="nx">units</span><span class="p">.</span><span class="nx">Units</span><span class="p">.</span><span class="nx">Zil</span><span class="p">),</span>
+    <span class="na">gasPrice</span><span class="p">:</span> <span class="nx">units</span><span class="p">.</span><span class="nx">toQa</span><span class="p">(</span><span class="s1">'1000'</span><span class="p">,</span> <span class="nx">units</span><span class="p">.</span><span class="nx">Units</span><span class="p">.</span><span class="nx">Li</span><span class="p">),</span>
+    <span class="na">gasLimit</span><span class="p">:</span> <span class="nx">Long</span><span class="p">.</span><span class="nx">fromNumber</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="p">});</span>
+
+<span class="c1">// Send a transaction to the network</span>
+<span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">createTransaction</span><span class="p">(</span><span class="nx">tx</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2241,6 +2291,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetTransaction",
     "params": ["655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txn</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransaction</span><span class="p">(</span><span class="s2">"655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txn</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2331,6 +2383,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetRecentTransactions",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">recentTransactions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getRecentTransactions</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">recentTransactions</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2430,6 +2484,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetTransactionsForTxBlock",
     "params": ["2"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txns</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransactionsForTxBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txns</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2534,6 +2590,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNumTxnsTxEpoch",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxnsTxEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxnsTxEpoch</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxnsTxEpoch</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2609,6 +2667,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetNumTxnsDSEpoch",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxnsDSEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxnsDSEpoch</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxnsDSEpoch</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2684,6 +2744,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetMinimumGasPrice",
     "params": [""]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">minimumGasPrice</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getMinimumGasPrice</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minimumGasPrice</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2695,7 +2757,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the minimum gas price for this DS epoch, measured in the smallest price unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>) in Zilliqa.
-<br><br> This is represented as a <code>String</code>.</p>
+<br> This is represented as a <code>String</code>.</p>
 <h3 id='http-request-26'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
@@ -2760,6 +2822,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetSmartContractCode",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractCode</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractCode</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractCode</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2837,6 +2901,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetSmartContractInit",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractInit</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractInit</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractInit</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2933,6 +2999,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetSmartContractState",
     "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractState</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractState</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3019,6 +3087,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetSmartContracts",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContracts</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContracts</span><span class="p">(</span><span class="s2">"1eefc4f453539e5ee732b49eb4792b268c2f3908"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContracts</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3201,6 +3271,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetBalance",
     "params": ["1eefc4f453539e5ee732b49eb4792b268c2f3908"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="s1">'1eefc4f453539e5ee732b49eb4792b268c2f3908'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">balance</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3276,7 +3348,8 @@ The JSON-RPC API server runs on:</p>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript">node.js</a>
           </div>
       </div>
     </div>

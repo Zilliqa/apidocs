@@ -2,25 +2,25 @@
     <a href="https://github.com/Zilliqa/Zilliqa" target="_blank"><img src="https://github.com/Zilliqa/Zilliqa/blob/master/img/zilliqa-logo-color.png" width="200" height="200"></a>
 </p>
 
-<p align="center">Zilliqa JSON-RPC API documentation. Powered by <a href="https://github.com/lord/slate" target="_blank">Slate</a>.</p>
+<p align="center"><b>Zilliqa JSON-RPC API documentation. Powered by <a href="https://github.com/lord/slate" target="_blank">Slate</a>.</b></p>
 <p align="center"><a href="https://gitter.im/Zilliqa/" target="_blank"><img src="http://img.shields.io/badge/chat-on%20gitter-077a8f.svg" /></a></p>
 
 ## Overview
 
-Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for following languages:
+Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for tools:
 
 * cURL
-* Javascript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
+* node.js via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
 
-## Prerequisites
+## Contributing to Zilliqa apidocs
+
+### Prerequisites
 
 You're going to need the following to contribute:
 
 * **Linux or macOS** — Windows may work, but is unsupported.
 * **Ruby, version 2.3.1 or newer**
 * **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
-
-## Contributing to Zilliqa apidocs
 
 ### Running apidocs locally
 
@@ -46,4 +46,4 @@ You can now see the docs at http://localhost:4567.
 
 * Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
 * Please adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
-* Please use the [PR template](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this apidocs repository.
+* Please utilise the [PR template](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this repository.

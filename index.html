@@ -371,7 +371,7 @@ The JSON-RPC API server runs on:</p>
 </tr>
 </tbody></table>
 
-<p>All API calls are POST requests made to a machine running a Zilliqa seed node.</p>
+<p>All API calls are POST requests.</p>
 
 <p>All requests follow the standard JSON-RPC format and include 4 variables in the data object:</p>
 
@@ -3195,6 +3195,8 @@ The JSON-RPC API server runs on:</p>
     "method": "GetContractAddressFromTransactionID",
     "params": ["AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">contractAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getContractAddressFromTransactionID</span><span class="p">(</span><span class="s2">"AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">contractAddress</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>

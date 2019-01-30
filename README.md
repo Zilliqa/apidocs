@@ -7,7 +7,7 @@
 
 ## Overview
 
-Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for tools:
+Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for the following tools:
 
 * cURL
 * node.js via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
@@ -45,5 +45,5 @@ You can now see the docs at http://localhost:4567.
 ### Contributing guidelines
 
 * Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
-* Please adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
-* Please utilise the [PR template](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this repository.
+* Please adhere to the [**Code of Conduct**](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
+* Please utilise the [**PR template**](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this repository.

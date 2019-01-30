@@ -6,7 +6,7 @@ A primary goal of Zilliqa is to be inclusive to the largest number of contributo
 
 This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
 
-We invite all those who participate in Zilliqa to help us create safe and positive experiences for everyone.
+We invite all those who participate in the Zilliqa community to help us create safe and positive experiences for everyone.
 
 ## 2. Open Source Citizenship
 
@@ -25,7 +25,6 @@ The following behaviors are expected and requested of all community members:
 * Attempt collaboration before conflict.
 * Refrain from demeaning, discriminatory, or harassing behavior and speech.
 * Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
-* Remember that community event venues may be shared with members of the public; please be respectful to all patrons of these locations.
 
 ## 4. Unacceptable Behavior
 
@@ -37,25 +36,23 @@ The following behaviors are considered harassment and are unacceptable within ou
 * Posting or threatening to post other people’s personally identifying information ("doxing").
 * Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
 * Inappropriate photography or recording.
-* Inappropriate physical contact. You should have someone’s consent before touching them.
-* Unwelcome sexual attention. This includes, sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
+* Unwelcome sexual attention. This includes, sexualized comments or jokes, and unwelcomed sexual advances.
 * Deliberate intimidation, stalking or following (online or in person).
 * Advocating for, or encouraging, any of the above behavior.
-* Sustained disruption of community events, including talks and presentations.
 
 ## 5. Consequences of Unacceptable Behavior
 
-Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
+Unacceptable behavior from any community member will not be tolerated.
 
 Anyone asked to stop unacceptable behavior is expected to comply immediately.
 
-If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning (and without refund in the case of a paid event).
+If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning.
 
 ## 6. Reporting Guidelines
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible on Zilliqa's [Gitter channel](https://gitter.im/Zilliqa/).
+If you are subject to or witness unacceptable behavior, or have any other concerns, please notify any Zilliqa Research members on the Zilliqa [Gitter channel](https://gitter.im/Zilliqa/).
 
-Additionally, community organizers are available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe. In the context of in-person events, organizers will also provide escorts as desired by the person experiencing distress.
+Additionally, Zilliqa Research is available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe.
 
 ## 7. Addressing Grievances
 
@@ -63,13 +60,13 @@ If you feel you have been falsely or unfairly accused of violating this Code of 
 
 ## 8. Scope
 
-We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues–online and in-person–as well as in all one-on-one communications pertaining to community business.
+We expect all community participants to abide by this Code of Conduct in all community venues–online.
 
 This code of conduct and its related procedures also applies to unacceptable behavior occurring outside the scope of community activities when such behavior has the potential to adversely affect the safety and well-being of community members.
 
 ## 9. Contact info
 
-You can contact Zilliqa Research via Zilliqa's [Gitter channel](https://gitter.im/Zilliqa/).
+You can contact Zilliqa Research via the Zilliqa [Gitter channel](https://gitter.im/Zilliqa/).
 
 ## 10. License and attribution
 
@@ -77,4 +74,4 @@ This Code of Conduct is distributed under a [Creative Commons Attribution-ShareA
 
 Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 
-Retrieved on January 30, 2019 from [http://citizencodeofconduct.org/](http://citizencodeofconduct.org/)
+Retrieved on January 30, 2019 from [http://citizencodeofconduct.org/](http://citizencodeofconduct.org/) and last edited on January 30, 2019.

@@ -7,10 +7,10 @@
 
 ## Overview
 
-Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for the following tools:
+Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for:
 
 * cURL
-* node.js via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
+* JavaScript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
 
 ## Contributing to Zilliqa apidocs
 

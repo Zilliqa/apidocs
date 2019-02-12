@@ -4,6 +4,7 @@ title: Zilliqa JSON-RPC API Documentation
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
   - javascript: node.js
+  - java: java
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
@@ -54,6 +55,16 @@ curl -d '{
 ```javascript
 const NetworkId = await zilliqa.network.GetNetworkId();
 console.log(NetworkId);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> networkId = client.getNetworkId();
+        System.out.println(new Gson().toJson(networkId));
+    }
+}
 ```
 
 > **Example response:**
@@ -108,6 +119,16 @@ curl -d '{
 ```javascript
 const blockChainInfo = await zilliqa.blockchain.getBlockChainInfo();
 console.log(blockChainInfo);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockchainInfo> blockchainInfo = client.getBlockchainInfo();
+        System.out.println(new Gson().toJson(blockchainInfo));
+    }
+}
 ```
 
 > **Example response:**
@@ -176,6 +197,16 @@ const shardingStructure = await zilliqa.blockchain.getShardingStructure();
 console.log(shardingStructure);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<ShardingStructure> shardingStructure = client.getShardingStructure();
+        System.out.println(new Gson().toJson(shardingStructure));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -223,6 +254,16 @@ curl -d '{
 ```javascript
 const dsBlock = await zilliqa.blockchain.getDSBlock(1);
 console.log(dsBlock);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<DsBlock> dsBlock = client.getDsBlock("1");
+        System.out.println(new Gson().toJson(dsBlock));
+    }
+}
 ```
 
 > **Example response:**
@@ -287,6 +328,16 @@ const dsBlock = await zilliqa.blockchain.getLatestDSBlock();
 console.log(dsBlock);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<DsBlock> dsBlock = client.getLatestDsBlock();
+        System.out.println(new Gson().toJson(dsBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -349,6 +400,16 @@ const numDsBlock = await zilliqa.blockchain.getNumDSBlocks();
 console.log(numDsBlock);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> numDSBlocks = client.getNumDSBlocks();
+        System.out.println(new Gson().toJson(numDSBlocks));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -396,6 +457,16 @@ const dsBlockRate = await zilliqa.blockchain.getDSBlockRate();
 console.log(dsBlockRate);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<Double> dsBlockRate = client.getDSBlockRate();
+        System.out.println(new Gson().toJson(dsBlockRate));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -441,6 +512,16 @@ curl -d '{
 ```javascript
 const dsBlockListing = await zilliqa.blockchain.getDSBlockListing();
 console.log(dsBlockListing);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockList> blockListing = client.getDSBlockListing();
+        System.out.println(new Gson().toJson(blockListing));
+    }
+}
 ```
 
 > **Example response:**
@@ -534,6 +615,16 @@ const txBlock = await zilliqa.blockchain.getTxBlock(1);
 console.log(txBlock);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<TxBlock> txBlock = client.getTxBlock("1");
+        System.out.println(new Gson().toJson(txBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -622,6 +713,16 @@ curl -d '{
 ```javascript
 const txBlock = await zilliqa.blockchain.getLatestTxBlock();
 console.log(txBlock);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<TxBlock> txBlock = client.getLatestTxBlock();
+        System.out.println(new Gson().toJson(txBlock));
+    }
+}
 ```
 
 > **Example response:**
@@ -714,6 +815,16 @@ const numTxBlock = await zilliqa.blockchain.getNumTxBlocks();
 console.log(numTxBlock);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> numTxBlocks = client.getNumTxBlocks();
+        System.out.println(new Gson().toJson(numTxBlocks));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -761,6 +872,16 @@ const txBlockRate = await zilliqa.blockchain.getTxBlockRate();
 console.log(txBlockRate);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<Double> txBlockRate = client.getTxBlockRate();
+        System.out.println(new Gson().toJson(txBlockRate));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -806,6 +927,16 @@ curl -d '{
 ```javascript
 const txBlockListing = await zilliqa.blockchain.getTxBlockListing(1);
 console.log(txBlockListing);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockList> blockListing = client.getTxBlockListing(1);
+        System.out.println(new Gson().toJson(blockListing));
+    }
+}
 ```
 
 > **Example response:**
@@ -899,6 +1030,16 @@ const numTransactions = await zilliqa.blockchain.getNumTransactions();
 console.log(numTransactions);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> numTransactions = client.getNumTransactions();
+        System.out.println(new Gson().toJson(numTransactions));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -944,6 +1085,16 @@ curl -d '{
 ```javascript
 const transactionRate = await zilliqa.blockchain.getTransactionRate();
 console.log(transactionRate);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<Integer> transactionRate = client.getTransactionRate();
+        System.out.println(new Gson().toJson(transactionRate));
+    }
+}
 ```
 
 > **Example response:**
@@ -993,6 +1144,16 @@ const currentMiniEpoch = await zilliqa.blockchain.getCurrentMiniEpoch();
 console.log(currentMiniEpoch);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> currentMiniEpoch = client.getCurrentMiniEpoch();
+        System.out.println(new Gson().toJson(currentMiniEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1038,6 +1199,16 @@ curl -d '{
 ```javascript
 const currentDSEpoch = await zilliqa.blockchain.getCurrentDSEpoch();
 console.log(currentDSEpoch);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> currentDSEpoch = client.getCurrentDSEpoch();
+        System.out.println(new Gson().toJson(currentDSEpoch));
+    }
+}
 ```
 
 > **Example response:**
@@ -1087,6 +1258,16 @@ const prevDifficulty = await zilliqa.blockchain.getPrevDifficulty();
 console.log(prevDifficulty);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<Integer> prevDifficulty = client.getPrevDifficulty();
+        System.out.println(new Gson().toJson(prevDifficulty));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1132,6 +1313,16 @@ curl -d '{
 ```javascript
 const prevDSDifficulty = await zilliqa.blockchain.getPrevDSDifficulty();
 console.log(prevDSDifficulty);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<Integer> prevDSDifficulty = client.getPrevDSDifficulty();
+        System.out.println(new Gson().toJson(prevDSDifficulty));
+    }
+}
 ```
 
 > **Example response:**
@@ -1204,6 +1395,32 @@ tx = await zilliqa.blockchain.createTransaction(tx);
 console.log(tx.id);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        Wallet wallet = new Wallet();
+        wallet.setProvider(new HttpProvider("https://dev-api.zilliqa.com"));
+        wallet.addByPrivateKey("e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930");
+        Transaction transaction = Transaction.builder()
+                .version(String.valueOf(pack(333, 8)))
+                .toAddr("4baf5fada8e5db92c3d3242618c5b47133ae003c".toLowerCase())
+                .senderPubKey("0246e7178dc8253201101e18fd6f6eb9972451d121fc57aa2a06dd5c111e58dc6a")
+                .amount("10000")
+                .gasPrice("1000000000")
+                .gasLimit("1")
+                .code("")
+                .data("")
+                .provider(new HttpProvider("https://api.zilliqa.com"))
+                .build();
+        transaction = wallet.sign(transaction);
+
+        // Send a transaction to the network
+        HttpProvider.CreateTxResult result = TransactionFactory.createTransaction(transaction);
+        System.out.println(result);
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1270,6 +1487,16 @@ const txn = await zilliqa.blockchain.getTransaction("655107c300e86ee6e819af1cbfc
 console.log(txn);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<Transaction> transaction = client.getTransaction("8006379570367a4ff5f3cb596edfa9025ba2745dd0dbf5a0043382b7f2badcec");
+        System.out.println(new Gson().toJson(transaction));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1330,6 +1557,16 @@ curl -d '{
 ```javascript
 const recentTransactions = await zilliqa.blockchain.getRecentTransactions();
 console.log(recentTransactions);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<TransactionList> transactionList = client.getRecentTransactions();
+        System.out.println(new Gson().toJson(transactionList));
+    }
+}
 ```
 
 > **Example response:**
@@ -1401,6 +1638,16 @@ curl -d '{
 ```javascript
 const txns = await zilliqa.blockchain.getTransactionsForTxBlock(2);
 console.log(txns);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<List<String>>> transactionList = client.getTransactionsForTxBlock("2");
+        System.out.println(new Gson().toJson(transactionList));
+    }
+}
 ```
 
 > **Example response:**
@@ -1479,6 +1726,16 @@ const numTxnsTxEpoch = await zilliqa.blockchain.getNumTxnsTxEpoch();
 console.log(numTxnsTxEpoch);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> numTxnsTxEpoch = client.getNumTxnsTxEpoch();
+        System.out.println(new Gson().toJson(numTxnsTxEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1526,6 +1783,16 @@ const numTxnsDSEpoch = await zilliqa.blockchain.getNumTxnsDSEpoch();
 console.log(numTxnsDSEpoch);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> numTxnsDSEpoch = client.getNumTxnsDSEpoch();
+        System.out.println(new Gson().toJson(numTxnsDSEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1571,6 +1838,16 @@ curl -d '{
 ```javascript
 const minimumGasPrice = await zilliqa.blockchain.getMinimumGasPrice();
 console.log(minimumGasPrice);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> minimumGasPrice = client.getMinimumGasPrice();
+        System.out.println(new Gson().toJson(minimumGasPrice));
+    }
+}
 ```
 
 > **Example response:**
@@ -1623,6 +1900,16 @@ const smartContractCode = await zilliqa.blockchain.getSmartContractCode("fe00182
 console.log(smartContractCode);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<HttpProvider.ContractResult> smartContractCode = client.getSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        System.out.println(new Gson().toJson(smartContractCode));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1670,6 +1957,16 @@ curl -d '{
 ```javascript
 const smartContractInit = await zilliqa.blockchain.getSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
 console.log(smartContractInit);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<Contract.State>> smartContractInit = client.getSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        System.out.println(new Gson().toJson(smartContractInit));
+    }
+}
 ```
 
 > **Example response:**
@@ -1740,6 +2037,16 @@ const smartContractState = await zilliqa.blockchain.getSmartContractState("fe001
 console.log(smartContractState);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<Contract.State>> smartContractState = client.getSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        System.out.println(new Gson().toJson(smartContractState));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1796,6 +2103,16 @@ curl -d '{
 ```javascript
 const smartContracts = await zilliqa.blockchain.getSmartContracts("1eefc4f453539e5ee732b49eb4792b268c2f3908");
 console.log(smartContracts);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<Contract>> smartContracts = client.getSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        System.out.println(new Gson().toJson(smartContracts));
+    }
+}
 ```
 
 > **Example response:**
@@ -1876,6 +2193,16 @@ const contractAddress = await zilliqa.blockchain.getContractAddressFromTransacti
 console.log(contractAddress.result);
 ```
 
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> contractAddress = client.getContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E");
+        System.out.println(new Gson().toJson(contractAddress));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1924,6 +2251,16 @@ curl -d '{
 ```javascript
 const balance = await zilliqa.blockchain.getBalance('1eefc4f453539e5ee732b49eb4792b268c2f3908');
 console.log(balance);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<HttpProvider.BalanceResult> balance = client.getBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908");
+        System.out.println(new Gson().toJson(balance));
+    }
+}
 ```
 
 > **Example response:**

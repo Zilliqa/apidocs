@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,6 +213,7 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="javascript">node.js</a>
+              <a href="#" data-language-name="java">java</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -341,6 +342,7 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a></li>
+            <li><a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a></li>
             <li><a href='http://scilla.readthedocs.io/'>Scilla Documentation</a></li>
         </ul>
     </div>
@@ -410,6 +412,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">NetworkId</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">network</span><span class="p">.</span><span class="nx">GetNetworkId</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">NetworkId</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">networkId</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNetworkId</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">networkId</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -505,6 +514,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">blockChainInfo</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getBlockChainInfo</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">blockChainInfo</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">BlockchainInfo</span><span class="o">&gt;</span> <span class="n">blockchainInfo</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getBlockchainInfo</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">blockchainInfo</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -601,6 +617,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">shardingStructure</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getShardingStructure</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">shardingStructure</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">ShardingStructure</span><span class="o">&gt;</span> <span class="n">shardingStructure</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getShardingStructure</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">shardingStructure</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -680,6 +703,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlock</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">DsBlock</span><span class="o">&gt;</span> <span class="n">dsBlock</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getDsBlock</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">dsBlock</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -772,6 +802,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getLatestDSBlock</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">DsBlock</span><span class="o">&gt;</span> <span class="n">dsBlock</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getLatestDsBlock</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">dsBlock</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -864,6 +901,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numDsBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumDSBlocks</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numDsBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numDSBlocks</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNumDSBlocks</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">numDSBlocks</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -941,6 +985,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlockRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlockRate</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlockRate</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">dsBlockRate</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getDSBlockRate</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">dsBlockRate</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1018,6 +1069,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">dsBlockListing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getDSBlockListing</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dsBlockListing</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">BlockList</span><span class="o">&gt;</span> <span class="n">blockListing</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getDSBlockListing</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">blockListing</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1139,6 +1197,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlock</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">TxBlock</span><span class="o">&gt;</span> <span class="n">txBlock</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTxBlock</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">txBlock</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1259,6 +1324,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getLatestTxBlock</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">TxBlock</span><span class="o">&gt;</span> <span class="n">txBlock</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getLatestTxBlock</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">txBlock</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1379,6 +1451,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxBlock</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxBlocks</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxBlock</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numTxBlocks</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNumTxBlocks</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">numTxBlocks</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1456,6 +1535,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlockRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlockRate</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlockRate</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">txBlockRate</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTxBlockRate</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">txBlockRate</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1533,6 +1619,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txBlockListing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTxBlockListing</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txBlockListing</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">BlockList</span><span class="o">&gt;</span> <span class="n">blockListing</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTxBlockListing</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">blockListing</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1654,6 +1747,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTransactions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTransactions</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTransactions</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numTransactions</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNumTransactions</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">numTransactions</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1731,6 +1831,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transactionRate</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransactionRate</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">transactionRate</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">transactionRate</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTransactionRate</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">transactionRate</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1808,6 +1915,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">currentMiniEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getCurrentMiniEpoch</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">currentMiniEpoch</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">currentMiniEpoch</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getCurrentMiniEpoch</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">currentMiniEpoch</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1885,6 +1999,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">currentDSEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getCurrentDSEpoch</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">currentDSEpoch</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">currentDSEpoch</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getCurrentDSEpoch</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">currentDSEpoch</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -1962,6 +2083,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">prevDifficulty</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getPrevDifficulty</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prevDifficulty</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">prevDifficulty</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getPrevDifficulty</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">prevDifficulty</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2039,6 +2167,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">prevDSDifficulty</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getPrevDSDifficulty</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prevDSDifficulty</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">prevDSDifficulty</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getPrevDSDifficulty</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">prevDSDifficulty</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2137,6 +2272,29 @@ The JSON-RPC API server runs on:</p>
 <span class="c1">// Send a transaction to the network</span>
 <span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">createTransaction</span><span class="p">(</span><span class="nx">tx</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">Wallet</span> <span class="n">wallet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Wallet</span><span class="o">();</span>
+        <span class="n">wallet</span><span class="o">.</span><span class="na">setProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://dev-api.zilliqa.com"</span><span class="o">));</span>
+        <span class="n">wallet</span><span class="o">.</span><span class="na">addByPrivateKey</span><span class="o">(</span><span class="s">"e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930"</span><span class="o">);</span>
+        <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">Transaction</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">version</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">pack</span><span class="o">(</span><span class="mi">333</span><span class="o">,</span> <span class="mi">8</span><span class="o">)))</span>
+                <span class="o">.</span><span class="na">toAddr</span><span class="o">(</span><span class="s">"4baf5fada8e5db92c3d3242618c5b47133ae003c"</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">senderPubKey</span><span class="o">(</span><span class="s">"0246e7178dc8253201101e18fd6f6eb9972451d121fc57aa2a06dd5c111e58dc6a"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">amount</span><span class="o">(</span><span class="s">"10000"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">gasPrice</span><span class="o">(</span><span class="s">"1000000000"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">gasLimit</span><span class="o">(</span><span class="s">"1"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">provider</span><span class="o">(</span><span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">transaction</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
+
+        <span class="c1">// Send a transaction to the network</span>
+        <span class="n">HttpProvider</span><span class="o">.</span><span class="na">CreateTxResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">TransactionFactory</span><span class="o">.</span><span class="na">createTransaction</span><span class="o">(</span><span class="n">transaction</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2293,6 +2451,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txn</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransaction</span><span class="p">(</span><span class="s2">"655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txn</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">Transaction</span><span class="o">&gt;</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">(</span><span class="s">"8006379570367a4ff5f3cb596edfa9025ba2745dd0dbf5a0043382b7f2badcec"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">transaction</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2385,6 +2550,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">recentTransactions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getRecentTransactions</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">recentTransactions</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">TransactionList</span><span class="o">&gt;</span> <span class="n">transactionList</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getRecentTransactions</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">transactionList</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2486,6 +2658,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">txns</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getTransactionsForTxBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txns</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;&gt;</span> <span class="n">transactionList</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTransactionsForTxBlock</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">transactionList</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2592,6 +2771,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxnsTxEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxnsTxEpoch</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxnsTxEpoch</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numTxnsTxEpoch</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNumTxnsTxEpoch</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">numTxnsTxEpoch</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2669,6 +2855,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">numTxnsDSEpoch</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getNumTxnsDSEpoch</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numTxnsDSEpoch</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numTxnsDSEpoch</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getNumTxnsDSEpoch</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">numTxnsDSEpoch</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2746,6 +2939,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">minimumGasPrice</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getMinimumGasPrice</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minimumGasPrice</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">minimumGasPrice</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getMinimumGasPrice</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">minimumGasPrice</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2824,6 +3024,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractCode</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractCode</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractCode</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">HttpProvider</span><span class="o">.</span><span class="na">ContractResult</span><span class="o">&gt;</span> <span class="n">smartContractCode</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractCode</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">smartContractCode</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -2903,6 +3110,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractInit</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractInit</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractInit</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contract</span><span class="o">.</span><span class="na">State</span><span class="o">&gt;&gt;</span> <span class="n">smartContractInit</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractInit</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">smartContractInit</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3001,6 +3215,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractState</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractState</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contract</span><span class="o">.</span><span class="na">State</span><span class="o">&gt;&gt;</span> <span class="n">smartContractState</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractState</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">smartContractState</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3089,6 +3310,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContracts</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContracts</span><span class="p">(</span><span class="s2">"1eefc4f453539e5ee732b49eb4792b268c2f3908"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContracts</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contract</span><span class="o">&gt;&gt;</span> <span class="n">smartContracts</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContracts</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">smartContracts</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3197,6 +3425,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">contractAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getContractAddressFromTransactionID</span><span class="p">(</span><span class="s2">"AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">contractAddress</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">contractAddress</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContractAddressFromTransactionID</span><span class="o">(</span><span class="s">"AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">contractAddress</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3275,6 +3510,13 @@ The JSON-RPC API server runs on:</p>
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="s1">'1eefc4f453539e5ee732b49eb4792b268c2f3908'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">balance</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">HttpProvider</span><span class="o">.</span><span class="na">BalanceResult</span><span class="o">&gt;</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getBalance</span><span class="o">(</span><span class="s">"1eefc4f453539e5ee732b49eb4792b268c2f3908"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">balance</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
@@ -3352,6 +3594,7 @@ The JSON-RPC API server runs on:</p>
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">cURL</a>
                 <a href="#" data-language-name="javascript">node.js</a>
+                <a href="#" data-language-name="java">java</a>
           </div>
       </div>
     </div>

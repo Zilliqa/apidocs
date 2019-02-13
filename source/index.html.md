@@ -8,6 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
+  - <a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a>
   - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
 
 includes:

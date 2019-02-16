@@ -1376,7 +1376,7 @@ curl -d '{
       "gasLimit": "1",
       "code": "",
       "data": "",
-      "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d"
+      "signature": "29ad673848dcd7f5168f205f7a9fcd1e8109408e6c4d7d03e4e869317b9067e636b216a32314dd37176c35d51f9d4c24e0e519ba80e66206457c83c9029a490d",
       "priority": false
     }]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"

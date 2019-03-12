@@ -5,6 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
   - javascript: node.js
   - java: java
+  - ruby: ruby
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
@@ -66,6 +67,13 @@ public class App {
         System.out.println(new Gson().toJson(networkId));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNetworkId
+puts ret
 ```
 
 > **Example response:**
@@ -130,6 +138,13 @@ public class App {
         System.out.println(new Gson().toJson(blockchainInfo));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetBlockchainInfo
+puts ret
 ```
 
 > **Example response:**
@@ -208,6 +223,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetShardingStructure
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -265,6 +287,13 @@ public class App {
         System.out.println(new Gson().toJson(dsBlock));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetDsBlock(1)
+puts ret
 ```
 
 > **Example response:**
@@ -339,6 +368,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetLatestDsBlock
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -411,6 +447,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNumDSBlocks
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -468,6 +511,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetDSBlockRate
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -523,6 +573,13 @@ public class App {
         System.out.println(new Gson().toJson(blockListing));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetDSBlockListing
+puts ret
 ```
 
 > **Example response:**
@@ -626,6 +683,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTxBlock("1")
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -724,6 +788,13 @@ public class App {
         System.out.println(new Gson().toJson(txBlock));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetLatestTxBlock
+puts ret
 ```
 
 > **Example response:**
@@ -826,6 +897,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNumTxBlocks
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -883,6 +961,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTxBlockRate
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -938,6 +1023,13 @@ public class App {
         System.out.println(new Gson().toJson(blockListing));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTxBlockListing(1)
+puts ret
 ```
 
 > **Example response:**
@@ -1041,6 +1133,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNumTransactions
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1096,6 +1195,13 @@ public class App {
         System.out.println(new Gson().toJson(transactionRate));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTransactionRate
+puts ret
 ```
 
 > **Example response:**
@@ -1155,6 +1261,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetCurrentMiniEpoch
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1210,6 +1323,13 @@ public class App {
         System.out.println(new Gson().toJson(currentDSEpoch));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetCurrentDSEpoch
+puts ret
 ```
 
 > **Example response:**
@@ -1269,6 +1389,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetPrevDifficulty
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1324,6 +1451,13 @@ public class App {
         System.out.println(new Gson().toJson(prevDSDifficulty));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetPrevDSDifficulty
+puts ret
 ```
 
 > **Example response:**
@@ -1422,6 +1556,22 @@ public class App {
 }
 ```
 
+```ruby
+payload = {
+    version: 65537,
+    toAddr: '4baf5fada8e5db92c3d3242618c5b47133ae003c',
+    amount: '10000',
+    gasPrice: '1000000000',
+    gasLimit: 1,
+})
+
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.CreateTransaction(payload)
+puts ret
+```
+
+
 > **Example response:**
 
 ```json
@@ -1498,6 +1648,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTransaction("8006379570367a4ff5f3cb596edfa9025ba2745dd0dbf5a0043382b7f2badcec")
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1568,6 +1725,13 @@ public class App {
         System.out.println(new Gson().toJson(transactionList));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetRecentTransactions
+puts ret
 ```
 
 > **Example response:**
@@ -1649,6 +1813,13 @@ public class App {
         System.out.println(new Gson().toJson(transactionList));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTransactionsForTxBlock("2")
+puts ret
 ```
 
 > **Example response:**
@@ -1737,6 +1908,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNumTxnsTxEpoch
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1794,6 +1972,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetNumTxnsDSEpoch
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1849,6 +2034,13 @@ public class App {
         System.out.println(new Gson().toJson(minimumGasPrice));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetMinimumGasPrice
+puts ret
 ```
 
 > **Example response:**
@@ -1911,6 +2103,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -1968,6 +2167,13 @@ public class App {
         System.out.println(new Gson().toJson(smartContractInit));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+puts ret
 ```
 
 > **Example response:**
@@ -2048,6 +2254,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -2114,6 +2327,13 @@ public class App {
         System.out.println(new Gson().toJson(smartContracts));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+puts ret
 ```
 
 > **Example response:**
@@ -2204,6 +2424,13 @@ public class App {
 }
 ```
 
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E")
+puts ret
+```
+
 > **Example response:**
 
 ```json
@@ -2262,6 +2489,13 @@ public class App {
         System.out.println(new Gson().toJson(balance));
     }
 }
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908")
+puts ret
 ```
 
 > **Example response:**

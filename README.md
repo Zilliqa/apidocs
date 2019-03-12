@@ -12,6 +12,7 @@ Zilliqa apidocs contains the documentation of all JSON-RPC methods used to inter
 * cURL
 * JavaScript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
 * Java via [`laksa-j`](https://github.com/FireStack-Lab/LaksaJ)
+* Ruby via [`laksa-ruby`](https://github.com/FireStack-Lab/LaksaRuby)
 
 ## Contributing to Zilliqa apidocs
 

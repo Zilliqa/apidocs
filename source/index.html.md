@@ -128,7 +128,7 @@ curl -d '{
 
 ```javascript
 const blockChainInfo = await zilliqa.blockchain.getBlockChainInfo();
-console.log(blockChainInfo);
+console.log(blockChainInfo.result);
 ```
 
 ```java
@@ -196,72 +196,6 @@ Parameter | Type | Required | Description
 `method` | string | Required | `"GetBlockchainInfo"`
 `params` | string | Required | Empty string `""`
 
-## GetShardingStructure
-
-> **Example request:**
-
-```shell
-curl -d '{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "method": "GetShardingStructure",
-    "params": [""]
-}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
-```
-
-```javascript
-const shardingStructure = await zilliqa.blockchain.getShardingStructure();
-console.log(shardingStructure);
-```
-
-```java
-public class App {
-    public static void main(String[] args) throws IOException {
-        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
-        Rep<ShardingStructure> shardingStructure = client.getShardingStructure();
-        System.out.println(new Gson().toJson(shardingStructure));
-    }
-}
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetShardingStructure
-puts ret
-```
-
-> **Example response:**
-
-```json
-{
-    "id":"1",
-    "jsonrpc":"2.0",
-    "result":{
-        "NumPeers":[10,10,10]
-    }
-}
-```
-
-Returns the current network sharding structure and the number of peers within each shard for the specified network.
-
-### HTTP REQUEST
-
-Chain(s) | URL(s) |
--------- | ------ |
-**Zilliqa Mainnet** | https://api.zilliqa.com/ |
-**Developer testnet** | https://dev-api.zilliqa.com/ |
-**Local testnet** | http://localhost:4201/ |
-
-### ARGUMENTS
-
-Parameter | Type | Required | Description
---------- | ---- | -------- | -----------
-`id` | string | Required | `"1"`
-`jsonrpc` | string | Required | `"2.0"`
-`method` | string | Required | `"GetShardingStructure"`
-`params` | string | Required | Empty string `""`
-
 ## GetDsBlock
 
 > **Example request:**
@@ -276,8 +210,8 @@ curl -d '{
 ```
 
 ```javascript
-const dsBlock = await zilliqa.blockchain.getDSBlock(1);
-console.log(dsBlock);
+const dsBlock = await zilliqa.blockchain.getDSBlock("1");
+console.log(dsBlock.result);
 ```
 
 ```java
@@ -293,7 +227,7 @@ public class App {
 ```ruby
 provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
-ret = provider.GetDsBlock(1)
+ret = provider.GetDsBlock("1")
 puts ret
 ```
 
@@ -356,7 +290,7 @@ curl -d '{
 
 ```javascript
 const dsBlock = await zilliqa.blockchain.getLatestDSBlock();
-console.log(dsBlock);
+console.log(dsBlock.result);
 ```
 
 ```java
@@ -435,7 +369,7 @@ curl -d '{
 
 ```javascript
 const numDsBlock = await zilliqa.blockchain.getNumDSBlocks();
-console.log(numDsBlock);
+console.log(numDsBlock.result);
 ```
 
 ```java
@@ -499,7 +433,7 @@ curl -d '{
 
 ```javascript
 const dsBlockRate = await zilliqa.blockchain.getDSBlockRate();
-console.log(dsBlockRate);
+console.log(dsBlockRate.result);
 ```
 
 ```java
@@ -562,15 +496,15 @@ curl -d '{
 ```
 
 ```javascript
-const dsBlockListing = await zilliqa.blockchain.getDSBlockListing();
-console.log(dsBlockListing);
+const dsBlockListing = await zilliqa.blockchain.getDSBlockListing(1);
+console.log(dsBlockListing.result);
 ```
 
 ```java
 public class App {
     public static void main(String[] args) throws IOException {
         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
-        Rep<BlockList> blockListing = client.getDSBlockListing();
+        Rep<BlockList> blockListing = client.getDSBlockListing(1);
         System.out.println(new Gson().toJson(blockListing));
     }
 }
@@ -579,7 +513,7 @@ public class App {
 ```ruby
 provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
-ret = provider.GetDSBlockListing
+ret = provider.GetDSBlockListing(1)
 puts ret
 ```
 
@@ -670,15 +604,15 @@ curl -d '{
 ```
 
 ```javascript
-const txBlock = await zilliqa.blockchain.getTxBlock(1);
-console.log(txBlock);
+const txBlock = await zilliqa.blockchain.getTxBlock("40");
+console.log(txBlock.result);
 ```
 
 ```java
 public class App {
     public static void main(String[] args) throws IOException {
         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
-        Rep<TxBlock> txBlock = client.getTxBlock("1");
+        Rep<TxBlock> txBlock = client.getTxBlock("40");
         System.out.println(new Gson().toJson(txBlock));
     }
 }
@@ -687,7 +621,7 @@ public class App {
 ```ruby
 provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
-ret = provider.GetTxBlock("1")
+ret = provider.GetTxBlock("40")
 puts ret
 ```
 
@@ -778,7 +712,7 @@ curl -d '{
 
 ```javascript
 const txBlock = await zilliqa.blockchain.getLatestTxBlock();
-console.log(txBlock);
+console.log(txBlock.result);
 ```
 
 ```java
@@ -885,7 +819,7 @@ curl -d '{
 
 ```javascript
 const numTxBlock = await zilliqa.blockchain.getNumTxBlocks();
-console.log(numTxBlock);
+console.log(numTxBlock.result);
 ```
 
 ```java
@@ -949,7 +883,7 @@ curl -d '{
 
 ```javascript
 const txBlockRate = await zilliqa.blockchain.getTxBlockRate();
-console.log(txBlockRate);
+console.log(txBlockRate.result);
 ```
 
 ```java
@@ -1013,7 +947,7 @@ curl -d '{
 
 ```javascript
 const txBlockListing = await zilliqa.blockchain.getTxBlockListing(1);
-console.log(txBlockListing);
+console.log(txBlockListing.result);
 ```
 
 ```java
@@ -1121,7 +1055,7 @@ curl -d '{
 
 ```javascript
 const numTransactions = await zilliqa.blockchain.getNumTransactions();
-console.log(numTransactions);
+console.log(numTransactions.result);
 ```
 
 ```java
@@ -1185,7 +1119,7 @@ curl -d '{
 
 ```javascript
 const transactionRate = await zilliqa.blockchain.getTransactionRate();
-console.log(transactionRate);
+console.log(transactionRate.result);
 ```
 
 ```java
@@ -1249,7 +1183,7 @@ curl -d '{
 
 ```javascript
 const currentMiniEpoch = await zilliqa.blockchain.getCurrentMiniEpoch();
-console.log(currentMiniEpoch);
+console.log(currentMiniEpoch.result);
 ```
 
 ```java
@@ -1313,7 +1247,7 @@ curl -d '{
 
 ```javascript
 const currentDSEpoch = await zilliqa.blockchain.getCurrentDSEpoch();
-console.log(currentDSEpoch);
+console.log(currentDSEpoch.result);
 ```
 
 ```java
@@ -1377,7 +1311,7 @@ curl -d '{
 
 ```javascript
 const prevDifficulty = await zilliqa.blockchain.getPrevDifficulty();
-console.log(prevDifficulty);
+console.log(prevDifficulty.result);
 ```
 
 ```java
@@ -1441,7 +1375,7 @@ curl -d '{
 
 ```javascript
 const prevDSDifficulty = await zilliqa.blockchain.getPrevDSDifficulty();
-console.log(prevDSDifficulty);
+console.log(prevDSDifficulty.result);
 ```
 
 ```java
@@ -1538,10 +1472,10 @@ public class App {
         wallet.setProvider(new HttpProvider("https://dev-api.zilliqa.com"));
         wallet.addByPrivateKey("e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930");
         Transaction transaction = Transaction.builder()
-                .version(String.valueOf(pack(333, 8)))
+                .version(String.valueOf(pack(1, 8)))
                 .toAddr("4baf5fada8e5db92c3d3242618c5b47133ae003c".toLowerCase())
                 .senderPubKey("0246e7178dc8253201101e18fd6f6eb9972451d121fc57aa2a06dd5c111e58dc6a")
-                .amount("10000")
+                .amount("1000000000000")
                 .gasPrice("1000000000")
                 .gasLimit("1")
                 .code("")
@@ -1561,7 +1495,7 @@ public class App {
 payload = {
     version: 65537,
     toAddr: '4baf5fada8e5db92c3d3242618c5b47133ae003c',
-    amount: '10000',
+    amount: '1000000000000',
     gasPrice: '1000000000',
     gasLimit: 1,
 })
@@ -1571,7 +1505,6 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 ret = provider.CreateTransaction(payload)
 puts ret
 ```
-
 
 > **Example response:**
 
@@ -1636,14 +1569,14 @@ curl -d '{
 
 ```javascript
 const txn = await zilliqa.blockchain.getTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
-console.log(txn);
+console.log(txn.result);
 ```
 
 ```java
 public class App {
     public static void main(String[] args) throws IOException {
         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
-        Rep<Transaction> transaction = client.getTransaction("8006379570367a4ff5f3cb596edfa9025ba2745dd0dbf5a0043382b7f2badcec");
+        Rep<Transaction> transaction = client.getTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
         System.out.println(new Gson().toJson(transaction));
     }
 }
@@ -1652,7 +1585,7 @@ public class App {
 ```ruby
 provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
-ret = provider.GetTransaction("8006379570367a4ff5f3cb596edfa9025ba2745dd0dbf5a0043382b7f2badcec")
+ret = provider.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2")
 puts ret
 ```
 
@@ -1715,7 +1648,7 @@ curl -d '{
 
 ```javascript
 const recentTransactions = await zilliqa.blockchain.getRecentTransactions();
-console.log(recentTransactions);
+console.log(recentTransactions.result);
 ```
 
 ```java
@@ -1802,8 +1735,8 @@ curl -d '{
 ```
 
 ```javascript
-const txns = await zilliqa.blockchain.getTransactionsForTxBlock(2);
-console.log(txns);
+const txns = await zilliqa.blockchain.getTransactionsForTxBlock("2");
+console.log(txns.result);
 ```
 
 ```java
@@ -1896,7 +1829,7 @@ curl -d '{
 
 ```javascript
 const numTxnsTxEpoch = await zilliqa.blockchain.getNumTxnsTxEpoch();
-console.log(numTxnsTxEpoch);
+console.log(numTxnsTxEpoch.result);
 ```
 
 ```java
@@ -1960,7 +1893,7 @@ curl -d '{
 
 ```javascript
 const numTxnsDSEpoch = await zilliqa.blockchain.getNumTxnsDSEpoch();
-console.log(numTxnsDSEpoch);
+console.log(numTxnsDSEpoch.result);
 ```
 
 ```java
@@ -2024,7 +1957,7 @@ curl -d '{
 
 ```javascript
 const minimumGasPrice = await zilliqa.blockchain.getMinimumGasPrice();
-console.log(minimumGasPrice);
+console.log(minimumGasPrice.result);
 ```
 
 ```java
@@ -2091,7 +2024,7 @@ curl -d '{
 
 ```javascript
 const smartContractCode = await zilliqa.blockchain.getSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
-console.log(smartContractCode);
+console.log(smartContractCode.result);
 ```
 
 ```java
@@ -2157,7 +2090,7 @@ curl -d '{
 
 ```javascript
 const smartContractInit = await zilliqa.blockchain.getSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
-console.log(smartContractInit);
+console.log(smartContractInit.result);
 ```
 
 ```java
@@ -2242,7 +2175,7 @@ curl -d '{
 
 ```javascript
 const smartContractState = await zilliqa.blockchain.getSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
-console.log(smartContractState);
+console.log(smartContractState.result);
 ```
 
 ```java
@@ -2317,7 +2250,7 @@ curl -d '{
 
 ```javascript
 const smartContracts = await zilliqa.blockchain.getSmartContracts("1eefc4f453539e5ee732b49eb4792b268c2f3908");
-console.log(smartContracts);
+console.log(smartContracts.result);
 ```
 
 ```java
@@ -2479,7 +2412,7 @@ curl -d '{
 
 ```javascript
 const balance = await zilliqa.blockchain.getBalance('1eefc4f453539e5ee732b49eb4792b268c2f3908');
-console.log(balance);
+console.log(balance.result);
 ```
 
 ```java

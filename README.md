@@ -9,10 +9,10 @@
 
 Zilliqa apidocs contains the documentation of all JSON-RPC methods used to interact with Zilliqa nodes in order to transact and deploy/call contracts. You may currently find support for:
 
-* cURL
-* JavaScript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
-* Java via [`laksa-j`](https://github.com/FireStack-Lab/LaksaJ)
-* Ruby via [`laksa-ruby`](https://github.com/FireStack-Lab/LaksaRuby)
+- cURL
+- JavaScript via [`zilliqa-js`](https://github.com/Zilliqa/Zilliqa-JavaScript-Library)
+- Java via [`laksa-j`](https://github.com/FireStack-Lab/LaksaJ)
+- Ruby via [`laksa-ruby`](https://github.com/FireStack-Lab/LaksaRuby)
 
 ## Contributing to Zilliqa apidocs
 
@@ -20,32 +20,32 @@ Zilliqa apidocs contains the documentation of all JSON-RPC methods used to inter
 
 You're going to need the following to contribute:
 
-* **Linux or macOS** — Windows may work, but is unsupported.
-* **Ruby, version 2.3.1 or newer**
-* **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+- **Linux or macOS** — Windows may work, but is unsupported.
+- **Ruby, version 2.3.1 or newer**
+- **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
 ### Running apidocs locally
 
 1. Fork this repository on GitHub.
-2. Clone *your forked repository* (not our original one) to your hard drive with
-    ```shell
-    git clone https://github.com/Zilliqa/apidocs.git && cd apidocs
-    ```
+2. Clone _your forked repository_ (not our original one) to your hard drive with
+   ```shell
+   git clone https://github.com/Zilliqa/apidocs.git && cd apidocs
+   ```
 3. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
-    ```shell
-    # either run this to run locally
-    bundle install
-    bundle exec middleman server
+   ```shell
+   # either run this to run locally
+   bundle install
+   bundle exec middleman server
 
-    # OR run this to run with vagrant
-    vagrant up
-    ```
+   # OR run this to run with vagrant
+   vagrant up
+   ```
 
 You can now see the docs at http://localhost:4567.
 
 ### Contributing guidelines
 
-* Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
-* Please adhere to the [**Code of Conduct**](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
-* Please utilise the [**PR template**](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this repository.
+- Learn more about editing Slate markdown [**HERE**](https://github.com/lord/slate/wiki/Markdown-Syntax).
+- Please adhere to the [**Code of Conduct**](./CODE_OF_CONDUCT.md) when participating in the Zilliqa community.
+- Please utilise the [**PR template**](./.github/PULL_REQUEST_TEMPLATE.md) when submitting Pull Requests to this repository.

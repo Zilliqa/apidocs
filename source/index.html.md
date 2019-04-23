@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript: node.js
   - java: java
   - ruby: ruby
+  - python: python
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
@@ -77,6 +78,24 @@ ret = provider.GetNetworkId
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+from pyzil.zilliqa.api import ZilliqaAPI
+
+chain.set_active_chain(chain.MainNet)  
+network_id = chain.active_chain.api.GetNetworkId()
+print(network_id)
+
+chain.set_active_chain(chain.TestNet)  
+network_id = chain.active_chain.api.GetNetworkId()
+print(network_id)
+
+new_api = ZilliqaAPI(endpoint="https://api.zilliqa.com")
+network_id = new_api.GetNetworkId()
+print(network_id)
+
+```
+
 > **Example response:**
 
 ```json
@@ -146,6 +165,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetBlockchainInfo
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetBlockchainInfo())
 ```
 
 > **Example response:**
@@ -227,6 +252,12 @@ ret = provider.GetDsBlock("1")
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetDsBlock("1"))
+```
+
 > **Example response:**
 
 ```json
@@ -304,6 +335,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetLatestDsBlock
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetLatestDsBlock())
 ```
 
 > **Example response:**
@@ -385,6 +422,12 @@ ret = provider.GetNumDSBlocks
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetNumDSBlocks())
+```
+
 > **Example response:**
 
 ```json
@@ -449,6 +492,12 @@ ret = provider.GetDSBlockRate
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetDSBlockRate())
+```
+
 > **Example response:**
 
 ```json
@@ -511,6 +560,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetDSBlockListing(1)
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetDSBlockListing(1))
 ```
 
 > **Example response:**
@@ -621,6 +676,12 @@ ret = provider.GetTxBlock("40")
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTxBlock("40"))
+```
+
 > **Example response:**
 
 ```json
@@ -726,6 +787,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetLatestTxBlock
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetLatestTxBlock())
 ```
 
 > **Example response:**
@@ -835,6 +902,12 @@ ret = provider.GetNumTxBlocks
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetNumTxBlocks())
+```
+
 > **Example response:**
 
 ```json
@@ -899,6 +972,12 @@ ret = provider.GetTxBlockRate
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTxBlockRate())
+```
+
 > **Example response:**
 
 ```json
@@ -961,6 +1040,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetTxBlockListing(1)
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTxBlockListing(1))
 ```
 
 > **Example response:**
@@ -1071,6 +1156,12 @@ ret = provider.GetNumTransactions
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetNumTransactions())
+```
+
 > **Example response:**
 
 ```json
@@ -1133,6 +1224,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetTransactionRate
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTransactionRate())
 ```
 
 > **Example response:**
@@ -1199,6 +1296,12 @@ ret = provider.GetCurrentMiniEpoch
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetCurrentMiniEpoch())
+```
+
 > **Example response:**
 
 ```json
@@ -1261,6 +1364,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetCurrentDSEpoch
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetCurrentDSEpoch())
 ```
 
 > **Example response:**
@@ -1327,6 +1436,12 @@ ret = provider.GetPrevDifficulty
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetPrevDifficulty())
+```
+
 > **Example response:**
 
 ```json
@@ -1389,6 +1504,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetPrevDSDifficulty
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetPrevDSDifficulty())
 ```
 
 > **Example response:**
@@ -1502,6 +1623,28 @@ ret = provider.CreateTransaction(payload)
 puts ret
 ```
 
+```python
+from pyzil.crypto import zilkey
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet) 
+
+my_key = zilkey.ZilKey(private_key="0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930")
+
+payload = {
+    "to_addr": "4baf5fada8e5db92c3d3242618c5b47133ae003c",
+    "amount": "1000000000000",
+    "gas_price": "1000000000",
+    "gas_limit": 1,
+    "code": "",
+    "data": "",
+    "priority": False,
+}
+
+params = active_chain.build_transaction_params(my_key, **payload)
+txn_info = active_chain.api.CreateTransaction(params)
+print(txn_info)
+```
+
 > **Example response:**
 
 ```json
@@ -1587,6 +1730,12 @@ ret = provider.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f3
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"))
+```
+
 > **Example response:**
 
 ```json
@@ -1664,6 +1813,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetRecentTransactions
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetRecentTransactions())
 ```
 
 > **Example response:**
@@ -1752,6 +1907,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetTransactionsForTxBlock("2")
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetTransactionsForTxBlock("2"))
 ```
 
 > **Example response:**
@@ -1847,6 +2008,12 @@ ret = provider.GetNumTxnsTxEpoch
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetNumTxnsTxEpoch())
+```
+
 > **Example response:**
 
 ```json
@@ -1911,6 +2078,12 @@ ret = provider.GetNumTxnsDSEpoch
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetNumTxnsDSEpoch())
+```
+
 > **Example response:**
 
 ```json
@@ -1973,6 +2146,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetMinimumGasPrice
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetMinimumGasPrice())
 ```
 
 > **Example response:**
@@ -2044,6 +2223,12 @@ ret = provider.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
+```
+
 > **Example response:**
 
 ```json
@@ -2110,6 +2295,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
 > **Example response:**
@@ -2199,6 +2390,12 @@ ret = provider.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
+```
+
 > **Example response:**
 
 ```json
@@ -2274,6 +2471,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
 > **Example response:**
@@ -2373,6 +2576,14 @@ ret = provider.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6
 puts ret
 ```
 
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetContractAddressFromTransactionID(
+     "AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"
+))
+```
+
 > **Example response:**
 
 ```json
@@ -2440,6 +2651,12 @@ provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
 
 ret = provider.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908")
 puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)  
+print(chain.active_chain.api.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908"))
 ```
 
 > **Example response:**

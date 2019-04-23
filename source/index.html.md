@@ -12,6 +12,7 @@ toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
   - <a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a>
   - <a href='https://github.com/FireStack-Lab/LaksaRuby'>Ruby SDK</a>
+  - <a href='https://github.com/deepgully/pyzil'>Python SDK</a>
   - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
 
 includes:
@@ -82,14 +83,13 @@ puts ret
 from pyzil.zilliqa import chain
 from pyzil.zilliqa.api import ZilliqaAPI
 
-chain.set_active_chain(chain.MainNet)  
+
+# EITHER
+chain.set_active_chain(chain.MainNet)
 network_id = chain.active_chain.api.GetNetworkId()
 print(network_id)
 
-chain.set_active_chain(chain.TestNet)  
-network_id = chain.active_chain.api.GetNetworkId()
-print(network_id)
-
+# OR
 new_api = ZilliqaAPI(endpoint="https://api.zilliqa.com")
 network_id = new_api.GetNetworkId()
 print(network_id)
@@ -169,7 +169,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBlockchainInfo())
 ```
 
@@ -254,7 +254,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDsBlock("1"))
 ```
 
@@ -339,7 +339,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestDsBlock())
 ```
 
@@ -424,7 +424,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumDSBlocks())
 ```
 
@@ -494,7 +494,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockRate())
 ```
 
@@ -564,7 +564,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockListing(1))
 ```
 
@@ -678,7 +678,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlock("40"))
 ```
 
@@ -791,7 +791,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestTxBlock())
 ```
 
@@ -904,7 +904,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxBlocks())
 ```
 
@@ -974,7 +974,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockRate())
 ```
 
@@ -1044,7 +1044,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockListing(1))
 ```
 
@@ -1158,7 +1158,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTransactions())
 ```
 
@@ -1228,7 +1228,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionRate())
 ```
 
@@ -1298,7 +1298,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentMiniEpoch())
 ```
 
@@ -1368,7 +1368,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentDSEpoch())
 ```
 
@@ -1438,7 +1438,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDifficulty())
 ```
 
@@ -1508,7 +1508,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDSDifficulty())
 ```
 
@@ -1626,7 +1626,7 @@ puts ret
 ```python
 from pyzil.crypto import zilkey
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet) 
+chain.set_active_chain(chain.MainNet)
 
 my_key = zilkey.ZilKey(private_key="0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930")
 
@@ -1732,7 +1732,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"))
 ```
 
@@ -1817,7 +1817,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetRecentTransactions())
 ```
 
@@ -1911,7 +1911,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionsForTxBlock("2"))
 ```
 
@@ -2010,7 +2010,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsTxEpoch())
 ```
 
@@ -2080,7 +2080,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsDSEpoch())
 ```
 
@@ -2150,7 +2150,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetMinimumGasPrice())
 ```
 
@@ -2225,7 +2225,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
@@ -2299,7 +2299,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
@@ -2392,7 +2392,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
@@ -2475,7 +2475,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
@@ -2578,7 +2578,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetContractAddressFromTransactionID(
      "AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E"
 ))
@@ -2655,7 +2655,7 @@ puts ret
 
 ```python
 from pyzil.zilliqa import chain
-chain.set_active_chain(chain.MainNet)  
+chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908"))
 ```
 

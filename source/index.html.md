@@ -98,18 +98,18 @@ print(network_id)
 
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<string> networkId = client.GetNetworkId();
->         Console.WriteLine(JsonConvert.SerializeObject(networkId));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<string> networkId = client.GetNetworkId();
+        Console.WriteLine(JsonConvert.SerializeObject(networkId));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -187,18 +187,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBlockchainInfo())
 ```
 
-> ```C#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<BlockchainInfo> blockchainInfo = client.GetBlockchainInfo();
->         Console.WriteLine(JsonConvert.SerializeObject(blockchainInfo));
->     }
-> }
-> ```
->
+```C#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockchainInfo> blockchainInfo = client.GetBlockchainInfo();
+        Console.WriteLine(JsonConvert.SerializeObject(blockchainInfo));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -284,18 +284,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDsBlock("1"))
 ```
 
-> ```C#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<DsBlock> dsBlock = client.GetDsBlock("1");
->         Console.WriteLine(JsonConvert.SerializeObject(dsBlock));
->     }
-> }
-> ```
->
+```C#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<DsBlock> dsBlock = client.GetDsBlock("1");
+        Console.WriteLine(JsonConvert.SerializeObject(dsBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -381,18 +381,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestDsBlock())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<DsBlock> dsBlock = client.GetLatestDsBlock();
->         Console.WriteLine(JsonConvert.SerializeObject(dsBlock));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<DsBlock> dsBlock = client.GetLatestDsBlock();
+        Console.WriteLine(JsonConvert.SerializeObject(dsBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -478,18 +478,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumDSBlocks())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<string> numDSBlocks = client.GetNumDSBlocks();
->         Console.WriteLine(JsonConvert.SerializeObject(numDSBlocks));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<string> numDSBlocks = client.GetNumDSBlocks();
+        Console.WriteLine(JsonConvert.SerializeObject(numDSBlocks));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -560,18 +560,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockRate())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<double> dsBlockRate = client.GetDSBlockRate();
->         Console.WriteLine(JsonConvert.SerializeObject(dsBlockRate));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<double> dsBlockRate = client.GetDSBlockRate();
+        Console.WriteLine(JsonConvert.SerializeObject(dsBlockRate));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -642,18 +642,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockListing(1))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<BlockList> blockListing = client.GetDSBlockListing(1);
->         Console.WriteLine(JsonConvert.SerializeObject(blockListing));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockList> blockListing = client.GetDSBlockListing(1);
+        Console.WriteLine(JsonConvert.SerializeObject(blockListing));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -768,18 +768,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlock("40"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<TxBlock> txBlock = client.GetTxBlock("40");
->         Console.WriteLine(JsonConvert.SerializeObject(txBlock));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<TxBlock> txBlock = client.GetTxBlock("40");
+        Console.WriteLine(JsonConvert.SerializeObject(txBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -893,18 +893,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestTxBlock())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<TxBlock> txBlock = client.GetLatestTxBlock();
->         Console.WriteLine(JsonConvert.SerializeObject(txBlock));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<TxBlock> txBlock = client.GetLatestTxBlock();
+        Console.WriteLine(JsonConvert.SerializeObject(txBlock));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1018,18 +1018,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxBlocks())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<String> numTxBlocks = client.GetNumTxBlocks();
->         Console.WriteLine(JsonConvert.SerializeObject(numTxBlocks));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<String> numTxBlocks = client.GetNumTxBlocks();
+        Console.WriteLine(JsonConvert.SerializeObject(numTxBlocks));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1100,18 +1100,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockRate())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<double> txBlockRate = client.GetTxBlockRate();
->         Console.WriteLine(JsonConvert.SerializeObject(txBlockRate));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<double> txBlockRate = client.GetTxBlockRate();
+        Console.WriteLine(JsonConvert.SerializeObject(txBlockRate));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1182,18 +1182,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockListing(1))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<BlockList> blockListing = client.GetTxBlockListing(1);
->         Console.WriteLine(JsonConvert.SerializeObject(blockListing));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<BlockList> blockListing = client.GetTxBlockListing(1);
+        Console.WriteLine(JsonConvert.SerializeObject(blockListing));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1308,18 +1308,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTransactions())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<string> numTransactions = client.GetNumTransactions();
->         Console.WriteLine(JsonConvert.SerializeObject(numTransactions));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<string> numTransactions = client.GetNumTransactions();
+        Console.WriteLine(JsonConvert.SerializeObject(numTransactions));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1390,18 +1390,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionRate())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<int> transactionRate = client.GetTransactionRate();
->         Console.WriteLine(JsonConvert.SerializeObject(transactionRate));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<int> transactionRate = client.GetTransactionRate();
+        Console.WriteLine(JsonConvert.SerializeObject(transactionRate));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1472,18 +1472,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentMiniEpoch())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<string> currentMiniEpoch = client.GetCurrentMiniEpoch();
->         Console.WriteLine(JsonConvert.SerializeObject(currentMiniEpoch));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<string> currentMiniEpoch = client.GetCurrentMiniEpoch();
+        Console.WriteLine(JsonConvert.SerializeObject(currentMiniEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1554,18 +1554,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentDSEpoch())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<string> currentDSEpoch = client.GetCurrentDSEpoch();
->         Console.WriteLine(JsonConvert.SerializeObject(currentDSEpoch));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<string> currentDSEpoch = client.GetCurrentDSEpoch();
+        Console.WriteLine(JsonConvert.SerializeObject(currentDSEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1636,18 +1636,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDifficulty())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<int> prevDifficulty = client.GetPrevDifficulty();
->         Console.WriteLine(JsonConvert.SerializeObject(prevDifficulty));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<int> prevDifficulty = client.GetPrevDifficulty();
+        Console.WriteLine(JsonConvert.SerializeObject(prevDifficulty));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1718,18 +1718,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDSDifficulty())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
->         Rep<int> prevDSDifficulty = client.GetPrevDSDifficulty();
->         Console.WriteLine(JsonConvert.SerializeObject(prevDSDifficulty));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com/");
+        Rep<int> prevDSDifficulty = client.GetPrevDSDifficulty();
+        Console.WriteLine(JsonConvert.SerializeObject(prevDSDifficulty));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1863,33 +1863,33 @@ txn_info = active_chain.api.CreateTransaction(params)
 print(txn_info)
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         Wallet wallet = new Wallet();
->         wallet.Provider = new HttpProvider("https://api.zilliqa.com");
->         wallet.AddByPrivateKey("e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930");
->         Transaction transaction = new Transaction();
->         transaction.Version = Wallet.Pack(1, 8).ToString();
->         transaction.ToAddr = "4baf5fada8e5db92c3d3242618c5b47133ae003c".ToLower();
->         transaction.SenderPubKey = "0246e7178dc8253201101e18fd6f6eb9972451d121fc57aa2a06dd5c111e58dc6a";
->         transaction.Amount = "1000000000000";
->         transaction.GasPrice = "1000000000";
->         transaction.GasLimit = "1";
->         transaction.Code = "";
->         transaction.Data = "";
->         transaction.Provider = new HttpProvider("https://api.zilliqa.com");
->         transaction = wallet.Sign(transaction);
-> 
->         // Send a transaction to the network
->         CreateTxResult result = TransactionFactory.CreateTransaction(transaction);
->         Console.WriteLine(JsonConvert.SerializeObject(result));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        Wallet wallet = new Wallet();
+        wallet.Provider = new HttpProvider("https://api.zilliqa.com");
+        wallet.AddByPrivateKey("e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930");
+        Transaction transaction = new Transaction();
+        transaction.Version = Wallet.Pack(1, 8).ToString();
+        transaction.ToAddr = "4baf5fada8e5db92c3d3242618c5b47133ae003c".ToLower();
+        transaction.SenderPubKey = "0246e7178dc8253201101e18fd6f6eb9972451d121fc57aa2a06dd5c111e58dc6a";
+        transaction.Amount = "1000000000000";
+        transaction.GasPrice = "1000000000";
+        transaction.GasLimit = "1";
+        transaction.Code = "";
+        transaction.Data = "";
+        transaction.Provider = new HttpProvider("https://api.zilliqa.com");
+        transaction = wallet.Sign(transaction);
+
+        // Send a transaction to the network
+        CreateTxResult result = TransactionFactory.CreateTransaction(transaction);
+        Console.WriteLine(JsonConvert.SerializeObject(result));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1981,18 +1981,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<Transaction> transaction = client.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
->         Console.WriteLine(JsonConvert.SerializeObject(transaction));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<Transaction> transaction = client.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
+        Console.WriteLine(JsonConvert.SerializeObject(transaction));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2078,18 +2078,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetRecentTransactions())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<TransactionList> transactionList = client.GetRecentTransactions();
->         Console.WriteLine(JsonConvert.SerializeObject(transactionList));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<TransactionList> transactionList = client.GetRecentTransactions();
+        Console.WriteLine(JsonConvert.SerializeObject(transactionList));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2184,18 +2184,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionsForTxBlock("2"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<List<List<string>>> transactionList = client.GetTransactionsForTxBlock("2");
->         Console.WriteLine(JsonConvert.SerializeObject(transactionList));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<List<string>>> transactionList = client.GetTransactionsForTxBlock("2");
+        Console.WriteLine(JsonConvert.SerializeObject(transactionList));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2295,18 +2295,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsTxEpoch())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<string> numTxnsTxEpoch = client.GetNumTxnsTxEpoch();
->         Console.WriteLine(JsonConvert.SerializeObject(numTxnsTxEpoch));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<string> numTxnsTxEpoch = client.GetNumTxnsTxEpoch();
+        Console.WriteLine(JsonConvert.SerializeObject(numTxnsTxEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2377,18 +2377,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsDSEpoch())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<string> numTxnsDSEpoch = client.GetNumTxnsDSEpoch();
->         Console.WriteLine(JsonConvert.SerializeObject(numTxnsDSEpoch));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<string> numTxnsDSEpoch = client.GetNumTxnsDSEpoch();
+        Console.WriteLine(JsonConvert.SerializeObject(numTxnsDSEpoch));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2459,18 +2459,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetMinimumGasPrice())
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<string> minimumGasPrice = client.GetMinimumGasPrice();
->         Console.WriteLine(JsonConvert.SerializeObject(minimumGasPrice));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<string> minimumGasPrice = client.GetMinimumGasPrice();
+        Console.WriteLine(JsonConvert.SerializeObject(minimumGasPrice));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2546,18 +2546,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<ContractResult> smartContractCode = client.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
->         Console.WriteLine(JsonConvert.SerializeObject(smartContractCode));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<ContractResult> smartContractCode = client.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        Console.WriteLine(JsonConvert.SerializeObject(smartContractCode));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2632,18 +2632,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<List<State>> smartContractInit = client.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
->         Console.WriteLine(JsonConvert.SerializeObject(smartContractInit));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<State>> smartContractInit = client.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        Console.WriteLine(JsonConvert.SerializeObject(smartContractInit));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2737,18 +2737,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<List<State>> smartContractState = client.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
->         Console.WriteLine(JsonConvert.SerializeObject(smartContractState));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<State>> smartContractState = client.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        Console.WriteLine(JsonConvert.SerializeObject(smartContractState));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2832,18 +2832,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<List<Contract>> smartContracts = client.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
->         Console.WriteLine(JsonConvert.SerializeObject(smartContracts));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<Contract>> smartContracts = client.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        Console.WriteLine(JsonConvert.SerializeObject(smartContracts));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2949,18 +2949,18 @@ print(chain.active_chain.api.GetContractAddressFromTransactionID(
 ))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<string> contractAddress = client.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E");
->         Console.WriteLine(JsonConvert.SerializeObject(contractAddress));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<string> contractAddress = client.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E");
+        Console.WriteLine(JsonConvert.SerializeObject(contractAddress));
+    }
+}
+```
+
 > **Example response:**
 
 ```json
@@ -3036,18 +3036,18 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908"))
 ```
 
-> ```c#
-> class Program
-> {
->     static void Main(string[] args)
->     {
->         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
->         Rep<BalanceResult> balance = client.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908");
->         Console.WriteLine(JsonConvert.SerializeObject(balance));
->     }
-> }
-> ```
->
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<BalanceResult> balance = client.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908");
+        Console.WriteLine(JsonConvert.SerializeObject(balance));
+    }
+}
+```
+
 > **Example response:**
 
 ```json

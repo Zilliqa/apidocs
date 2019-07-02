@@ -690,46 +690,41 @@ print(chain.active_chain.api.GetTxBlock("40"))
   "jsonrpc": "2.0",
   "result": {
     "body": {
-      "HeaderSign": "DE979D13EC26CEF71A3D1439D9C6E33E3410DB45CA2123CA40AAB3FEC894CFB0843B0423287AF58705B1755E7A486E563B4E1C0F09BDD3B2FDFBE7086CB2FF0D",
+      "BlockHash": "79fdf67632c9f793650955297c860d021c3241f2b448120747ee8fe502c03e54",
+      "HeaderSign": "CB8290232ECE38030EAD865859A77616BD10738D79D6335F003427C6118C1CBFEC94D33183A73D5E8877361582748D2EEC895722066D390E79119B8E2DC3411D",
       "MicroBlockInfos": [
         {
-          "MicroBlockHash": "e5c88a1ef511b93f6256e881fdb3e5a2c7bee78f03e42664a34c6df9ea5b2a0d",
+          "MicroBlockHash": "97ab843bfd7a520f65c16667a8700ba11a886cc130254258e155d48be3ee3fb5",
           "MicroBlockShardId": 0,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "45140cc0e45aeb15256152ecaffd6282d7310b4b0c6f64838a8993467c3bea64",
+          "MicroBlockHash": "120d3f2c76e1c55b6adb3e78aa3aa1c34e618fd3023069420dd1dcd79689cd50",
           "MicroBlockShardId": 1,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "6cff53e230ee1c94b926e67911845694a75a42f86153fbcd09fac18b51c9430b",
+          "MicroBlockHash": "3fbae433e0e5c30ab89ec75cd32276dd49581941c7d0fc318503ca55693a9aed",
           "MicroBlockShardId": 2,
-          "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-          "MicroBlockHash": "a277d9b7cc5c680faed13914be8101fed6cdaa5363a0bfe2c913220cc6ea76e1",
-          "MicroBlockShardId": 3,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         }
       ]
     },
     "header": {
       "BlockNum": "40",
-      "DSBlockNum": "9",
-      "GasLimit": "2000000",
+      "DSBlockNum": "1",
+      "GasLimit": "1500000",
       "GasUsed": "0",
-      "MbInfoHash": "4f2ce32eef3485037f543ebe5fb781f8d3f3c7c2c700df293205f639787e4f85",
-      "MinerPubKey": "0x021C44420BD6086AB8C8CEA8E6932AC58E797002E1DC5B7A4B4BD910651DCFC4DA",
-      "NumMicroBlocks": 4,
+      "MbInfoHash": "dcb2c79d8fd7021634039e49578c1e7415f4a6aa9586043db3f488a34e6846ff",
+      "MinerPubKey": "0x020035B739426374C5327A1224B986005297102E01C29656B8B086BF4B352C6CA9",
+      "NumMicroBlocks": 3,
       "NumTxns": 0,
-      "PrevBlockHash": "369d69f65430710da42a36062c6bcadfd5fc30b277c826e121c373c0727ed8c1",
+      "PrevBlockHash": "b87e9f526ffbaa653fcb9b2db731f53c65420f12ace6d88bd2753f816650bdb5",
       "Rewards": "0",
       "StateDeltaHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "StateRootHash": "de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d",
-      "Timestamp": "1545208765463460",
-      "Type": 1,
-      "Version": 0
+      "StateRootHash": "77ebb9cce52b0e1bc8ce1c0e5669e88f5018bd986d01339960ba07882b63ed79",
+      "Timestamp": "1548930491181914",
+      "Version": 1
     }
   }
 }
@@ -803,46 +798,46 @@ print(chain.active_chain.api.GetLatestTxBlock())
   "jsonrpc": "2.0",
   "result": {
     "body": {
-      "HeaderSign": "951379481ED79E1006AD38357F3B60EBD21B9FF86984B45E2326C47C3EA965770D65D95ABFAFC41809CD01E7B8C09319DAB1993FEDFED64556679B4034216058",
+      "BlockHash": "794ded1feff2bed53432e5c77dbb30310d1003e5605bbbfad4e7dd08e7a1664b",
+      "HeaderSign": "8BFA12F57C05F994650C56FF718D8EDD2AD9B00464091E76902CF2815F1FD5CFBD093BDD89FB2ABA6C4EAC4DAEAD8B8D0E74834758BA0160066C899D89EA2073",
       "MicroBlockInfos": [
         {
-          "MicroBlockHash": "2b13ea2863a477152eb951878739979071354953e368d7b83233c4414d7c12e8",
+          "MicroBlockHash": "d7d2c88d699478946d3d25b3ca8effcf8b575da526a6741c3e87330f7144cf6d",
           "MicroBlockShardId": 0,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "2d3dec5e435daa4d5cb839fdd92f28c956d403a08c0ef032d67495cc9b094164",
+          "MicroBlockHash": "1f89fd6c178f1c5b8f5f0af8a2d3026af43e9ddcbe66ca760b07d00e3660f432",
           "MicroBlockShardId": 1,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "5c99d616a52d552c2b23cca001fba88f2afd6b1bcc1d028837e95b0f72b9fbf6",
+          "MicroBlockHash": "0a68a175bd6a76a597fdcad1c1b7aed21ce3d55a3ccaa82cd3d72a8097ec0178",
           "MicroBlockShardId": 2,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "40420e5a8d95b789462cb03e2c02483507b4bfb2d1836a658b6745440bb3e633",
+          "MicroBlockHash": "ba899867e5cb2bc5bba0f186f24fb6a5cdd73718af740d37fd87128b0b89245e",
           "MicroBlockShardId": 3,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         }
       ]
     },
     "header": {
-      "BlockNum": "49",
-      "DSBlockNum": "10",
+      "BlockNum": "157264",
+      "DSBlockNum": "1573",
       "GasLimit": "2000000",
       "GasUsed": "0",
-      "MbInfoHash": "9d7ed24a158f2671f274631db6fb47d6a9ed3f505439ffadc0f76e2d81154b91",
-      "MinerPubKey": "0x023A3C45D844A48816D32A5C6EA219FE11A25C7EFC090F780DE0117ED0218F6636",
+      "MbInfoHash": "4251b1b2f76235b637eee21fa197b411a08d1390ab06ff37d34deaf73e26f9e2",
+      "MinerPubKey": "0x0211CDC4EE0AC1D3EFBD9597C970A32F9B618E530DE24D0E3EA93D90F66712EB80",
       "NumMicroBlocks": 4,
       "NumTxns": 0,
-      "PrevBlockHash": "6a6038aff1211baebb0256054c961af40c6d9ab19b0dcbd5a2b65b47d4ec9276",
-      "Rewards": "191780820000000000",
-      "StateDeltaHash": "6b0ac054d4296d329e2c997ec30061549a6f809f9cadc361151079d8799777f4",
-      "StateRootHash": "de7b303987489aa341eb845bf7b3c1d0e4b90709af0d08a9cae2513eaeb0da6d",
-      "Timestamp": "1545209495904025",
-      "Type": 1,
-      "Version": 0
+      "PrevBlockHash": "06f94e089213d9f89393f28d43320c4251e87ee9d393f4aa52cbf325f5f5eb15",
+      "Rewards": "0",
+      "StateDeltaHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "StateRootHash": "61da8b03cd7d2729056ed8407a2bccffecffb4854ea304085a3ad5516901dfd7",
+      "Timestamp": "1562059080341128",
+      "Version": 1
     }
   }
 }

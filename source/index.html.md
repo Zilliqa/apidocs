@@ -1536,6 +1536,86 @@ Returns the minimum DS difficulty of the previous block. <br> This is represente
 | `method`  | string | Required | `"GetPrevDSDifficulty"` |
 | `params`  | string | Required | Empty string `""`       |
 
+## GetTotalCoinSupply
+
+> **Example request:**
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetTotalCoinSupply",
+    "params": [""]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const totalCoinSupply = await zilliqa.network.GetTotalCoinSupply();
+console.log(totalCoinSupply);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<String> totalCoinSupply = client.getTotalCoinSupply();
+        System.out.println(new Gson().toJson(totalCoinSupply));
+    }
+}
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTotalCoinSupply
+puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+from pyzil.zilliqa.api import ZilliqaAPI
+
+
+# EITHER
+chain.set_active_chain(chain.MainNet)
+total_coin_supply = chain.active_chain.api.GetTotalCoinSupply()
+print(total_coin_supply)
+
+# OR
+new_api = ZilliqaAPI(endpoint="https://api.zilliqa.com")
+total_coin_supply = new_api.GetTotalCoinSupply()
+print(total_coin_supply)
+
+```
+
+> **Example response:**
+
+```json
+{"id":"1","jsonrpc":"2.0","result":"12600527397.260273972000"}
+```
+
+Returns the total supply of coins in the network. This is represented as a `String`.
+
+
+
+### HTTP REQUEST
+
+| Chain(s)              | URL(s)                       |
+| --------------------- | ---------------------------- |
+| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Developer testnet** | https://dev-api.zilliqa.com/ |
+| **Local testnet**     | http://localhost:4201/       |
+
+### ARGUMENTS
+
+| Parameter | Type   | Required | Description            |
+| --------- | ------ | -------- | -----------------      |
+| `id`      | string | Required | `"1"`                  |
+| `jsonrpc` | string | Required | `"2.0"`                |
+| `method`  | string | Required | `"GetTotalCoinSupply"` |
+| `params`  | string | Required | Empty string `""`      |
+
+
 # Transaction-related methods
 
 ## CreateTransaction

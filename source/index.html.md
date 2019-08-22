@@ -1619,15 +1619,16 @@ puts ret
 ```
 
 ```python
-from pyzil.crypto import zilkey
+from pyzil.account import Account
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 
-my_key = zilkey.ZilKey(private_key="0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930")
+account = Account(private_key="0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930")
 
 payload = {
-    "to_addr": "4baf5fada8e5db92c3d3242618c5b47133ae003c",
+    "to_addr": "0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
     "amount": "1000000000000",
+    "nonce": account.get_nonce() + 1,
     "gas_price": "1000000000",
     "gas_limit": 1,
     "code": "",
@@ -1635,8 +1636,8 @@ payload = {
     "priority": False,
 }
 
-params = active_chain.build_transaction_params(my_key, **payload)
-txn_info = active_chain.api.CreateTransaction(params)
+params = chain.active_chain.build_transaction_params(account.zil_key, **payload)
+txn_info = chain.active_chain.api.CreateTransaction(params)
 print(txn_info)
 ```
 

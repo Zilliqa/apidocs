@@ -1733,6 +1733,7 @@ print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db15
 
 > **Example response:**
 
+
 ```json
 {
   "id": "1",
@@ -1756,6 +1757,32 @@ print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db15
 }
 ```
 
+*Note: If the transaction had an data field or code field, it will be displayed*
+
+```json
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "ebd9da6a0a3855c910813dad3d6796cf90f12bf5152dcb5ddda664ef2a632ad9",
+        "amount": "0",
+        "data": "{\"_tag\":\"t3\",\"params\":[]}",
+        "gasLimit": "100000",
+        "gasPrice": "10000000000",
+        "nonce": "118",
+        "receipt": {
+            "cumulative_gas": "176",
+            "epoch_num": "229640",
+            "success": true
+        },
+        "senderPubKey": "0x021D8698472A58B11176125D1B2B05981849DB83B6A91D019F7686A4F9702CA598",
+        "signature": "0xD642287BB7DB3C2B48B162D88EB90D6B48C3EFC2309FAF04B59E1422BEE27F15AC5ED7CCA21D5F791073E59DEE6EAA2A9134CEDBC1467BAA6C0E471BC5F4ECA4",
+        "toAddr": "4c876493f196d2660ba98f2989982a4d1e7282ab",
+        "version": "65537"
+    }
+}
+```
+
 Returns the details of a specified Transaction.
 
 ### HTTP REQUEST
@@ -1774,6 +1801,7 @@ Returns the details of a specified Transaction.
 | `jsonrpc` | string | Required | `"2.0"`                                                  |
 | `method`  | string | Required | `"GetTransaction"`                                       |
 | `params`  | string | Required | Transaction hash of 32 bytes of a specified transaction. |
+
 
 ## GetRecentTransactions
 
@@ -2348,6 +2376,97 @@ Returns the initialization (immutable) parameters of a given smart contract, rep
 | `method`  | string | Required | `"GetSmartContractInit"`                                                                         |
 | `params`  | string | Required | A smart contract address of 20 bytes. <br> Example: `"fe001824823b12b58708bf24edd94d8b5e1cfcf7"` |
 
+## GetSmartContractSubState
+
+> **Example request:**
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetSmartContractSubState",
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\""]]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const smartContractState = await zilliqa.blockchain.getSmartContractSubState(
+  "fe001824823b12b58708bf24edd94d8b5e1cfcf7"
+);
+console.log(smartContractState.result);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<Contract.State>> smartContractState = client.getSmartContractSubState("fe001824823b12b58708bf24edd94d8b5e1cfcf7");
+        System.out.println(new Gson().toJson(smartContractState));
+    }
+}
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetSmartContractSubState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)
+print(chain.active_chain.api.GetSmartContractSubState("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
+```
+
+> **Example response:**
+
+
+```json
+{
+   "admins" : {
+      "0xdfa89866ae86632b36361d53b76c1373448c28fa" : {
+         "argtypes" : [],
+         "arguments" : [],
+         "constructor" : "True"
+      }
+   }
+} 
+```
+
+Returns the state (or a part specified) of a smart contract address, represented in a JSON format.
+
+### HTTP REQUEST
+
+| Chain(s)              | URL(s)                       |
+| --------------------- | ---------------------------- |
+| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Developer testnet** | https://dev-api.zilliqa.com/ |
+| **Local testnet**     | http://localhost:4201/       |
+
+### ARGUMENTS
+
+| Parameter | Type   | Required | Description                                                                                      |
+| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| `id`      | string | Required | `"1"`                                                                                            |
+| `jsonrpc` | string | Required | `"2.0"`                                                                                          |
+| `method`  | string | Required | `"GetSmartContractSubState"`                                                                     |
+| `params`  | array  | Required | State params                                                                                     |
+
+
+### STATE PARAMS
+
+| Parameter     | Type       | Required     | Description                                                                                      |
+|---------------|------------|--------------|--------------------------------------------------------------------------------------------------|
+|`Address`      | string     | Required     | A smart contract address of 20 bytes.                                                            |
+|`Variable Name`| string     | Can be empty | Name of the variable in the Smart Contract                                                       |
+|`Indices`      | JSON Array | Can be empty | If the variable is of map type, you can specify an index (or indices)                            |
+
+
+The `params` is JSON array <br> Example: `"params"`:`["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\""]]`
+
+*Note: If Variable Name and Indices Array are both empty, the response would be same as GetSmartContractState*
+
 ## GetSmartContractState
 
 > **Example request:**
@@ -2393,23 +2512,19 @@ print(chain.active_chain.api.GetSmartContractState("fe001824823b12b58708bf24edd9
 
 > **Example response:**
 
+*Note: The format of response has been changed*
+
 ```json
 {
-  "id": "1",
-  "jsonrpc": "2.0",
-  "result": [
-    {
-      "type": "String",
-      "value": "Hello World",
-      "vname": "welcome_msg"
-    },
-    {
-      "type": "Uint128",
-      "value": "0",
-      "vname": "_balance"
-    }
-  ]
-}
+   "_balance" : "0",
+   "admins" : {
+      "0xdfa89866ae86632b36361d53b76c1373448c28fa" : {
+         "argtypes" : [],
+         "arguments" : [],
+         "constructor" : "True"
+      }
+   }
+} 
 ```
 
 Returns the state (mutable) variables of a smart contract address, represented in a JSON format.
@@ -2533,6 +2648,7 @@ Returns the list of smart contract addresses created by an User's account and th
 | `jsonrpc` | string | Required | `"2.0"`                                                                                           |
 | `method`  | string | Required | `"GetSmartContracts"`                                                                             |
 | `params`  | string | Required | An User's account address of 20 bytes. <br> Example: `"1eefc4f453539e5ee732b49eb4792b268c2f3908"` |
+
 
 ## GetContractAddressFromTransactionID
 

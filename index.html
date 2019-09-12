@@ -282,6 +282,9 @@
                   <li>
                     <a href="#getprevdsdifficulty" class="toc-h2 toc-link" data-title="GetPrevDSDifficulty">GetPrevDSDifficulty</a>
                   </li>
+                  <li>
+                    <a href="#gettotalcoinsupply" class="toc-h2 toc-link" data-title="GetTotalCoinSupply">GetTotalCoinSupply</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -318,6 +321,9 @@
                   </li>
                   <li>
                     <a href="#getsmartcontractinit" class="toc-h2 toc-link" data-title="GetSmartContractInit">GetSmartContractInit</a>
+                  </li>
+                  <li>
+                    <a href="#getsmartcontractsubstate" class="toc-h2 toc-link" data-title="GetSmartContractSubState">GetSmartContractSubState</a>
                   </li>
                   <li>
                     <a href="#getsmartcontractstate" class="toc-h2 toc-link" data-title="GetSmartContractState">GetSmartContractState</a>
@@ -2282,6 +2288,104 @@ The JSON-RPC API server runs on:</p>
 <td>Empty string <code>&quot;&quot;</code></td>
 </tr>
 </tbody></table>
+<h2 id='gettotalcoinsupply'>GetTotalCoinSupply</h2>
+<blockquote>
+<p><strong>Example request:</strong></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetTotalCoinSupply",
+    "params": [""]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">totalCoinSupply</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">network</span><span class="p">.</span><span class="nx">GetTotalCoinSupply</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">totalCoinSupply</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">totalCoinSupply</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getTotalCoinSupply</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">totalCoinSupply</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">provider</span> <span class="o">=</span> <span class="no">Laksa</span><span class="o">::</span><span class="no">Jsonrpc</span><span class="o">::</span><span class="no">Provider</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'https://api.zilliqa.com'</span><span class="p">)</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="no">GetTotalCoinSupply</span>
+<span class="nb">puts</span> <span class="n">ret</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.zilliqa</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">pyzil.zilliqa.api</span> <span class="kn">import</span> <span class="n">ZilliqaAPI</span>
+
+
+<span class="c"># EITHER</span>
+<span class="n">chain</span><span class="o">.</span><span class="n">set_active_chain</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">MainNet</span><span class="p">)</span>
+<span class="n">total_coin_supply</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetTotalCoinSupply</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">total_coin_supply</span><span class="p">)</span>
+
+<span class="c"># OR</span>
+<span class="n">new_api</span> <span class="o">=</span> <span class="n">ZilliqaAPI</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api.zilliqa.com"</span><span class="p">)</span>
+<span class="n">total_coin_supply</span> <span class="o">=</span> <span class="n">new_api</span><span class="o">.</span><span class="n">GetTotalCoinSupply</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">total_coin_supply</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p><strong>Example response:</strong></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"12600527397.260273972000"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the total supply (ZIL) of coins in the network. This is represented as a <code>String</code>.</p>
+<h3 id='http-request-19'>HTTP REQUEST</h3>
+<table><thead>
+<tr>
+<th>Chain(s)</th>
+<th>URL(s)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Zilliqa Mainnet</strong></td>
+<td>https://api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Developer testnet</strong></td>
+<td>https://dev-api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Local testnet</strong></td>
+<td>http://localhost:4201/</td>
+</tr>
+</tbody></table>
+<h3 id='arguments-19'>ARGUMENTS</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;1&quot;</code></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;2.0&quot;</code></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;GetTotalCoinSupply&quot;</code></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>string</td>
+<td>Required</td>
+<td>Empty string <code>&quot;&quot;</code></td>
+</tr>
+</tbody></table>
 <h1 id='transaction-related-methods'>Transaction-related methods</h1><h2 id='createtransaction'>CreateTransaction</h2>
 <blockquote>
 <p><strong>Example request:</strong></p>
@@ -2350,15 +2454,16 @@ The JSON-RPC API server runs on:</p>
 
 <span class="n">ret</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="no">CreateTransaction</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">ret</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.crypto</span> <span class="kn">import</span> <span class="n">zilkey</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.account</span> <span class="kn">import</span> <span class="n">Account</span>
 <span class="kn">from</span> <span class="nn">pyzil.zilliqa</span> <span class="kn">import</span> <span class="n">chain</span>
 <span class="n">chain</span><span class="o">.</span><span class="n">set_active_chain</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">MainNet</span><span class="p">)</span>
 
-<span class="n">my_key</span> <span class="o">=</span> <span class="n">zilkey</span><span class="o">.</span><span class="n">ZilKey</span><span class="p">(</span><span class="n">private_key</span><span class="o">=</span><span class="s">"0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930"</span><span class="p">)</span>
+<span class="n">account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="n">private_key</span><span class="o">=</span><span class="s">"0xe19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930"</span><span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"to_addr"</span><span class="p">:</span> <span class="s">"4baf5fada8e5db92c3d3242618c5b47133ae003c"</span><span class="p">,</span>
+    <span class="s">"to_addr"</span><span class="p">:</span> <span class="s">"0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C"</span><span class="p">,</span>
     <span class="s">"amount"</span><span class="p">:</span> <span class="s">"1000000000000"</span><span class="p">,</span>
+    <span class="s">"nonce"</span><span class="p">:</span> <span class="n">account</span><span class="o">.</span><span class="n">get_nonce</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"gas_price"</span><span class="p">:</span> <span class="s">"1000000000"</span><span class="p">,</span>
     <span class="s">"gas_limit"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"code"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
@@ -2366,8 +2471,8 @@ The JSON-RPC API server runs on:</p>
     <span class="s">"priority"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">params</span> <span class="o">=</span> <span class="n">active_chain</span><span class="o">.</span><span class="n">build_transaction_params</span><span class="p">(</span><span class="n">my_key</span><span class="p">,</span> <span class="o">**</span><span class="n">payload</span><span class="p">)</span>
-<span class="n">txn_info</span> <span class="o">=</span> <span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">CreateTransaction</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">build_transaction_params</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">zil_key</span><span class="p">,</span> <span class="o">**</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">txn_info</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">CreateTransaction</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">txn_info</span><span class="p">)</span>
 </code></pre>
 <blockquote>
@@ -2383,7 +2488,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Create a new Transaction object and send it to the network to be process. <br> See <a href="https://github.com/Zilliqa/Zilliqa-JavaScript-Library#quick-start">Quick Start</a> in Javascript-SDK for an example of how to construct a Transaction object.</p>
-<h3 id='http-request-19'>HTTP REQUEST</h3>
+<h3 id='http-request-20'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -2403,7 +2508,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-19'>ARGUMENTS</h3>
+<h3 id='arguments-20'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2566,8 +2671,31 @@ The JSON-RPC API server runs on:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><em>Note: If the transaction had an data field or code field, it will be displayed</em></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ebd9da6a0a3855c910813dad3d6796cf90f12bf5152dcb5ddda664ef2a632ad9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">_tag</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">t3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">params</span><span class="se">\"</span><span class="s2">:[]}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gasLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gasPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"118"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cumulative_gas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"176"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"epoch_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"229640"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"senderPubKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x021D8698472A58B11176125D1B2B05981849DB83B6A91D019F7686A4F9702CA598"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xD642287BB7DB3C2B48B162D88EB90D6B48C3EFC2309FAF04B59E1422BEE27F15AC5ED7CCA21D5F791073E59DEE6EAA2A9134CEDBC1467BAA6C0E471BC5F4ECA4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"toAddr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4c876493f196d2660ba98f2989982a4d1e7282ab"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65537"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Returns the details of a specified Transaction.</p>
-<h3 id='http-request-20'>HTTP REQUEST</h3>
+<h3 id='http-request-21'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -2587,7 +2715,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-20'>ARGUMENTS</h3>
+<h3 id='arguments-21'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2682,7 +2810,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the most recent <strong>100</strong> transactions that are validated by the Zilliqa network.</p>
-<h3 id='http-request-21'>HTTP REQUEST</h3>
+<h3 id='http-request-22'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -2702,7 +2830,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-21'>ARGUMENTS</h3>
+<h3 id='arguments-22'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2802,7 +2930,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the validated transactions included within a specfied final transaction block as an array of length <em>i</em>, where <em>i</em> is the number of shards plus the DS committee. The transactions are grouped based on the group that processed the transaction. The first element of the array refers to the first shard. The last element of the array at index, <em>i</em>, refers to the transactions processed by the DS Committee.</p>
-<h3 id='http-request-22'>HTTP REQUEST</h3>
+<h3 id='http-request-23'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -2822,7 +2950,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-22'>ARGUMENTS</h3>
+<h3 id='arguments-23'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2893,7 +3021,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of validated transactions included in this Transaction epoch. <br> This is represented as <code>String</code>.</p>
-<h3 id='http-request-23'>HTTP REQUEST</h3>
+<h3 id='http-request-24'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -2913,7 +3041,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-23'>ARGUMENTS</h3>
+<h3 id='arguments-24'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2984,7 +3112,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of validated transactions included in this DS epoch. <br> This is represented as <code>String</code>.</p>
-<h3 id='http-request-24'>HTTP REQUEST</h3>
+<h3 id='http-request-25'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3004,7 +3132,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-24'>ARGUMENTS</h3>
+<h3 id='arguments-25'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3076,7 +3204,7 @@ The JSON-RPC API server runs on:</p>
 </span></code></pre>
 <p>Returns the minimum gas price for this DS epoch, measured in the smallest price unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>) in Zilliqa.
 <br> This is represented as a <code>String</code>.</p>
-<h3 id='http-request-25'>HTTP REQUEST</h3>
+<h3 id='http-request-26'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3096,7 +3224,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-25'>ARGUMENTS</h3>
+<h3 id='arguments-26'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3171,7 +3299,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the Scilla code associated with a smart contract address. <br> This is represented as a <code>String</code>.</p>
-<h3 id='http-request-26'>HTTP REQUEST</h3>
+<h3 id='http-request-27'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3191,7 +3319,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-26'>ARGUMENTS</h3>
+<h3 id='arguments-27'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3285,7 +3413,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the initialization (immutable) parameters of a given smart contract, represented in a JSON format.</p>
-<h3 id='http-request-27'>HTTP REQUEST</h3>
+<h3 id='http-request-28'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3305,7 +3433,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-27'>ARGUMENTS</h3>
+<h3 id='arguments-28'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3339,57 +3467,50 @@ The JSON-RPC API server runs on:</p>
 <td>A smart contract address of 20 bytes. <br> Example: <code>&quot;fe001824823b12b58708bf24edd94d8b5e1cfcf7&quot;</code></td>
 </tr>
 </tbody></table>
-<h2 id='getsmartcontractstate'>GetSmartContractState</h2>
+<h2 id='getsmartcontractsubstate'>GetSmartContractSubState</h2>
 <blockquote>
 <p><strong>Example request:</strong></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
     "id": "1",
     "jsonrpc": "2.0",
-    "method": "GetSmartContractState",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+    "method": "GetSmartContractSubState",
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"]]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractState</span><span class="p">(</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractSubState</span><span class="p">(</span>
   <span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span>
 <span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractState</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
         <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
-        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contract</span><span class="o">.</span><span class="na">State</span><span class="o">&gt;&gt;</span> <span class="n">smartContractState</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractState</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">smartContractState</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">smartContractState</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractSubState</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">smartContractState</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">provider</span> <span class="o">=</span> <span class="no">Laksa</span><span class="o">::</span><span class="no">Jsonrpc</span><span class="o">::</span><span class="no">Provider</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'https://api.zilliqa.com'</span><span class="p">)</span>
 
-<span class="n">ret</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="no">GetSmartContractState</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="no">GetSmartContractSubState</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">ret</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.zilliqa</span> <span class="kn">import</span> <span class="n">chain</span>
 <span class="n">chain</span><span class="o">.</span><span class="n">set_active_chain</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">MainNet</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetSmartContractState</span><span class="p">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetSmartContractSubState</span><span class="p">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">))</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello World"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome_msg"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uint128"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_balance"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+   </span><span class="s2">"admins"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0xdfa89866ae86632b36361d53b76c1373448c28fa"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"argtypes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="s2">"arguments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="s2">"constructor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
 </span></code></pre>
-<p>Returns the state (mutable) variables of a smart contract address, represented in a JSON format.</p>
-<h3 id='http-request-28'>HTTP REQUEST</h3>
+<p>Returns the state (or a part specified) of a smart contract address, represented in a JSON format.</p>
+<h3 id='http-request-29'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3409,7 +3530,139 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-28'>ARGUMENTS</h3>
+<h3 id='arguments-29'>ARGUMENTS</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;1&quot;</code></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;2.0&quot;</code></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;GetSmartContractSubState&quot;</code></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>array</td>
+<td>Required</td>
+<td>State params</td>
+</tr>
+</tbody></table>
+<h3 id='state-params'>STATE PARAMS</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Address</code></td>
+<td>string</td>
+<td>Required</td>
+<td>A smart contract address of 20 bytes.</td>
+</tr>
+<tr>
+<td><code>Variable Name</code></td>
+<td>string</td>
+<td>Can be empty</td>
+<td>Name of the variable in the Smart Contract</td>
+</tr>
+<tr>
+<td><code>Indices</code></td>
+<td>JSON Array</td>
+<td>Can be empty</td>
+<td>If the variable is of map type, you can specify an index (or indices)</td>
+</tr>
+</tbody></table>
+
+<p>The <code>params</code> is JSON array <br> Example: <code>&quot;params&quot;</code>:<code>[&quot;fe001824823b12b58708bf24edd94d8b5e1cfcf7&quot;,&quot;admins&quot;,[\&quot;0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\&quot;&quot;]]</code></p>
+
+<p><em>Note: If Variable Name and Indices Array are both empty, the response would be same as GetSmartContractState</em></p>
+<h2 id='getsmartcontractstate'>GetSmartContractState</h2>
+<blockquote>
+<p><strong>Example request:</strong></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetSmartContractState",
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7"]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractState</span><span class="p">(</span>
+  <span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span>
+<span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">smartContractState</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">smartContractState</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractState</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">smartContractState</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">provider</span> <span class="o">=</span> <span class="no">Laksa</span><span class="o">::</span><span class="no">Jsonrpc</span><span class="o">::</span><span class="no">Provider</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'https://api.zilliqa.com'</span><span class="p">)</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="no">GetSmartContractState</span><span class="p">(</span><span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">ret</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.zilliqa</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="n">chain</span><span class="o">.</span><span class="n">set_active_chain</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">MainNet</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetSmartContractState</span><span class="p">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">))</span>
+</code></pre>
+<blockquote>
+<p><strong>Example response:</strong></p>
+</blockquote>
+
+<p><em>Note: The format of response has been changed</em></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"_balance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"admins"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"0xdfa89866ae86632b36361d53b76c1373448c28fa"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"argtypes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="s2">"arguments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="s2">"constructor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre>
+<p>Returns the state (mutable) variables of a smart contract address, represented in a JSON format.</p>
+<h3 id='http-request-30'>HTTP REQUEST</h3>
+<table><thead>
+<tr>
+<th>Chain(s)</th>
+<th>URL(s)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Zilliqa Mainnet</strong></td>
+<td>https://api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Developer testnet</strong></td>
+<td>https://dev-api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Local testnet</strong></td>
+<td>http://localhost:4201/</td>
+</tr>
+</tbody></table>
+<h3 id='arguments-30'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3513,7 +3766,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the list of smart contract addresses created by an User&#39;s account and the contracts&#39; latest states.</p>
-<h3 id='http-request-29'>HTTP REQUEST</h3>
+<h3 id='http-request-31'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3533,7 +3786,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-29'>ARGUMENTS</h3>
+<h3 id='arguments-31'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3609,7 +3862,7 @@ The JSON-RPC API server runs on:</p>
 </span></code></pre>
 <p>Returns a smart contract address of 20 bytes. This is represented as a <code>String</code>. <br>
 <strong>NOTE:</strong> This only works for contract deployment transactions.</p>
-<h3 id='http-request-30'>HTTP REQUEST</h3>
+<h3 id='http-request-32'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3629,7 +3882,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-30'>ARGUMENTS</h3>
+<h3 id='arguments-32'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3708,7 +3961,7 @@ The JSON-RPC API server runs on:</p>
 <li>Returns the current <code>balance</code> of an account, measured in the smallest accounting unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>). This is represented as a <code>String</code> <br><br></li>
 <li>Returns the current <code>nonce</code> of an account. This is represented as an <code>Number</code>.</li>
 </ul>
-<h3 id='http-request-31'>HTTP REQUEST</h3>
+<h3 id='http-request-33'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3728,7 +3981,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-31'>ARGUMENTS</h3>
+<h3 id='arguments-33'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

@@ -1594,7 +1594,7 @@ print(total_coin_supply)
 {"id":"1","jsonrpc":"2.0","result":"12600527397.260273972000"}
 ```
 
-Returns the total supply of coins in the network. This is represented as a `String`.
+Returns the total supply (ZIL) of coins in the network. This is represented as a `String`.
 
 
 

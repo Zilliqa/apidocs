@@ -3475,7 +3475,7 @@ The JSON-RPC API server runs on:</p>
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetSmartContractSubState",
-    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"]]
+    "params": ["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[]]
 }'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">smartContractState</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getSmartContractSubState</span><span class="p">(</span>
   <span class="s2">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span>
@@ -3484,8 +3484,12 @@ The JSON-RPC API server runs on:</p>
 </code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
         <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
-        <span class="n">String</span> <span class="n">smartContractState</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractSubState</span><span class="o">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">smartContractState</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">param</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">param</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"9611c53BE6d1b32058b2747bdeCECed7e1216793"</span><span class="o">);</span>
+        <span class="n">param</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"admins"</span><span class="o">);</span>
+        <span class="n">param</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
+        <span class="n">String</span> <span class="n">state</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getSmartContractSubState</span><span class="o">(</span><span class="n">param</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">state</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">provider</span> <span class="o">=</span> <span class="no">Laksa</span><span class="o">::</span><span class="no">Jsonrpc</span><span class="o">::</span><span class="no">Provider</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'https://api.zilliqa.com'</span><span class="p">)</span>
@@ -3494,7 +3498,7 @@ The JSON-RPC API server runs on:</p>
 <span class="nb">puts</span> <span class="n">ret</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">pyzil.zilliqa</span> <span class="kn">import</span> <span class="n">chain</span>
 <span class="n">chain</span><span class="o">.</span><span class="n">set_active_chain</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">MainNet</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetSmartContractSubState</span><span class="p">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">active_chain</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GetSmartContractSubState</span><span class="p">(</span><span class="s">"fe001824823b12b58708bf24edd94d8b5e1cfcf7"</span><span class="p">,</span><span class="s">"admins"</span><span class="p">,[]))</span>
 </code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>

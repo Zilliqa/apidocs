@@ -7,6 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - java: java
   - ruby: ruby
   - python: python
+  - go: go
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
@@ -14,6 +15,7 @@ toc_footers:
   - <a href='https://github.com/FireStack-Lab/LaksaRuby'>Ruby SDK</a>
   - <a href='https://github.com/deepgully/pyzil'>Python SDK</a>
   - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
+  - <a href='https://github.com/Zilliqa/gozilliqa-sdk.git'>gozilliqa-sdk</a>
 
 includes:
 
@@ -96,6 +98,15 @@ print(network_id)
 
 ```
 
+```go
+func GetNetworkId() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNetworkId()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -171,6 +182,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBlockchainInfo())
+```
+
+```go
+func GetBlockchainInfo() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetBlockchainInfo()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -258,6 +278,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDsBlock("1"))
 ```
 
+```go
+func GetDsBlock() {
+  provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetDsBlock("40")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -341,6 +370,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestDsBlock())
+```
+
+```go
+func GetLatestDsBlock() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetLatestDsBlock()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -428,6 +466,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumDSBlocks())
 ```
 
+```go
+func GetNumDSBlocks() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNumDSBlocks()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -498,6 +545,14 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockRate())
 ```
 
+```go
+func GetDSBlockRate() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetDSBlockRate()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
 > **Example response:**
 
 ```json
@@ -568,6 +623,16 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetDSBlockListing(1))
 ```
 
+
+```go
+func DSBlockListing() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.DSBlockListing(1)
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+
+```
 > **Example response:**
 
 ```json
@@ -682,6 +747,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlock("40"))
 ```
 
+```go
+func GetTxBlock(t *testing.T) {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTxBlock("40")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -788,6 +862,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetLatestTxBlock())
+```
+
+```go
+func GetLatestTxBlock() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetLatestTxBlock()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -903,6 +986,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxBlocks())
 ```
 
+```go
+func GetNumTxBlocks() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNumTxBlocks()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -973,6 +1065,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockRate())
 ```
 
+```go
+func GetTxBlockRate() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTxBlockRate()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1041,6 +1142,16 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTxBlockListing(1))
+```
+
+```go
+
+func TxBlockListing() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.TxBlockListing(1)
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -1157,6 +1268,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTransactions())
 ```
 
+```go
+func GetNumTransactions() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNumTransactions()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1227,6 +1347,14 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionRate())
 ```
 
+```go
+func GetTransactionRate() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTransactionRate()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
 > **Example response:**
 
 ```json
@@ -1295,6 +1423,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentMiniEpoch())
+```
+
+```go
+func GetCurrentMiniEpoch() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetCurrentMiniEpoch()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -1367,6 +1504,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetCurrentDSEpoch())
 ```
 
+```go
+func GetCurrentDSEpoch() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetCurrentDSEpoch()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1437,6 +1583,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDifficulty())
 ```
 
+```go
+func GetPrevDifficulty() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetPrevDifficulty()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -1505,6 +1660,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetPrevDSDifficulty())
+```
+
+```go
+func GetPrevDSDifficulty() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetPrevDSDifficulty()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -1586,6 +1750,15 @@ new_api = ZilliqaAPI(endpoint="https://api.zilliqa.com")
 total_coin_supply = new_api.GetTotalCoinSupply()
 print(total_coin_supply)
 
+```
+
+```go
+func GetTotalCoinSupply() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTotalCoinSupply()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -1721,6 +1894,41 @@ txn_info = chain.active_chain.api.CreateTransaction(params)
 print(txn_info)
 ```
 
+```go
+func SendTransaction() {
+	wallet := NewWallet()
+	wallet.AddByPrivateKey("e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930")
+	provider := provider2.NewProvider("https://api.zilliqa.com/")
+
+	tx := &transaction.Transaction{
+		Version:      strconv.FormatInt(int64(util.Pack(1, 1)), 10),
+		SenderPubKey: "0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+		ToAddr:       "4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
+		Amount:       "10000000",
+		GasPrice:     "1000000000",
+		GasLimit:     "1",
+		Code:         "",
+		Data:         "",
+		Priority:     false,
+	}
+
+	err := wallet.Sign(tx, *provider)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	rsp := provider.CreateTransaction(tx.ToTransactionPayload())
+
+	if rsp.Error != nil {
+		fmt.Println(rsp.Error)
+	} else {
+		result := rsp.Result.(map[string]interface{})
+		hash := result["TranID"].(string)
+		fmt.Printf("hash is %s\n", hash)
+		tx.Confirm(hash, 1000, 3, provider)
+	}
+}
+```
 > **Example response:**
 
 ```json
@@ -1810,6 +2018,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"))
+```
+
+```go
+func GetTransaction() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -1925,6 +2142,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetRecentTransactions())
 ```
 
+```go
+func GetRecentTransactions() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetRecentTransactions()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+
+```
 > **Example response:**
 
 ```json
@@ -2017,6 +2243,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetTransactionsForTxBlock("2"))
+```
+
+```go
+func GetTransactionsForTxBlock() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetTransactionsForTxBlock("1")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -2118,6 +2353,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsTxEpoch())
 ```
 
+```go
+func GetNumTxnsTxEpoch() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNumTxnsTxEpoch()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2188,6 +2432,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetNumTxnsDSEpoch())
 ```
 
+```go
+func GetNumTxnsDSEpoch() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetNumTxnsDSEpoch()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2256,6 +2509,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetMinimumGasPrice())
+```
+
+```go
+func GetMinimumGasPrice() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetMinimumGasPrice()
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -2333,6 +2595,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
 ```
 
+```go
+func GetSmartContractCode() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2405,6 +2676,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
+```
+
+```go
+func GetSmartContractInit() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -2504,6 +2784,15 @@ chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractSubState("fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[]))
 ```
 
+```go
+func GetSmartContractSubState() {
+	provider := NewProvider("https://zilliqa.com")
+	response, _ := provider.GetSmartContractSubState("9611c53BE6d1b32058b2747bdeCECed7e1216793", "admins", []interface{}{})
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 
@@ -2593,6 +2882,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7"))
+```
+
+```go
+func GetSmartContractState() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**
@@ -2780,6 +3078,15 @@ print(chain.active_chain.api.GetContractAddressFromTransactionID(
 ))
 ```
 
+```go
+func GetContractAddressFromTransactionID() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
 > **Example response:**
 
 ```json
@@ -2853,6 +3160,15 @@ puts ret
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908"))
+```
+
+```go
+func TestGetBalance() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetBalance("9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
 ```
 
 > **Example response:**

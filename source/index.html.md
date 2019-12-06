@@ -2101,6 +2101,58 @@ Returns the details of a specified Transaction.
 | `params`  | string | Required | Transaction hash of 32 bytes of a specified transaction. |
 
 
+## GetPendingTxn
+
+> **Example request:**
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetPendingTxn",
+    "params": ["b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e"]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const pendingTransaction = await zilliqa.blockchain.getPendingTxn(txId);
+console.log(pendingTransaction.result);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<PendingStatus> pengdingStatus = client.getPendingTxn("b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e");
+        System.out.println(new Gson().toJson(pengdingStatus));
+    }
+}
+```
+
+```go
+func GetPendingTxn() {
+	provider := NewProvider("https://api.zilliqa.com/")
+	response := provider.GetPendingTxn("2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c")
+	result, _ := json.Marshal(response)
+	fmt.Println(string(result))
+}
+```
+
+> **Example response:**
+
+```json
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "code": 0,
+        "confirmed": false,
+        "info": "Txn not pending"
+    }
+}
+```
+
+
 ## GetRecentTransactions
 
 > **Example request:**

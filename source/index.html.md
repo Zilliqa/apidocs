@@ -2152,7 +2152,7 @@ func GetPendingTxn() {
 }
 ```
 
-Check the pending status of transaction.
+Returns the pending status of a specified Transaction.
 
 ### HTTP REQUEST
 

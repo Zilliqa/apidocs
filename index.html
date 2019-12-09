@@ -2948,7 +2948,63 @@ The JSON-RPC API server runs on:</p>
         </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Txn not pending"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='getrecenttransactions'>GetRecentTransactions</h2>
+</span></code></pre>
+<p>Returns the pending status of a specified Transaction.</p>
+<h3 id='http-request-22'>HTTP REQUEST</h3>
+<table><thead>
+<tr>
+<th>Chain(s)</th>
+<th>URL(s)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Zilliqa Mainnet</strong></td>
+<td>https://api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Developer testnet</strong></td>
+<td>https://dev-api.zilliqa.com/</td>
+</tr>
+<tr>
+<td><strong>Local testnet</strong></td>
+<td>http://localhost:4201/</td>
+</tr>
+</tbody></table>
+<h3 id='arguments-22'>ARGUMENTS</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;1&quot;</code></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;2.0&quot;</code></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>string</td>
+<td>Required</td>
+<td><code>&quot;GetPendingTxn&quot;</code></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>string</td>
+<td>Required</td>
+<td>Transaction hash of 32 bytes of a specified transaction.</td>
+</tr>
+</tbody></table>
+<h2 id='getrecenttransactions'>GetRecentTransactions</h2>
 <blockquote>
 <p><strong>Example request:</strong></p>
 </blockquote>
@@ -3016,7 +3072,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the most recent <strong>100</strong> transactions that are validated by the Zilliqa network.</p>
-<h3 id='http-request-22'>HTTP REQUEST</h3>
+<h3 id='http-request-23'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3036,7 +3092,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-22'>ARGUMENTS</h3>
+<h3 id='arguments-23'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3142,7 +3198,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the validated transactions included within a specfied final transaction block as an array of length <em>i</em>, where <em>i</em> is the number of shards plus the DS committee. The transactions are grouped based on the group that processed the transaction. The first element of the array refers to the first shard. The last element of the array at index, <em>i</em>, refers to the transactions processed by the DS Committee.</p>
-<h3 id='http-request-23'>HTTP REQUEST</h3>
+<h3 id='http-request-24'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3162,7 +3218,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-23'>ARGUMENTS</h3>
+<h3 id='arguments-24'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3239,7 +3295,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of validated transactions included in this Transaction epoch. <br> This is represented as <code>String</code>.</p>
-<h3 id='http-request-24'>HTTP REQUEST</h3>
+<h3 id='http-request-25'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3259,7 +3315,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-24'>ARGUMENTS</h3>
+<h3 id='arguments-25'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3336,7 +3392,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the number of validated transactions included in this DS epoch. <br> This is represented as <code>String</code>.</p>
-<h3 id='http-request-25'>HTTP REQUEST</h3>
+<h3 id='http-request-26'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3356,7 +3412,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-25'>ARGUMENTS</h3>
+<h3 id='arguments-26'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3434,7 +3490,7 @@ The JSON-RPC API server runs on:</p>
 </span></code></pre>
 <p>Returns the minimum gas price for this DS epoch, measured in the smallest price unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>) in Zilliqa.
 <br> This is represented as a <code>String</code>.</p>
-<h3 id='http-request-26'>HTTP REQUEST</h3>
+<h3 id='http-request-27'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3454,7 +3510,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-26'>ARGUMENTS</h3>
+<h3 id='arguments-27'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3535,7 +3591,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the Scilla code associated with a smart contract address. <br> This is represented as a <code>String</code>.</p>
-<h3 id='http-request-27'>HTTP REQUEST</h3>
+<h3 id='http-request-28'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3555,7 +3611,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-27'>ARGUMENTS</h3>
+<h3 id='arguments-28'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3655,7 +3711,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the initialization (immutable) parameters of a given smart contract, represented in a JSON format.</p>
-<h3 id='http-request-28'>HTTP REQUEST</h3>
+<h3 id='http-request-29'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3675,7 +3731,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-28'>ARGUMENTS</h3>
+<h3 id='arguments-29'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3762,7 +3818,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w"> 
 </span></code></pre>
 <p>Returns the state (or a part specified) of a smart contract address, represented in a JSON format.</p>
-<h3 id='http-request-29'>HTTP REQUEST</h3>
+<h3 id='http-request-30'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3782,7 +3838,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-29'>ARGUMENTS</h3>
+<h3 id='arguments-30'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3900,7 +3956,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w"> 
 </span></code></pre>
 <p>Returns the state (mutable) variables of a smart contract address, represented in a JSON format.</p>
-<h3 id='http-request-30'>HTTP REQUEST</h3>
+<h3 id='http-request-31'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -3920,7 +3976,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-30'>ARGUMENTS</h3>
+<h3 id='arguments-31'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4024,7 +4080,7 @@ The JSON-RPC API server runs on:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns the list of smart contract addresses created by an User&#39;s account and the contracts&#39; latest states.</p>
-<h3 id='http-request-31'>HTTP REQUEST</h3>
+<h3 id='http-request-32'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -4044,7 +4100,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-31'>ARGUMENTS</h3>
+<h3 id='arguments-32'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4126,7 +4182,7 @@ The JSON-RPC API server runs on:</p>
 </span></code></pre>
 <p>Returns a smart contract address of 20 bytes. This is represented as a <code>String</code>. <br>
 <strong>NOTE:</strong> This only works for contract deployment transactions.</p>
-<h3 id='http-request-32'>HTTP REQUEST</h3>
+<h3 id='http-request-33'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -4146,7 +4202,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-32'>ARGUMENTS</h3>
+<h3 id='arguments-33'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4231,7 +4287,7 @@ The JSON-RPC API server runs on:</p>
 <li>Returns the current <code>balance</code> of an account, measured in the smallest accounting unit <strong>Qa</strong> (or 10^-12 <strong>Zil</strong>). This is represented as a <code>String</code> <br><br></li>
 <li>Returns the current <code>nonce</code> of an account. This is represented as an <code>Number</code>.</li>
 </ul>
-<h3 id='http-request-33'>HTTP REQUEST</h3>
+<h3 id='http-request-34'>HTTP REQUEST</h3>
 <table><thead>
 <tr>
 <th>Chain(s)</th>
@@ -4251,7 +4307,7 @@ The JSON-RPC API server runs on:</p>
 <td>http://localhost:4201/</td>
 </tr>
 </tbody></table>
-<h3 id='arguments-33'>ARGUMENTS</h3>
+<h3 id='arguments-34'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

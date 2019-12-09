@@ -298,6 +298,9 @@
                     <a href="#gettransaction" class="toc-h2 toc-link" data-title="GetTransaction">GetTransaction</a>
                   </li>
                   <li>
+                    <a href="#getpendingtxn" class="toc-h2 toc-link" data-title="GetPendingTxn">GetPendingTxn</a>
+                  </li>
+                  <li>
                     <a href="#getrecenttransactions" class="toc-h2 toc-link" data-title="GetRecentTransactions">GetRecentTransactions</a>
                   </li>
                   <li>
@@ -351,6 +354,7 @@
             <li><a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a></li>
             <li><a href='https://github.com/FireStack-Lab/LaksaRuby'>Ruby SDK</a></li>
             <li><a href='https://github.com/deepgully/pyzil'>Python SDK</a></li>
+            <li><a href='https://github.com/Zilliqa/gozilliqa-sdk'>Golang SDK</a></li>
             <li><a href='http://scilla.readthedocs.io/'>Scilla Documentation</a></li>
             <li><a href='https://github.com/Zilliqa/gozilliqa-sdk.git'>gozilliqa-sdk</a></li>
         </ul>
@@ -2906,7 +2910,45 @@ The JSON-RPC API server runs on:</p>
 <td>Transaction hash of 32 bytes of a specified transaction.</td>
 </tr>
 </tbody></table>
-<h2 id='getrecenttransactions'>GetRecentTransactions</h2>
+<h2 id='getpendingtxn'>GetPendingTxn</h2>
+<blockquote>
+<p><strong>Example request:</strong></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -d <span class="s1">'{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetPendingTxn",
+    "params": ["b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e"]
+}'</span> -H <span class="s2">"Content-Type: application/json"</span> -X POST <span class="s2">"https://api.zilliqa.com/"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">pendingTransaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">zilliqa</span><span class="p">.</span><span class="nx">blockchain</span><span class="p">.</span><span class="nx">getPendingTxn</span><span class="p">(</span><span class="nx">txId</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pendingTransaction</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">HttpProvider</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpProvider</span><span class="o">(</span><span class="s">"https://api.zilliqa.com"</span><span class="o">);</span>
+        <span class="n">Rep</span><span class="o">&lt;</span><span class="n">PendingStatus</span><span class="o">&gt;</span> <span class="n">pengdingStatus</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getPendingTxn</span><span class="o">(</span><span class="s">"b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">pengdingStatus</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">func</span><span class="x"> </span><span class="n">GetPendingTxn</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">provider</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">NewProvider</span><span class="p">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="p">)</span><span class="x">
+    </span><span class="n">response</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">provider</span><span class="o">.</span><span class="n">GetPendingTxn</span><span class="p">(</span><span class="s">"2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c"</span><span class="p">)</span><span class="x">
+    </span><span class="n">result</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p><strong>Example response:</strong></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Txn not pending"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='getrecenttransactions'>GetRecentTransactions</h2>
 <blockquote>
 <p><strong>Example request:</strong></p>
 </blockquote>

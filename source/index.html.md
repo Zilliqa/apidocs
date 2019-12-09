@@ -2152,6 +2152,25 @@ func GetPendingTxn() {
 }
 ```
 
+Returns the pending status of a specified Transaction.
+
+### HTTP REQUEST
+
+| Chain(s)              | URL(s)                       |
+| --------------------- | ---------------------------- |
+| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Developer testnet** | https://dev-api.zilliqa.com/ |
+| **Local testnet**     | http://localhost:4201/       |
+
+### ARGUMENTS
+
+| Parameter | Type   | Required | Description                                              |
+| --------- | ------ | -------- | -------------------------------------------------------- |
+| `id`      | string | Required | `"1"`                                                    |
+| `jsonrpc` | string | Required | `"2.0"`                                                  |
+| `method`  | string | Required | `"GetPendingTxn"`                                       |
+| `params`  | string | Required | Transaction hash of 32 bytes of a specified transaction. |
+
 
 ## GetRecentTransactions
 

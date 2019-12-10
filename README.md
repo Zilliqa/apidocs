@@ -3,7 +3,7 @@
 </p>
 
 <p align="center"><b>Zilliqa JSON-RPC API documentation. Powered by <a href="https://github.com/lord/slate" target="_blank">Slate</a>.</b></p>
-<p align="center"><a href="https://gitter.im/Zilliqa/" target="_blank"><img src="http://img.shields.io/badge/chat-on%20gitter-077a8f.svg" /></a></p>
+<p align="center"><a href="https://discord.gg/8tpGXrB" target="_blank"><img src="https://img.shields.io/discord/370992535725932544.svg" /></a></p>
 
 ## Overview
 

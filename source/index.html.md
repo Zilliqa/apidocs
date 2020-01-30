@@ -2062,21 +2062,98 @@ func GetTransaction() {
     "id": "1",
     "jsonrpc": "2.0",
     "result": {
-        "ID": "ebd9da6a0a3855c910813dad3d6796cf90f12bf5152dcb5ddda664ef2a632ad9",
+        "ID": "17bd409e0de38c7874c9f96d044c8f9e6aeb0f39c9be3b09f0213ec7b33f9d7b",
         "amount": "0",
-        "data": "{\"_tag\":\"t3\",\"params\":[]}",
-        "gasLimit": "100000",
-        "gasPrice": "10000000000",
-        "nonce": "118",
+        "data": "{\"_tag\":\"proxyDecreaseAllowance\",\"params\":[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0xb2e51878722d8b6d2c0f97e995a7276d64c1618b\"},{\"vname\":\"value\",\"type\":\"Uint128\",\"value\":\"10000\"}]}",
+        "gasLimit": "10000",
+        "gasPrice": "1000000000",
+        "nonce": "58",
         "receipt": {
-            "cumulative_gas": "176",
-            "epoch_num": "229640",
-            "success": true
+            "cumulative_gas": "3127",
+            "epoch_num": "655",
+            "event_logs": [
+                {
+                    "_eventname": "DecreasedAllowance",
+                    "address": "0x7825250c716f71e63c3819c029305ba52680c998",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "sender"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
+                            "vname": "spender"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "0",
+                            "vname": "new_allowance"
+                        }
+                    ]
+                }
+            ],
+            "success": true,
+            "transitions": [
+                {
+                    "addr": "0x8b46edcfcdb5613da479805f9a943b4a75e544a5",
+                    "depth": 0,
+                    "msg": {
+                        "_amount": "0",
+                        "_recipient": "0x7825250c716f71e63c3819c029305ba52680c998",
+                        "_tag": "decreaseAllowance",
+                        "params": [
+                            {
+                                "type": "ByStr20",
+                                "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
+                                "vname": "spender"
+                            },
+                            {
+                                "type": "Uint128",
+                                "value": "10000",
+                                "vname": "value"
+                            },
+                            {
+                                "type": "ByStr20",
+                                "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                                "vname": "initiator"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "addr": "0x7825250c716f71e63c3819c029305ba52680c998",
+                    "depth": 1,
+                    "msg": {
+                        "_amount": "0",
+                        "_recipient": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                        "_tag": "DecreaseAllowanceSuccessCallBack",
+                        "params": [
+                            {
+                                "type": "ByStr20",
+                                "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                                "vname": "sender"
+                            },
+                            {
+                                "type": "ByStr20",
+                                "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
+                                "vname": "spender"
+                            },
+                            {
+                                "type": "Uint128",
+                                "value": "10000",
+                                "vname": "amount"
+                            }
+                        ]
+                    }
+                }
+            ]
         },
-        "senderPubKey": "0x021D8698472A58B11176125D1B2B05981849DB83B6A91D019F7686A4F9702CA598",
-        "signature": "0xD642287BB7DB3C2B48B162D88EB90D6B48C3EFC2309FAF04B59E1422BEE27F15AC5ED7CCA21D5F791073E59DEE6EAA2A9134CEDBC1467BAA6C0E471BC5F4ECA4",
-        "toAddr": "4c876493f196d2660ba98f2989982a4d1e7282ab",
-        "version": "65537"
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0x44B36617C62C5F521F1243404F903F463BAF113FC64038D74A679EAD0F5BA033C367D281B0CBB2C55B2DCC578E74DF72284B21799DBF8C586274AF2B2919F797",
+        "toAddr": "8b46edcfcdb5613da479805f9a943b4a75e544a5",
+        "version": "131073"
     }
 }
 ```

@@ -7,8 +7,7 @@ rvm:
   - 2.4.0
 
 before_install:
-  - gem update --system
-  - gem --version
+  - gem install bundler:1.15.4
 
 cache: bundler
 script: bundle exec middleman build

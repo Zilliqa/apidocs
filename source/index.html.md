@@ -14,8 +14,8 @@ toc_footers:
   - <a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a>
   - <a href='https://github.com/FireStack-Lab/LaksaRuby'>Ruby SDK</a>
   - <a href='https://github.com/deepgully/pyzil'>Python SDK</a>
+  - <a href='https://github.com/Zilliqa/gozilliqa-sdk'>Golang SDK</a>
   - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
-  - <a href='https://github.com/Zilliqa/gozilliqa-sdk.git'>gozilliqa-sdk</a>
 
 includes:
 

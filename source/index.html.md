@@ -2230,6 +2230,14 @@ func GetPendingTxn() {
 ```
 
 Returns the pending status of a specified Transaction.
+Possible results are:
+
+| `confirmed`  | `code`  | `info`                                             |
+| ------------ | ------- | -------------------------------------------------- |
+| false        | 0       | Txn not pending                                    |
+| false        | 1       | Nonce too high                                     |
+| false        | 2       | Could not fit in as microblock gas limit reached   |
+| false        | 3       | Transaction valid but consensus not reached        |
 
 ### HTTP REQUEST
 

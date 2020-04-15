@@ -3025,7 +3025,37 @@ The JSON-RPC API server runs on:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the pending status of a specified Transaction.</p>
+<p>Returns the pending status of a specified Transaction.
+Possible results are:</p>
+
+<table><thead>
+<tr>
+<th><code>confirmed</code></th>
+<th><code>code</code></th>
+<th><code>info</code></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>false</td>
+<td>0</td>
+<td>Txn not pending</td>
+</tr>
+<tr>
+<td>false</td>
+<td>1</td>
+<td>Nonce too high</td>
+</tr>
+<tr>
+<td>false</td>
+<td>2</td>
+<td>Could not fit in as microblock gas limit reached</td>
+</tr>
+<tr>
+<td>false</td>
+<td>3</td>
+<td>Transaction valid but consensus not reached</td>
+</tr>
+</tbody></table>
 <h3 id='http-request-22'>HTTP REQUEST</h3>
 <table><thead>
 <tr>

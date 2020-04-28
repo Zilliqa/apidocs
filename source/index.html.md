@@ -2706,6 +2706,199 @@ Returns the minimum gas price for this DS epoch, measured in the smallest price 
 | `method`  | string | Required | `"GetMinimumGasPrice"` |
 | `params`  | string | Required | Empty string `""`      |
 
+## GetTxnBodiesForTxBlock
+
+> **Example request:**
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetTxnBodiesForTxBlock",
+    "params": ["2"]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const txns = await zilliqa.blockchain.getTxnBodiesForTxBlock("2");
+console.log(txns.result);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<List<List<String>>> transactionList = client.getTxnBodiesForTxBlock("2");
+        System.out.println(new Gson().toJson(transactionList));
+    }
+}
+```
+
+```ruby
+provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
+
+ret = provider.GetTxnBodiesForTxBlock("2")
+puts ret
+```
+
+```python
+from pyzil.zilliqa import chain
+chain.set_active_chain(chain.MainNet)
+print(chain.active_chain.api.GetTxnBodiesForTxBlock("2"))
+```
+
+```go
+func GetTxnBodiesForTxBlock() {
+  provider := NewProvider("https://api.zilliqa.com/")
+  response := provider.GetTxnBodiesForTxBlock("1")
+  result, _ := json.Marshal(response)
+  fmt.Println(string(result))
+}
+```
+
+> **Example response:**
+
+```json
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "ID": "562432bc45c14c788c43c469756453375cbe80cc9c1bc30fa0dfbe77e4220221",
+            "amount": "1",
+            "gasLimit": "1",
+            "gasPrice": "1000000000",
+            "nonce": "1",
+            "receipt": {
+                "cumulative_gas": "1",
+                "epoch_num": "2",
+                "success": true
+            },
+            "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
+            "signature": "0xCC12816DCE156FECFA1D6EF129D13FA2A5677E159CDF0CAFADF2CD33FBA0D239EE1284D4083BFBA4B895B97419FE78AB249C99AA7A7B7F314F17D353F44E784D",
+            "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
+            "version": "131073"
+        },
+        {
+            "ID": "9ebc07e3e15b08dd82b2f2d57eead1b7dea4d06bef33364bbec5f80fc1d1d130",
+            "amount": "2",
+            "gasLimit": "1",
+            "gasPrice": "1000000000",
+            "nonce": "2",
+            "receipt": {
+                "cumulative_gas": "1",
+                "epoch_num": "2",
+                "success": true
+            },
+            "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
+            "signature": "0x846D90B698B4739979AB8B7F25BDEE5125A36447770D4AC6386606ACD25704747B38DEDE85F0AD26A663F0863199CA336109EB080A6354BB7CC3683C8FC47796",
+            "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
+            "version": "131073"
+        }
+    ]
+}
+```
+
+Retrurns all the transaction bodies (in verbose form) corresponding to that tx block.
+
+### HTTP REQUEST
+
+| Chain(s)              | URL(s)                       |
+| --------------------- | ---------------------------- |
+| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Developer testnet** | https://dev-api.zilliqa.com/ |
+| **Local testnet**     | http://localhost:4201/       |
+
+### ARGUMENTS
+
+| Parameter | Type   | Required | Description                                        |
+| --------- | ------ | -------- | -------------------------------------------------- |
+| `id`      | string | Required | `"1"`                                              |
+| `jsonrpc` | string | Required | `"2.0"`                                            |
+| `method`  | string | Required | `"GetTxnBodiesForTxBlock"`                         |
+| `params`  | string | Required | Specifed TX block number to return. Example: `"2"` |
+
+## GetPendingTxns
+
+> **Example request:**
+
+```shell
+curl -d '{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "GetPendingTxns",
+    "params": ["b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e"]
+}' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
+```
+
+```javascript
+const pendingTransaction = await zilliqa.blockchain.getPendingTxns();
+console.log(pendingTransaction.result);
+```
+
+```java
+public class App {
+    public static void main(String[] args) throws IOException {
+        HttpProvider client = new HttpProvider("https://api.zilliqa.com");
+        Rep<PendingStatus> pengdingStatus = client.getPendingTxns();
+        System.out.println(new Gson().toJson(pengdingStatus));
+    }
+}
+```
+
+```go
+func GetPendingTxns() {
+  provider := NewProvider("https://api.zilliqa.com/")
+  response := provider.GetPendingTxns()
+  result, _ := json.Marshal(response)
+  fmt.Println(string(result))
+}
+```
+
+> **Example response:**
+
+```json
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "Txns": [
+      {
+        "Status": 1,
+        "TxnHash": "ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"
+      }
+    ]
+  }
+}
+```
+
+Returns the pending status of a specified Transaction.
+Possible results are:
+
+| `confirmed`  | `code`  | `info`                                             |
+| ------------ | ------- | -------------------------------------------------- |
+| false        | 0       | Txn not pending                                    |
+| false        | 1       | Nonce too high                                     |
+| false        | 2       | Could not fit in as microblock gas limit reached   |
+| false        | 3       | Transaction valid but consensus not reached        |
+
+### HTTP REQUEST
+
+| Chain(s)              | URL(s)                       |
+| --------------------- | ---------------------------- |
+| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Developer testnet** | https://dev-api.zilliqa.com/ |
+| **Local testnet**     | http://localhost:4201/       |
+
+### ARGUMENTS
+
+| Parameter | Type   | Required | Description                                              |
+| --------- | ------ | -------- | -------------------------------------------------------- |
+| `id`      | string | Required | `"1"`                                                    |
+| `jsonrpc` | string | Required | `"2.0"`                                                  |
+| `method`  | string | Required | `"GetPendingTxnss"`                                      |
+| `params`  | None   |          |                                                          |
+
 # Contract-related methods
 
 ## GetSmartContractCode

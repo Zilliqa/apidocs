@@ -620,7 +620,7 @@ puts ret
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
-print(chain.active_chain.api.GetDSBlockListing(1))
+print(chain.active_chain.api.DSBlockListing(1))
 ```
 
 

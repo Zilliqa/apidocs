@@ -2681,6 +2681,8 @@ func GetTxnBodiesForTxBlock() {
 
 Returns the validated transactions (in verbose form) included within a specified final transaction block.
 
+**Note:** This API is only available for private seed nodes only. It is not accessible via the offical public API services (`https://api.zilliqa.com` and `https://dev-api.zilliqa.com`) 
+
 ### HTTP REQUEST
 
 | Chain(s)              | URL(s)                       |

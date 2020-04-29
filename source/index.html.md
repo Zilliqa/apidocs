@@ -2055,7 +2055,7 @@ func GetTransaction() {
 }
 ```
 
-*Note: If the transaction had an data field or code field, it will be displayed*
+*Note: If the transaction had data, code, or exceptions fields, those fields will be displayed*
 
 ```json
 {
@@ -2092,6 +2092,16 @@ func GetTransaction() {
                             "vname": "new_allowance"
                         }
                     ]
+                }
+            ],
+            "exceptions": [
+                {
+                   "line": 46,
+                   "message": "Exception thrown: (Message [(_exception : (String \"InvalidInput\"))])"
+                },
+                {
+                   "line": 43,
+                   "message": "Raised from getHello"
                 }
             ],
             "success": true,
@@ -2154,6 +2164,34 @@ func GetTransaction() {
         "signature": "0x44B36617C62C5F521F1243404F903F463BAF113FC64038D74A679EAD0F5BA033C367D281B0CBB2C55B2DCC578E74DF72284B21799DBF8C586274AF2B2919F797",
         "toAddr": "8b46edcfcdb5613da479805f9a943b4a75e544a5",
         "version": "131073"
+    }
+}
+```
+
+*Note: For smart contract fund transfers, accepted will be included in the receipt*
+
+
+```json
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "e83b118685719aace64e0969ea178fe5e9fcc321ae009df27f14c61cb27f3956",
+        "amount": "100",
+        "data": "{\"_tag\":\"getHello\",\"params\":[]}",
+        "gasLimit": "10000",
+        "gasPrice": "1000000000",
+        "nonce": "58",
+        "receipt": {
+            "accepted": true,
+            "cumulative_gas": "478",
+            "epoch_num": "537641",
+            "success": true
+        },
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0xC926588B1E40629031EE1083AF65092560D355125DD8A1A34EC101F314FE8CDE0C45F1A304EB1B54B624D2FFD0B3D5702026E885A483EAD81DCD78C47C7413E1",
+        "toAddr": "f046f94b75f26733c9dc93f265be02f63ee480cb",
+        "version": "65537"
     }
 }
 ```

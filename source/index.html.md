@@ -2055,7 +2055,7 @@ func GetTransaction() {
 }
 ```
 
-*Note: If the transaction had an data field or code field or exceptions field, it will be displayed*
+*Note: If the transaction had data, code, or exceptions fields, those fields will be displayed*
 
 ```json
 {

@@ -1871,7 +1871,12 @@ curl -d '{
 }
 ```
 
-Returns the mining nodes (i.e., the members of the DS committee and shards) at the specified DS block. Nodes owned by Zilliqa Research are omitted. `dscommittee` has no `size` field since the DS committee size is fixed for a given chain.
+Returns the mining nodes (i.e., the members of the DS committee and shards) at the specified DS block.
+
+**Notes:**
+  1. Nodes owned by Zilliqa Research are omitted.
+  2. `dscommittee` has no `size` field since the DS committee size is fixed for a given chain.
+  3. For the Zilliqa Mainnet, this API is only available from DS block 5500 onwards.
 
 ### HTTP REQUEST
 

@@ -5,14 +5,12 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
   - javascript: node.js
   - java: java
-  - ruby: ruby
   - python: python
   - go: go
 
 toc_footers:
   - <a href='https://github.com/Zilliqa/Zilliqa-Javascript-Library'>Javascript SDK</a>
   - <a href='https://github.com/FireStack-Lab/LaksaJ'>Java SDK</a>
-  - <a href='https://github.com/FireStack-Lab/LaksaRuby'>Ruby SDK</a>
   - <a href='https://github.com/deepgully/pyzil'>Python SDK</a>
   - <a href='https://github.com/Zilliqa/gozilliqa-sdk'>Golang SDK</a>
   - <a href='http://scilla.readthedocs.io/'>Scilla Documentation</a>
@@ -31,7 +29,7 @@ The JSON-RPC API server runs on:
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 All API calls are POST requests.
 
@@ -72,13 +70,6 @@ public class App {
         System.out.println(new Gson().toJson(networkId));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNetworkId
-puts ret
 ```
 
 ```python
@@ -132,7 +123,7 @@ Returns the `CHAIN_ID` of the specified network. This is represented as a `Strin
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -171,13 +162,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetBlockchainInfo
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -200,20 +184,20 @@ func GetBlockchainInfo() {
   "id": "1",
   "jsonrpc": "2.0",
   "result": {
-    "CurrentDSEpoch": "10",
-    "CurrentMiniEpoch": "906",
-    "DSBlockRate": 0.0001324694641012551,
-    "NumDSBlocks": "11",
+    "CurrentDSEpoch": "5898",
+    "CurrentMiniEpoch": "589778",
+    "DSBlockRate": 0.00014142137245459714,
+    "NumDSBlocks": "5899",
     "NumPeers": 2400,
-    "NumTransactions": "1114482",
-    "NumTxBlocks": "906",
-    "NumTxnsDSEpoch": "15750",
-    "NumTxnsTxEpoch": "5250",
+    "NumTransactions": "4350627",
+    "NumTxBlocks": "589778",
+    "NumTxnsDSEpoch": "748",
+    "NumTxnsTxEpoch": "4",
     "ShardingStructure": {
       "NumPeers": [600, 600, 600]
     },
-    "TransactionRate": 92.51249993656286,
-    "TxBlockRate": 0.010826202125962327
+    "TransactionRate": 0.09401852277720939,
+    "TxBlockRate": 0.014137955733170903
   }
 }
 ```
@@ -226,7 +210,7 @@ Returns the current network statistics for the specified network.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -265,13 +249,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetDsBlock("1")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -299,15 +276,12 @@ func GetDsBlock() {
       "Difficulty": 3,
       "DifficultyDS": 5,
       "GasPrice": "100",
-      "LeaderPubKey": "0x0208EA17FE78DE1D4A17B921B7ADB2B3FEE4C795FC5FD54BEA80FCE926F09F79F3",
-      "PoWWinners": [
-        "0x0307BA09F607D36C6D3B2AC7541592DB8674A889690A14B816FACF67B4F9221CEC",
-        "0x0342081E95907022E1E5A525F2D7CE51EB5AF56B7EB13C29C6EC194FB93DF2E752"
-      ],
-      "PrevHash": "ba127538d2c63eec121629011ae8173210589689dca54d1e11904dd82c68e9da",
-      "Timestamp": "1544755380363821"
+      "LeaderPubKey": "0x020035B739426374C5327A1224B986005297102E01C29656B8B086BF4B352C6CA9",
+      "PoWWinners": [],
+      "PrevHash": "0800bfda2b715fe7e401f7cf73182f072f8459318cb4bb90d195f681c5bbebdd",
+      "Timestamp": "1548928944839738"
     },
-    "signature": "E2EC67C64323D73D8CCBCC79FEEE04826702751D599995B997AFF7452A7CB7D11CEA8DC5275E9CEAAF7C623F2FEEE132A5F2EF5B9EB63D8C4C5CDD97D64B6CC3"
+    "signature": "1515B838C310485ADE001822470E9CF9D0068E8528516AB71D8A964B642AF59A874A5345CC8239254B951EE53CB509A9A3D5F5FF63380D5F70D9A32A060DB0CD"
   }
 }
 ```
@@ -320,7 +294,7 @@ Returns the details of a specified Directory Service block.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -359,13 +333,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetLatestDsBlock
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -389,19 +356,26 @@ func GetLatestDsBlock() {
   "jsonrpc": "2.0",
   "result": {
     "header": {
-      "BlockNum": "26",
-      "Difficulty": 3,
-      "DifficultyDS": 16,
-      "GasPrice": "100",
-      "LeaderPubKey": "0x020C11D6B9CA45B56EC80705F1070D9928CFA4BA99212BEF934307C228ECC309FC",
+      "BlockNum": "5898",
+      "Difficulty": 91,
+      "DifficultyDS": 149,
+      "GasPrice": "1000000000",
+      "LeaderPubKey": "0x026964CBF00EE542F5CBE80395FFEA747227BC3EFCC21D04956380180A9BE21546",
       "PoWWinners": [
-        "0x02CB5328E79387F337EC671ECFF0CF2501CCD4DDFCA3565640F94792DE0A7EA0F9",
-        "0x0320D26B67A1C701377AA391F2572B66D72F5D0E1A23C44E5B1DA7BF2D53C653E1"
+        "0x0219DB403A630022EE014AFD97D02E2DBC6BCEED2506A9E57B5EE5D9EA4F154929",
+        "0x02D9C8FC6C87891968ECCEE5EF1CD8A9F8FC32C6463F2FE4E846DFD5C5F45A625E",
+        "0x02E07F03C71D26433E7F290416FA43374DA72704F8AA973D4771AA763ACD7C509C",
+        "0x02E0FB6CDAEA57738959B493652A74E86339AF2CFE998FB7424BBD7A813450743F",
+        "0x0315E9B13D5A5D29902F1EECE0933E96A0AF9939853D5F82B438AAED9F7560B3FC",
+        "0x034D9B1B0DC80A0103AE7826886B415C29BF3E814FF6720F6C9C47B57589EFEAAA",
+        "0x0394EA64F2F833B88C56464E12B37780BDB9684875F55BC569B397ABE0FCCD8E0E",
+        "0x03C53B6C3D901ED46E786DA383BE61A46A442461D2A83379A11A42D7403FB7102E",
+        "0x03F6427EE15A5EC409FE7F8CDCC8E7C7704CC07AD2BF8CADFD2A19BB98E80836AF"
       ],
-      "PrevHash": "449a67f3cb160f598ac279f95e6583868a2052c846123558866f56dd6d70cd6c",
-      "Timestamp": "1544776175498144"
+      "PrevHash": "968e2e7820a3795de8c8a7a2e94379cc10f50ada5ea6f90c03c4e61e22ee83b5",
+      "Timestamp": "1590641169078644"
     },
-    "signature": "D096A9F6FB4DAFCFE7112D1C9684CAC2338CDBF0FC17E2B9DF814751BEA8E1F84A889DBC0CEBF903BFD06B1E0C0165F29347EED51B86A613F3C5A18F1CA11EEA"
+    "signature": "803D64288A6F827DAFA529235C7A78E7BC2D1C882C5DA643E03CB0B2A786C7A5508CCD5F409CDAA325709E4E9A98F1D67596E61CB8CF958AD98B7DB842F87A44"
   }
 }
 ```
@@ -414,7 +388,7 @@ Returns the details of the most recent Directory Service block.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -453,13 +427,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNumDSBlocks
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -481,7 +448,7 @@ func GetNumDSBlocks() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "27"
+  "result": "5899"
 }
 ```
 
@@ -493,7 +460,7 @@ Returns the current number of validated Directory Service blocks in the network.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -532,13 +499,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetDSBlockRate
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -553,13 +513,14 @@ func GetDSBlockRate() {
 	fmt.Println(string(result))
 }
 ```
+
 > **Example response:**
 
 ```json
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": 1.9217623126238637e-8
+  "result": 0.00014142137245459714
 }
 ```
 
@@ -571,7 +532,7 @@ Returns the current Directory Service blockrate per second.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -610,19 +571,11 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetDSBlockListing(1)
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
 print(chain.active_chain.api.DSBlockListing(1))
 ```
-
 
 ```go
 func DSBlockListing() {
@@ -633,6 +586,7 @@ func DSBlockListing() {
 }
 
 ```
+
 > **Example response:**
 
 ```json
@@ -642,47 +596,47 @@ func DSBlockListing() {
   "result": {
     "data": [
       {
-        "BlockNum": 208,
-        "Hash": "D5D8D80034EA93409B0F2DA493533EAA4B5BE5301E705C82A30FB521000CCBD3"
+        "BlockNum": 5898,
+        "Hash": "4DEED80AFDCC89D5B691DCB54CCB846AD9D823D448A56ACAC4DBE5E1213244C7"
       },
       {
-        "BlockNum": 207,
-        "Hash": "4FB82808E837F4A2E7C9818CAE4968861F4CF66CB835509EE02ADD08D82F77A8"
+        "BlockNum": 5897,
+        "Hash": "968E2E7820A3795DE8C8A7A2E94379CC10F50ADA5EA6F90C03C4E61E22EE83B5"
       },
       {
-        "BlockNum": 206,
-        "Hash": "1E21DFFD46147A14C3A2155D588BEF969133A7315E015814D67C38685715A116"
+        "BlockNum": 5896,
+        "Hash": "A52D113357910ADECEFA713D89A667030F521FFB153EEFA97A0D9E7E4AA5230B"
       },
       {
-        "BlockNum": 205,
-        "Hash": "23D514E64F4F1C7F878EACC239FD7D3E78C1860BCB89CA3E2798BA80B5F62CFB"
+        "BlockNum": 5895,
+        "Hash": "8d49d4b18b441dc0da6ca580f468c9e83278c47f0f54fe342e1fe1425c39044f"
       },
       {
-        "BlockNum": 204,
-        "Hash": "01230FFBC0DA3EBD4DE7C3B4C8438CDD8215171F773731DCA06937754A943868"
+        "BlockNum": 5894,
+        "Hash": "b966c36557480a35a36a0d1c33723fd9bac8538588dea6716b4dfb2a05815458"
       },
       {
-        "BlockNum": 203,
-        "Hash": "AFFF5FCAABD67639CAD1954836818093AD323F7874D2C7A0850B8ACB2A130100"
+        "BlockNum": 5893,
+        "Hash": "fc20118eec0f14fdc089fcfee528276337dcf403a308153485f24f2856998613"
       },
       {
-        "BlockNum": 202,
-        "Hash": "1499C28EF49D534741A988007715376DF437120994DD5999BF15A9168C5414E9"
+        "BlockNum": 5892,
+        "Hash": "4ed593d66b1ea5fa9a77cc1bb119baf90029c249bf5507b01079bc2fbf45aec7"
       },
       {
-        "BlockNum": 201,
-        "Hash": "A3C62538289B094FBAC4641172E8EA46EE7440733DF497465EB68FB1D26E82E6"
+        "BlockNum": 5891,
+        "Hash": "1385bf48e584ebb82cf11a9064d99b5e0b4ae560866a92efe9b78604e08fc821"
       },
       {
-        "BlockNum": 200,
-        "Hash": "A200CB54AE5B1D2BB6E8A7E4B3BF930E8DA1081188F6F96DD59FD6D483FEB3E6"
+        "BlockNum": 5890,
+        "Hash": "05d6d24a8f5411ff70fe58a09f38fd4b49ec4122b7c26817964a4a8b8a089c1f"
       },
       {
-        "BlockNum": 199,
-        "Hash": "A4DC7549D3D2A7EA24AA373FDDEB0A5DF06BB8B77C7918015DFB489587BD1C07"
+        "BlockNum": 5889,
+        "Hash": "137e56be8966eba0c04138d79faa1515997fc790ccf5213c00bb13a3550cca39"
       }
     ],
-    "maxPages": 21
+    "maxPages": 590
   }
 }
 ```
@@ -695,7 +649,7 @@ Returns a paginated list of up to **10** Directory Service (DS) blocks and their
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -732,13 +686,6 @@ public class App {
         System.out.println(new Gson().toJson(txBlock));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTxBlock("40")
-puts ret
 ```
 
 ```python
@@ -812,7 +759,7 @@ Returns the details of a specified Transaction block.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -851,13 +798,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetLatestTxBlock
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -881,45 +821,45 @@ func GetLatestTxBlock() {
   "jsonrpc": "2.0",
   "result": {
     "body": {
-      "BlockHash": "794ded1feff2bed53432e5c77dbb30310d1003e5605bbbfad4e7dd08e7a1664b",
-      "HeaderSign": "8BFA12F57C05F994650C56FF718D8EDD2AD9B00464091E76902CF2815F1FD5CFBD093BDD89FB2ABA6C4EAC4DAEAD8B8D0E74834758BA0160066C899D89EA2073",
+      "BlockHash": "01a61cc22ab5ae1d77cd6da65385771dca408fbea90688c845bdd2ffe1797bb7",
+      "HeaderSign": "DEACD285A5D2AED23052B08BE9CEEE1C9C4C8CB69F3DF4106D87BA9B0AC067E16AA2C5D129F2318824723A2A75CA5F32632DCD4E5D8A634234E1037B6025779D",
       "MicroBlockInfos": [
         {
-          "MicroBlockHash": "d7d2c88d699478946d3d25b3ca8effcf8b575da526a6741c3e87330f7144cf6d",
+          "MicroBlockHash": "8cf6285c259613a79c7b5dfcfbada4f9631fa15d626037f048d1d9a9649d562c",
           "MicroBlockShardId": 0,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "1f89fd6c178f1c5b8f5f0af8a2d3026af43e9ddcbe66ca760b07d00e3660f432",
+          "MicroBlockHash": "01d7da6e80b81711aaf7cdbc74bc50994f4ed99be085d451c93abe31882e8b44",
           "MicroBlockShardId": 1,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-          "MicroBlockHash": "0a68a175bd6a76a597fdcad1c1b7aed21ce3d55a3ccaa82cd3d72a8097ec0178",
+          "MicroBlockHash": "1eaf0a468eff13a2d7ecd33b5177fb850bdfce23bca3a330ecef951bde44eb62",
           "MicroBlockShardId": 2,
-          "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
+          "MicroBlockTxnRootHash": "fa80cb720f7612229909295640266eb618cc2a73dd78da17b4d68d7ffc7cce82"
         },
         {
-          "MicroBlockHash": "ba899867e5cb2bc5bba0f186f24fb6a5cdd73718af740d37fd87128b0b89245e",
+          "MicroBlockHash": "bf86108de525ba4954e40631949ad71f7f7b0a620f350da2c736f92aa157d2ba",
           "MicroBlockShardId": 3,
           "MicroBlockTxnRootHash": "0000000000000000000000000000000000000000000000000000000000000000"
         }
       ]
     },
     "header": {
-      "BlockNum": "157264",
-      "DSBlockNum": "1573",
-      "GasLimit": "2000000",
-      "GasUsed": "0",
-      "MbInfoHash": "4251b1b2f76235b637eee21fa197b411a08d1390ab06ff37d34deaf73e26f9e2",
-      "MinerPubKey": "0x0211CDC4EE0AC1D3EFBD9597C970A32F9B618E530DE24D0E3EA93D90F66712EB80",
+      "BlockNum": "589789",
+      "DSBlockNum": "5898",
+      "GasLimit": "325000",
+      "GasUsed": "1",
+      "MbInfoHash": "ba2a326bcc595fae5ddcbdc5d53cca06ce7c8d1d046ffb635341e3aa9d5cbb7c",
+      "MinerPubKey": "0x0207FF35CFA9F3D8336430BBD09BBF9B36C283358E8CA91FAB551ACB5FE1E38B68",
       "NumMicroBlocks": 4,
-      "NumTxns": 0,
-      "PrevBlockHash": "06f94e089213d9f89393f28d43320c4251e87ee9d393f4aa52cbf325f5f5eb15",
-      "Rewards": "0",
-      "StateDeltaHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "StateRootHash": "61da8b03cd7d2729056ed8407a2bccffecffb4854ea304085a3ad5516901dfd7",
-      "Timestamp": "1562059080341128",
+      "NumTxns": 1,
+      "PrevBlockHash": "be825dd949caf36d6a20372fdc88b1912dc1515d1ecf8624e6cd928b33c9a705",
+      "Rewards": "1000000000",
+      "StateDeltaHash": "c2c43d6a277a92df12d7d5ab5c657d6a7d823000061da5802c6354b47e56ebd5",
+      "StateRootHash": "d00196c0a8f28d81e49253a1a561da79a526a47e12b4e208da20b96a6e3a1ac7",
+      "Timestamp": "1590645487342412",
       "Version": 1
     }
   }
@@ -934,7 +874,7 @@ Returns the details of the most recent Transaction block.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -973,13 +913,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNumTxBlocks
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1001,7 +934,7 @@ func GetNumTxBlocks() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "1000"
+  "result": "589790"
 }
 ```
 
@@ -1013,7 +946,7 @@ Returns the current number of Transaction blocks in the network. <br> This is re
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1052,13 +985,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTxBlockRate
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1080,7 +1006,7 @@ func GetTxBlockRate() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": 6.5499873692751224e-7
+  "result": 0.014138050978963283
 }
 ```
 
@@ -1092,7 +1018,7 @@ Returns the current Transaction blockrate per second for the network.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1131,13 +1057,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTxBlockListing(1)
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1163,47 +1082,47 @@ func TxBlockListing() {
   "result": {
     "data": [
       {
-        "BlockNum": 1016,
-        "Hash": "BBA0C358B0A578CFD5230E501B76A0D8C3E27D5E82524D8B3028B4D8D68AFD3A"
+        "BlockNum": 589790,
+        "Hash": "E0743F8E0CAEFB4DD6B15D9A5B71975CD1CFFC453EC57F85541E224A9C60B4E8"
       },
       {
-        "BlockNum": 1015,
-        "Hash": "F90074A2A50973C80DB358DEF8F6D39157ADAEF1C1634E88B66FD55230212FA7"
+        "BlockNum": 589789,
+        "Hash": "01a61cc22ab5ae1d77cd6da65385771dca408fbea90688c845bdd2ffe1797bb7"
       },
       {
-        "BlockNum": 1014,
-        "Hash": "C71C95A4AD784251F3BDBC157CAF87B941F0866A40C5AA2409B724AE55CC25BC"
+        "BlockNum": 589788,
+        "Hash": "be825dd949caf36d6a20372fdc88b1912dc1515d1ecf8624e6cd928b33c9a705"
       },
       {
-        "BlockNum": 1013,
-        "Hash": "9A432A3BD743A1B31B839F1C0E61C4B1D7C3A983D767B8DB9833D7B9537BCCD7"
+        "BlockNum": 589787,
+        "Hash": "4d097b9e283dd2bfeb78f2bb6ef9fe960b45b96e027f999316cea4c3d8f70ea9"
       },
       {
-        "BlockNum": 1012,
-        "Hash": "141772BB18777685F55D2E8BEB1682357C0D4CD0E28680B8993C2D6B1CE685AE"
+        "BlockNum": 589786,
+        "Hash": "1714472999972237b887db32cc6e27c44dc4ceecdc310ae3b18f44673e860d87"
       },
       {
-        "BlockNum": 1011,
-        "Hash": "092209AD966FFC928180C3A14F1CD4DBC1D065F167441FC2D31B471C612AE77D"
+        "BlockNum": 589785,
+        "Hash": "a40cb278801b22609245e240c1386894829d36ec2c081cf33d6b0f11cb6d6c70"
       },
       {
-        "BlockNum": 1010,
-        "Hash": "7A1A580FEFD45947A4F5DDA1D75CAB96B8DCE15D9E6644DF3BF072F45C52D0F3"
+        "BlockNum": 589784,
+        "Hash": "e6a66682866dec2b44124b0daa419696cca396bc04ab2d342a65b43db5cbd24e"
       },
       {
-        "BlockNum": 1009,
-        "Hash": "BDB10D71FF35EB607DC45FF283FD477568903D295B80F9380FCB39D11BE55336"
+        "BlockNum": 589783,
+        "Hash": "a7be65da85167c2cd0b044698a3e7dc74e2478b367f87d85536d4c108d9fde96"
       },
       {
-        "BlockNum": 1008,
-        "Hash": "E64E2E716D89410B06DF5E32846C4743A755836A35EF449C7955602DF4E60DD0"
+        "BlockNum": 589782,
+        "Hash": "060b06d40fcca1cedb9099031e1cb37927700bc263f14a3b05481f1f9b211b7c"
       },
       {
-        "BlockNum": 1007,
-        "Hash": "1FD23789E64D1645B7D03058AFCFEB7118A92578A59DA6604568B9B5987F9458"
+        "BlockNum": 589781,
+        "Hash": "db190feb1f2099875ca2dc9734efbeb5b1cef676f85d7fa9a4b84d64a9e463b6"
       }
     ],
-    "maxPages": 102
+    "maxPages": 58980
   }
 }
 ```
@@ -1216,7 +1135,7 @@ Returns a paginated list of up to **10** Transaction blocks and their block hash
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1255,13 +1174,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNumTransactions
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1283,7 +1195,7 @@ func GetNumTransactions() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "19"
+  "result": "4350695"
 }
 ```
 
@@ -1295,7 +1207,7 @@ Returns the current number of validated Transactions in the network. <br> This i
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1334,13 +1246,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTransactionRate
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1355,13 +1260,14 @@ func GetTransactionRate() {
 	fmt.Println(string(result))
 }
 ```
+
 > **Example response:**
 
 ```json
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": 0
+  "result": 9.169180550334216
 }
 ```
 
@@ -1373,7 +1279,7 @@ Returns the current Transaction rate per second **(TPS)** of the network. <br> T
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1412,13 +1318,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetCurrentMiniEpoch
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1440,7 +1339,7 @@ func GetCurrentMiniEpoch() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "1068"
+  "result": "589793"
 }
 ```
 
@@ -1452,7 +1351,7 @@ Returns the current TX block number of the network. <br> This is represented as 
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1491,13 +1390,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetCurrentDSEpoch
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1519,7 +1411,7 @@ func GetCurrentDSEpoch() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "22"
+  "result": "5898"
 }
 ```
 
@@ -1531,7 +1423,7 @@ Returns the current number of DS blocks in the network. <br> This is represented
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1570,13 +1462,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetPrevDifficulty
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1598,7 +1483,7 @@ func GetPrevDifficulty() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": 3
+  "result": 91
 }
 ```
 
@@ -1610,7 +1495,7 @@ Returns the minimum shard difficulty of the previous block. <br> This is represe
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1649,13 +1534,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetPrevDSDifficulty
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -1677,7 +1555,7 @@ func GetPrevDSDifficulty() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": 16
+  "result": 149
 }
 ```
 
@@ -1689,7 +1567,7 @@ Returns the minimum DS difficulty of the previous block. <br> This is represente
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1728,13 +1606,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTotalCoinSupply
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 from pyzil.zilliqa.api import ZilliqaAPI
@@ -1764,12 +1635,14 @@ func GetTotalCoinSupply() {
 > **Example response:**
 
 ```json
-{"id":"1","jsonrpc":"2.0","result":"12600527397.260273972000"}
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": "13452081092.277490607172"
+}
 ```
 
 Returns the total supply (ZIL) of coins in the network. This is represented as a `String`.
-
-
 
 ### HTTP REQUEST
 
@@ -1777,12 +1650,12 @@ Returns the total supply (ZIL) of coins in the network. This is represented as a
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
 | Parameter | Type   | Required | Description            |
-| --------- | ------ | -------- | -----------------      |
+| --------- | ------ | -------- | ---------------------- |
 | `id`      | string | Required | `"1"`                  |
 | `jsonrpc` | string | Required | `"2.0"`                |
 | `method`  | string | Required | `"GetTotalCoinSupply"` |
@@ -1802,7 +1675,6 @@ curl -d '{
 ```
 
 ```javascript
-
 ```
 
 ```java
@@ -1832,8 +1704,7 @@ curl -d '{
       "0x03F25E4B68050496086758C33D16C47792F18D1102BB5DFC0CE5E3A57927008A0B",
       "0x03CF937B2EBE194C72350A6A7E6612C2D8636A33753929F1553E6273442B2F8E5B",
       "0x0372E43C4E7960F02E10F5AFE800E903579E2BE853B160681CBDF7C048FFB78A0F",
-      ...
-      "0x0397FD33ED459AD72939CA531385271311DA74094D89109F3876E81BEE84B4E414"
+      ..."0x0397FD33ED459AD72939CA531385271311DA74094D89109F3876E81BEE84B4E414"
     ],
     "shards": [
       {
@@ -1841,8 +1712,7 @@ curl -d '{
           "0x0245C0DDAA493700F86A3943260EB04D05DEBD62897E3EC51AE65A704E5C65C0A6",
           "0x0250CF4B40C0C984F2BB005599D2A7503F9C68F701A24CBC10B1EB2533575ADBA7",
           "0x023F2F657F170563E9B28BF837AB295FD13A7E2A4117DB44B2ADFE536F28D28102",
-          ...
-          "0x02358F60B4BD90805E6940A901E3C3A5867FFF5BDBD5AD9BFD66FE47C9FA6F1035"
+          ..."0x02358F60B4BD90805E6940A901E3C3A5867FFF5BDBD5AD9BFD66FE47C9FA6F1035"
         ],
         "size": 535
       },
@@ -1851,8 +1721,7 @@ curl -d '{
           "0x02646640964F472CBE1E9BAF2DC5F1A0915AE529DDFF08F28DDE3E460C755DC8C4",
           "0x025EC6741880EC217F921A8FFB4AACDB95FF6477E1BB66CB39950FB2723D3740C8",
           "0x03DE42F6719E8A0147A93604C5F6A4304D14AD5F6A70C011EE37DBFC65D1E7F842",
-          ...
-          "0x02B1DB735BF54FC5765D89248DA1C07934282182F3C65CD9152D8F48C539BB5C53"
+          ..."0x02B1DB735BF54FC5765D89248DA1C07934282182F3C65CD9152D8F48C539BB5C53"
         ],
         "size": 535
       },
@@ -1861,8 +1730,7 @@ curl -d '{
           "0x0218C2BA9876BCF3EE9EFF220C9F4CF433F5BE09D9D592F3C657AE7353CFFC3245",
           "0x02BCD61D2F47165E0CD6B3CF9429140C3F017C440DA63E9F44A84503A7D1E41590",
           "0x03E7699C19CFF554D265DC9C797713A7403D99A607EA7C8794259150436EB9FFBB",
-          ...
-          "0x031169CB469B6083954F578C19FC7833A90D835AA75942820119272FC6EE4361A5"
+          ..."0x031169CB469B6083954F578C19FC7833A90D835AA75942820119272FC6EE4361A5"
         ],
         "size": 534
       }
@@ -1874,9 +1742,10 @@ curl -d '{
 Returns the mining nodes (i.e., the members of the DS committee and shards) at the specified DS block.
 
 **Notes:**
-  1. Nodes owned by Zilliqa Research are omitted.
-  2. `dscommittee` has no `size` field since the DS committee size is fixed for a given chain.
-  3. For the Zilliqa Mainnet, this API is only available from DS block 5500 onwards.
+
+1. Nodes owned by Zilliqa Research are omitted.
+2. `dscommittee` has no `size` field since the DS committee size is fixed for a given chain.
+3. For the Zilliqa Mainnet, this API is only available from DS block 5500 onwards.
 
 ### HTTP REQUEST
 
@@ -1884,15 +1753,15 @@ Returns the mining nodes (i.e., the members of the DS committee and shards) at t
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
-| Parameter | Type   | Required | Description       |
-| --------- | ------ | -------- | ----------------- |
-| `id`      | string | Required | `"1"`             |
-| `jsonrpc` | string | Required | `"2.0"`           |
-| `method`  | string | Required | `"GetMinerInfo"`  |
+| Parameter | Type   | Required | Description                        |
+| --------- | ------ | -------- | ---------------------------------- |
+| `id`      | string | Required | `"1"`                              |
+| `jsonrpc` | string | Required | `"2.0"`                            |
+| `method`  | string | Required | `"GetMinerInfo"`                   |
 | `params`  | string | Required | DS block number. Example: `"5500"` |
 
 # Transaction-related methods
@@ -1928,7 +1797,7 @@ let tx = zilliqa.transactions.new({
   toAddr: "0x4BAF5faDA8e5Db92C3d3242618c5B47133AE003C",
   amount: units.toQa("1", units.Units.Zil),
   gasPrice: units.toQa("1000", units.Units.Li),
-  gasLimit: Long.fromNumber(1)
+  gasLimit: Long.fromNumber(1),
 });
 
 // Send a transaction to the network
@@ -1960,21 +1829,6 @@ public class App {
         System.out.println(result);
     }
 }
-```
-
-```ruby
-payload = {
-    version: 65537,
-    toAddr: '4baf5fada8e5db92c3d3242618c5b47133ae003c',
-    amount: '1000000000000',
-    gasPrice: '1000000000',
-    gasLimit: 1,
-})
-
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.CreateTransaction(payload)
-puts ret
 ```
 
 ```python
@@ -2035,6 +1889,7 @@ func SendTransaction() {
 	}
 }
 ```
+
 > **Example response:**
 
 ```json
@@ -2043,6 +1898,12 @@ func SendTransaction() {
   "jsonrpc": "2.0",
   "result": {
     "Info": "Non-contract txn, sent to shard",
+    /*
+    Other possible Info:
+    Contract Creation txn, sent to shard
+    Contract Txn, Shards Match of the sender and reciever
+    Contract Txn, Sent To Ds
+    */
     "TranID": "2d1eea871d8845472e98dbe9b7a7d788fbcce226f52e4216612592167b89042c"
   }
 }
@@ -2056,7 +1917,7 @@ Create a new Transaction object and send it to the network to be process. <br> S
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2077,11 +1938,11 @@ Create a new Transaction object and send it to the network to be process. <br> S
 | `amount`    | string  | Required | Transaction amount to be sent to the recipent's address. This is measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.                                                                                                                                                                                                                                                                                                |
 | `pubKey`    | string  | Required | Sender's public key of 33 bytes.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `gasPrice`  | string  | Required | An amount that a sender is willing to pay per unit of gas for processing this transaction. This is measured in the smallest price unit **Qa** (or 10^-12 **Zil**) in Zilliqa.                                                                                                                                                                                                                                                              |
-| `gasLimit`  | string  | Required | The amount of gas units that is needed to be process this transaction. <br><br> **-** For **regular transaction**, please use `"1"`. <br> **-** For **smart contract transaction**, please consult the [gas documentation](https://drive.google.com/file/d/1c0EJXELVe_MxhULPuJgwGvxFGenG7fmK/view?usp=sharing).                                                                                                                            |
+| `gasLimit`  | string  | Required | The amount of gas units that is needed to be process this transaction. <br><br> **-** For **regular transaction**, please use `"1"`. <br> **-** For **smart contract transaction**, please consult the [gas documentation](https://github.com/Zilliqa/scilla-docs/blob/master/docs/texsources/gas-costs/gas-doc.pdf).                                                                                                                      |
 | `code`      | string  | Optional | The smart contract source code. This is present only when deploying a new contract.                                                                                                                                                                                                                                                                                                                                                        |
 | `data`      | string  | Optional | `String`-ified JSON object specifying the transition parameters to be passed to a specified smart contract. <br><br> - When creating a contract, this JSON object contains the **init** parameters. <br> - When calling a contract, this JSON object contains the **msg** parameters. <br><br> _For more information on the Scilla interpreter, please visit the [documentation](https://scilla.readthedocs.io/en/latest/interface.html)._ |
 | `signature` | string  | Required | An **EC-Schnorr** signature of 64 bytes of the entire Transaction object as stipulated above.                                                                                                                                                                                                                                                                                                                                              |
-| `priority`  | boolean | Optional | A flag for this transaction to be processed by the DS committee. <br><br> This is required for only for [Category III transactions](https://blog.zilliqa.com/provisioning-sharding-for-smart-contracts-a-design-for-zilliqa-cd8d012ee735), but it can be used for other transaction categories too.                                                                                                                                        |
+| `priority`  | boolean | Optional | A flag for this transaction to be processed by the DS committee. <br><br> This is only required for [Category III transactions](https://blog.zilliqa.com/provisioning-sharding-for-smart-contracts-a-design-for-zilliqa-cd8d012ee735).                                                                                                                                                                                                     |
 
 ## GetTransaction
 
@@ -2092,13 +1953,13 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetTransaction",
-    "params": ["655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"]
+    "params": ["cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5"]
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 
 ```javascript
 const txn = await zilliqa.blockchain.getTransaction(
-  "655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"
+  "cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5"
 );
 console.log(txn.result);
 ```
@@ -2107,29 +1968,22 @@ console.log(txn.result);
 public class App {
     public static void main(String[] args) throws IOException {
         HttpProvider client = new HttpProvider("https://api.zilliqa.com");
-        Rep<Transaction> transaction = client.getTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2");
+        Rep<Transaction> transaction = client.getTransaction("cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5");
         System.out.println(new Gson().toJson(transaction));
     }
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
-print(chain.active_chain.api.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2"))
+print(chain.active_chain.api.GetTransaction("cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5"))
 ```
 
 ```go
 func GetTransaction() {
 	provider := NewProvider("https://api.zilliqa.com/")
-	response := provider.GetTransaction("655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2")
+	response := provider.GetTransaction("cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5")
 	result, _ := json.Marshal(response)
 	fmt.Println(string(result))
 }
@@ -2137,168 +1991,117 @@ func GetTransaction() {
 
 > **Example response:**
 
-
 ```json
+// Note: If the transaction is a for payment.
 {
   "id": "1",
   "jsonrpc": "2.0",
   "result": {
-    "ID": "655107c300e86ee6e819af1cbfce097db1510e8cd971d99f32ce2772dcad42f2",
-    "amount": "0",
-    "gasLimit": "10000",
+    "ID": "cd8727674bc05e0ede405597a218164e1c13c7103b9d0ba43586785f3d8cede5",
+    "amount": "24999000000000",
+    "gasLimit": "1",
     "gasPrice": "1000000000",
-    "nonce": "20",
+    "nonce": "1",
     "receipt": {
-      "cumulative_gas": "1662",
-      "epoch_num": "134",
+      "cumulative_gas": "1",
+      "epoch_num": "589763",
       "success": true
     },
-    "senderPubKey": "0x03EBCBAEEDD5F98F428BCEBC83E609E5F98136470708A57D61B71BF0B332200EEA",
-    "signature": "0x6DEA9FE535AB3557963CA47323B150979CB7C3990515389AF18AFFDD1049ECF3C5AEB5107A64636A946E75219B9482AFE9C7E1D8E5C59D55A1A28A24C0B877B6",
-    "toAddr": "0000000000000000000000000000000000000000",
-    "version": "131073"
+    "senderPubKey": "0x0347B5C6833ABD2AC0A6A7D85CF6BD0CC18084F6260B0C9DD2D491015BF2D47862",
+    "signature": "0x593454623A6CE0FEA287E42583445B140F696F79CA508762B8AB44F202686CFA115A2AC36C31E643C9EB0D46A4E6CA8C4EEFD78D7E9A25220DC512C13C9600F0",
+    "toAddr": "9148616bfdfab321bdd626682a8c446e193eabb2",
+    "version": "65537"
   }
 }
 ```
 
-*Note: If the transaction had data, code, or exceptions fields, those fields will be displayed*
-
 ```json
+// Note: If the transaction is for contract deployment.
 {
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "17bd409e0de38c7874c9f96d044c8f9e6aeb0f39c9be3b09f0213ec7b33f9d7b",
-        "amount": "0",
-        "data": "{\"_tag\":\"proxyDecreaseAllowance\",\"params\":[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0xb2e51878722d8b6d2c0f97e995a7276d64c1618b\"},{\"vname\":\"value\",\"type\":\"Uint128\",\"value\":\"10000\"}]}",
-        "gasLimit": "10000",
-        "gasPrice": "1000000000",
-        "nonce": "58",
-        "receipt": {
-            "cumulative_gas": "3127",
-            "epoch_num": "655",
-            "event_logs": [
-                {
-                    "_eventname": "DecreasedAllowance",
-                    "address": "0x7825250c716f71e63c3819c029305ba52680c998",
-                    "params": [
-                        {
-                            "type": "ByStr20",
-                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                            "vname": "sender"
-                        },
-                        {
-                            "type": "ByStr20",
-                            "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
-                            "vname": "spender"
-                        },
-                        {
-                            "type": "Uint128",
-                            "value": "0",
-                            "vname": "new_allowance"
-                        }
-                    ]
-                }
-            ],
-            "exceptions": [
-                {
-                   "line": 46,
-                   "message": "Exception thrown: (Message [(_exception : (String \"InvalidInput\"))])"
-                },
-                {
-                   "line": 43,
-                   "message": "Raised from getHello"
-                }
-            ],
-            "success": true,
-            "transitions": [
-                {
-                    "addr": "0x8b46edcfcdb5613da479805f9a943b4a75e544a5",
-                    "depth": 0,
-                    "msg": {
-                        "_amount": "0",
-                        "_recipient": "0x7825250c716f71e63c3819c029305ba52680c998",
-                        "_tag": "decreaseAllowance",
-                        "params": [
-                            {
-                                "type": "ByStr20",
-                                "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
-                                "vname": "spender"
-                            },
-                            {
-                                "type": "Uint128",
-                                "value": "10000",
-                                "vname": "value"
-                            },
-                            {
-                                "type": "ByStr20",
-                                "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                                "vname": "initiator"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "addr": "0x7825250c716f71e63c3819c029305ba52680c998",
-                    "depth": 1,
-                    "msg": {
-                        "_amount": "0",
-                        "_recipient": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                        "_tag": "DecreaseAllowanceSuccessCallBack",
-                        "params": [
-                            {
-                                "type": "ByStr20",
-                                "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                                "vname": "sender"
-                            },
-                            {
-                                "type": "ByStr20",
-                                "value": "0xb2e51878722d8b6d2c0f97e995a7276d64c1618b",
-                                "vname": "spender"
-                            },
-                            {
-                                "type": "Uint128",
-                                "value": "10000",
-                                "vname": "amount"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
-        "signature": "0x44B36617C62C5F521F1243404F903F463BAF113FC64038D74A679EAD0F5BA033C367D281B0CBB2C55B2DCC578E74DF72284B21799DBF8C586274AF2B2919F797",
-        "toAddr": "8b46edcfcdb5613da479805f9a943b4a75e544a5",
-        "version": "131073"
-    }
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "ID": "f9170f9661a2ec5a90e6701618ba38d76257c00a1e5848d8f541e1ef52d11ede",
+    "amount": "0",
+    "code": "scilla_version 0\n\nimport BoolUtils IntUtils\n\n(* Twitter contract *)\n\n(***************************************************)\n(*               Associated library                *)\n(***************************************************)\nlibrary SocialPay\n\nlet one_msg =\n    fun (msg : Message) =>\n    let nil_msg = Nil {Message} in\n    Cons {Message} msg nil_msg\n\nlet two_msgs =\nfun (msg1 : Message) =>\nfun (msg2 : Message) =>\n  let msgs_tmp = one_msg msg2 in\n  Cons {Message} msg1 msgs_tmp\n\nlet is_valid_substring =\n  fun (tweet_text : String) =>\n  fun (start_pos : Uint32) =>\n  fun (hashtag_len : Uint32) =>\n    let string_length = builtin strlen tweet_text in\n    let valid_start_pos = builtin lt start_pos string_length in\n    let end_pos = builtin add start_pos hashtag_len in\n    let valid_end_pos = uint32_le end_pos string_length in\n    andb valid_start_pos valid_end_pos\n\n(* Error events *)\ntype Error =\n  | CodeNotAuthorized\n  | CodeRegisteredWithinWeek\n  | CodeUserNotRegistered\n  | CodeTweetAlreadyExists\n  | CodeTweetNotValid\n  | CodeTweetWithinDay\n\nlet make_error =\n  fun (result : Error) =>\n    let result_code = \n      match result with\n      | CodeNotAuthorized        => Int32 -1\n      | CodeRegisteredWithinWeek => Int32 -2\n      | CodeUserNotRegistered    => Int32 -3\n      | CodeTweetAlreadyExists   => Int32 -4\n      | CodeTweetNotValid        => Int32 -5\n      | CodeTweetWithinDay       => Int32 -6\n      end\n    in\n    { _exception : \"Error\"; code : result_code }\n\nlet tt = True\n\n(***************************************************)\n(*             The contract definition             *)\n(***************************************************)\n\ncontract SocialPay\n(\n    owner: ByStr20,\n    hashtag: String,\n    zils_per_tweet : Uint128,\n    blocks_per_day : Uint32,\n    blocks_per_week : Uint32,\n    donation_address : ByStr20\n)\n\n(* Map of tweet_id to recipient address *)\nfield verified_tweets: Map String ByStr20 = Emp String ByStr20\n\n(* Map of twitter_id to last withdraw block number *)\nfield last_withdrawal: Map String BNum = Emp String BNum\n\n(* Map of address to bool status of admin *)\nfield admins: Map ByStr20 Bool = Emp ByStr20 Bool\n\n(* Map of twitter_id to recipient address *)\nfield registered_users: Map String ByStr20 = Emp String ByStr20\n\n(* Emit Errors *)\nprocedure ThrowError(err: Error)\n  e = make_error err;\n  throw e\nend\n\nprocedure IsOwner(address: ByStr20)\n  is_owner = builtin eq address owner;\n  match is_owner with\n  | True =>\n  | False =>\n    err = CodeNotAuthorized;\n    ThrowError err\n  end\nend\n\nprocedure IsAdmin()\n  is_admin <- exists admins[_sender];\n  match is_admin with\n  | True =>\n  | False =>\n    err = CodeNotAuthorized;\n    ThrowError err\n  end\nend\n\nprocedure ConfigureAdmin(admin_address: ByStr20)\n  is_admin <- exists admins[admin_address];\n  match is_admin with\n  | True =>\n      delete admins[admin_address];\n      e = {_eventname : \"DeletedAdmin\"; admin_address: admin_address};\n      event e\n  | False =>\n      admins[admin_address] := tt;\n      e = {_eventname : \"AddedAdmin\"; admin_address: admin_address};\n      event e\n  end\nend\n\n(* Only owner can deposit ZIL *)\ntransition Deposit()\n  IsOwner _sender;\n  accept;\n  e = {_eventname : \"DepositSuccessful\"; sender: _sender; deposit_amount: _amount};\n  event e\nend\n\ntransition ConfigureAdmins(admin_addresses: List ByStr20)\n  IsOwner _sender;\n  forall admin_addresses ConfigureAdmin\nend\n\ntransition ConfigureUsers(twitter_id: String, recipient_address: ByStr20)\n  IsAdmin;\n  is_registered <- exists registered_users[twitter_id];\n  match is_registered with\n  | True =>\n      current_block <- & BLOCKNUMBER;\n      withdrawal <- last_withdrawal[twitter_id];\n      not_next_week_yet =\n          match withdrawal with\n          | Some last_withdraw_block =>\n              let next_week_block = builtin badd last_withdraw_block blocks_per_week in\n              builtin blt current_block next_week_block\n          | None =>\n              False\n          end;\n      match not_next_week_yet with\n      | True =>\n          err = CodeRegisteredWithinWeek;\n          ThrowError err\n      | False =>\n          registered_users[twitter_id] := recipient_address;\n          e = {_eventname : \"ConfiguredUserAddress\"; twitter_id: twitter_id; recipient_address: recipient_address};\n          event e\n      end\n  | False =>\n      registered_users[twitter_id] := recipient_address;\n      e = {_eventname : \"ConfiguredUserAddress\"; twitter_id: twitter_id; recipient_address: recipient_address};\n      event e\n  end\nend\n\n(* Only admins can call this transition                                         *)\n(* The following conditions are checked for (in that order):                    *)\n(*   1. Owner initiates the transition.                                         *)\n(*   2. The tweeter is already registered in the app his/her wallet             *)\n(*   3. The tweet hasn't been awarded before.                                   *)\n(*   4. Substring specs (start_pos) is valid.                                   *)\n(*   5. The substring matches the preset hashtag.                               *)\n(*   6. Sufficient time (blocks) have passed since the user was awarded before. *)\ntransition VerifyTweet (twitter_id: String, tweet_id: String, tweet_text: String, start_pos: Uint32)\n  IsAdmin;\n  get_recipient_address <- registered_users[twitter_id];\n  match get_recipient_address with\n  | None =>\n      err = CodeUserNotRegistered;\n      ThrowError err\n  | Some recipient_address =>\n      already_verified <- exists verified_tweets[tweet_id];\n      not_already_verified = negb already_verified;\n      hashtag_len = builtin strlen hashtag;\n      valid_substring = is_valid_substring tweet_text start_pos hashtag_len;\n      is_valid = andb valid_substring not_already_verified;\n      match is_valid with\n      | False =>\n          match already_verified with\n          | True =>\n              err = CodeTweetAlreadyExists;\n              ThrowError err\n          | False =>\n              err = CodeTweetNotValid;\n              ThrowError err\n          end\n      | True =>\n          match_hashtag = builtin substr tweet_text start_pos hashtag_len;\n          is_hashtag = builtin eq match_hashtag hashtag;\n          match is_hashtag with\n          | False =>\n              err = CodeTweetNotValid;\n              ThrowError err\n          | True =>\n              withdrawal <- last_withdrawal[twitter_id];\n              current_block <- & BLOCKNUMBER;\n              not_next_day_yet =\n                  match withdrawal with\n                  | Some last_withdraw_block =>\n                      let next_day_block = builtin badd last_withdraw_block blocks_per_day in\n                      builtin blt current_block next_day_block\n                  | None =>\n                      False\n                  end;\n              match not_next_day_yet with\n              | True =>\n                  err = CodeTweetWithinDay;\n                  ThrowError err\n              | False =>\n                  verified_tweets[tweet_id] := recipient_address;\n                  last_withdrawal[twitter_id] := current_block;\n                  e = {\n                          _eventname : \"VerifyTweetSuccessful\";\n                          sender: _sender;\n                          recipient: recipient_address;\n                          twitter_id: twitter_id;\n                          tweet_id: tweet_id;\n                          reward_amount: zils_per_tweet;\n                          matched_donation: zils_per_tweet\n                      };\n                  event e;\n                  msg_to_recipient = { \n                    _tag: \"\";\n                    _recipient: recipient_address;\n                    _amount: zils_per_tweet \n                  };\n                  msg_to_donation = {\n                    _tag: \"\";\n                    _recipient: donation_address;\n                    _amount: zils_per_tweet\n                  };\n                  msgs = two_msgs msg_to_recipient msg_to_donation;\n                  send msgs\n              end\n          end\n      end\n  end\nend\n\ntransition ReturnFund ()\n  IsOwner _sender;\n  current_bal <- _balance;\n  e = {\n    _eventname : \"ReturnFundSuccessful\";\n    returned_amount: current_bal\n  };\n  event e;\n  msg = {\n      _tag       : \"\";\n      _recipient : owner;\n      _amount    : current_bal\n  };\n  msgs = one_msg msg;\n  send msgs\nend",
+    "data": "[{\"vname\":\"owner\",\"value\":\"0xf1a3d56321D6C0C9825bf3c34CB843719e99cBCA\",\"type\":\"ByStr20\"},{\"vname\":\"hashtag\",\"value\":\"#zilcovidheroes\",\"type\":\"String\"},{\"vname\":\"zils_per_tweet\",\"value\":\"25000000000000\",\"type\":\"Uint128\"},{\"vname\":\"blocks_per_day\",\"value\":\"1600\",\"type\":\"Uint32\"},{\"vname\":\"blocks_per_week\",\"value\":\"1600\",\"type\":\"Uint32\"},{\"vname\":\"donation_address\",\"value\":\"0x7AEB68fc38B29387D2e100db1E42c883C0519548\",\"type\":\"ByStr20\"},{\"vname\":\"_scilla_version\",\"type\":\"Uint32\",\"value\":\"0\"}]",
+    "gasLimit": "25000",
+    "gasPrice": "1000000000",
+    "nonce": "9",
+    "receipt": {
+      "cumulative_gas": "10481",
+      "epoch_num": "586524",
+      "success": true
+    },
+    "senderPubKey": "0x020B94FDA851E2BF9392FF13D7CA33B417C5B95BCD0965238FF5074B7C8D31BC0D",
+    "signature": "0x16196121EFEA86C9D91102EA200F02C88744E82B886C7AF72256F18615ADEE38EC18AFEE2739615896C5306F3C2642AA98CDFE113AC64A55981BBC2C82D31592",
+    "toAddr": "0000000000000000000000000000000000000000",
+    "version": "65537"
+  }
 }
 ```
 
-*Note: For smart contract fund transfers, accepted will be included in the receipt*
-
+```json
+// Note: If the transaction is for contract call.
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "ID": "52605cee6955b3d14f5478927a90977b305325aff4ae0a2f9dbde758e7b92ad4",
+    "amount": "50000000000000",
+    "data": "{\"_tag\":\"sendFunds\",\"params\":[{\"vname\":\"accountValues\",\"type\":\"List (AccountValue)\",\"value\":[{\"constructor\":\"AccountValue\",\"argtypes\":[],\"arguments\":[\"0xc0e28525e9d329156e16603b9c1b6e4a9c7ed813\",\"50000000000000\"]}]}]}",
+    "gasLimit": "25000",
+    "gasPrice": "1000000000",
+    "nonce": "3816",
+    "receipt": {
+      "accepted": true,
+      "cumulative_gas": "878",
+      "epoch_num": "589742",
+      "success": true,
+      "transitions": [
+        {
+          "addr": "0x9a65df55b2668a0f9f5f749267cb351a37e1f3d9",
+          "depth": 0,
+          "msg": {
+            "_amount": "50000000000000",
+            "_recipient": "0xc0e28525e9d329156e16603b9c1b6e4a9c7ed813",
+            "_tag": "onFundsReceived",
+            "params": []
+          }
+        }
+      ]
+    },
+    "senderPubKey": "0x03DE40DF885B0E334D53FF5E5554589AAF46F2339FEBEE93213F2CCE52D1F488F4",
+    "signature": "0xB19AB66C4410EE4833A9C5DEE600471DB4D711F6B61D2312988E6E70CC655409F18BB42BB6940B6263C8EA5CE08CAEC06111BDF19BE00D7E15F25515CAA45DAA",
+    "toAddr": "9a65df55b2668a0f9f5f749267cb351a37e1f3d9",
+    "version": "65537"
+  }
+}
+```
 
 ```json
+// Note: If the transaction has failed.
 {
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "e83b118685719aace64e0969ea178fe5e9fcc321ae009df27f14c61cb27f3956",
-        "amount": "100",
-        "data": "{\"_tag\":\"getHello\",\"params\":[]}",
-        "gasLimit": "10000",
-        "gasPrice": "1000000000",
-        "nonce": "58",
-        "receipt": {
-            "accepted": true,
-            "cumulative_gas": "478",
-            "epoch_num": "537641",
-            "success": true
-        },
-        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
-        "signature": "0xC926588B1E40629031EE1083AF65092560D355125DD8A1A34EC101F314FE8CDE0C45F1A304EB1B54B624D2FFD0B3D5702026E885A483EAD81DCD78C47C7413E1",
-        "toAddr": "f046f94b75f26733c9dc93f265be02f63ee480cb",
-        "version": "65537"
-    }
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "ID": "e83b118685719aace64e0969ea178fe5e9fcc321ae009df27f14c61cb27f3956",
+    "amount": "100",
+    "data": "{\"_tag\":\"getHello\",\"params\":[]}",
+    "gasLimit": "10000",
+    "gasPrice": "1000000000",
+    "nonce": "58",
+    "receipt": {
+      "accepted": true,
+      "cumulative_gas": "478",
+      "epoch_num": "537641",
+      "success": true
+    },
+    "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+    "signature": "0xC926588B1E40629031EE1083AF65092560D355125DD8A1A34EC101F314FE8CDE0C45F1A304EB1B54B624D2FFD0B3D5702026E885A483EAD81DCD78C47C7413E1",
+    "toAddr": "f046f94b75f26733c9dc93f265be02f63ee480cb",
+    "version": "65537"
+  }
 }
 ```
 
@@ -2310,7 +2113,7 @@ Returns the details of a specified Transaction.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2362,25 +2165,25 @@ func GetPendingTxn() {
 
 ```json
 {
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "code": 0,
-        "confirmed": false,
-        "info": "Txn not pending"
-    }
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "code": 0,
+    "confirmed": false,
+    "info": "Txn not pending"
+  }
 }
 ```
 
 Returns the pending status of a specified Transaction.
 Possible results are:
 
-| `confirmed`  | `code`  | `info`                                             |
-| ------------ | ------- | -------------------------------------------------- |
-| false        | 0       | Txn not pending                                    |
-| false        | 1       | Nonce too high                                     |
-| false        | 2       | Could not fit in as microblock gas limit reached   |
-| false        | 3       | Transaction valid but consensus not reached        |
+| `confirmed` | `code` | `info`                                           |
+| ----------- | ------ | ------------------------------------------------ |
+| false       | 0      | Txn not pending                                  |
+| false       | 1      | Nonce too high                                   |
+| false       | 2      | Could not fit in as microblock gas limit reached |
+| false       | 3      | Transaction valid but consensus not reached      |
 
 ### HTTP REQUEST
 
@@ -2388,7 +2191,7 @@ Possible results are:
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2396,7 +2199,7 @@ Possible results are:
 | --------- | ------ | -------- | -------------------------------------------------------- |
 | `id`      | string | Required | `"1"`                                                    |
 | `jsonrpc` | string | Required | `"2.0"`                                                  |
-| `method`  | string | Required | `"GetPendingTxn"`                                       |
+| `method`  | string | Required | `"GetPendingTxn"`                                        |
 | `params`  | string | Required | Transaction hash of 32 bytes of a specified transaction. |
 
 ## GetPendingTxns
@@ -2457,12 +2260,12 @@ Returns the pending status of all unvalidated Transactions.
 
 For each entry, the possible results are:
 
-| `confirmed`  | `code`  | `info`                                             |
-| ------------ | ------- | -------------------------------------------------- |
-| false        | 0       | Txn not pending                                    |
-| false        | 1       | Nonce too high                                     |
-| false        | 2       | Could not fit in as microblock gas limit reached   |
-| false        | 3       | Transaction valid but consensus not reached        |
+| `confirmed` | `code` | `info`                                           |
+| ----------- | ------ | ------------------------------------------------ |
+| false       | 0      | Txn not pending                                  |
+| false       | 1      | Nonce too high                                   |
+| false       | 2      | Could not fit in as microblock gas limit reached |
+| false       | 3      | Transaction valid but consensus not reached      |
 
 ### HTTP REQUEST
 
@@ -2470,16 +2273,16 @@ For each entry, the possible results are:
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
-| Parameter | Type   | Required | Description         |
-| --------- | ------ | -------- | ------------------- |
-| `id`      | string | Required | `"1"`               |
-| `jsonrpc` | string | Required | `"2.0"`             |
-| `method`  | string | Required | `"GetPendingTxns"`  |
-| `params`  | None   |          |                     |
+| Parameter | Type   | Required | Description        |
+| --------- | ------ | -------- | ------------------ |
+| `id`      | string | Required | `"1"`              |
+| `jsonrpc` | string | Required | `"2.0"`            |
+| `method`  | string | Required | `"GetPendingTxns"` |
+| `params`  | None   |          |                    |
 
 ## GetRecentTransactions
 
@@ -2509,13 +2312,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetRecentTransactions
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -2531,6 +2327,7 @@ func GetRecentTransactions() {
 }
 
 ```
+
 > **Example response:**
 
 ```json
@@ -2573,7 +2370,7 @@ Returns the most recent **100** transactions that are validated by the Zilliqa n
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2610,13 +2407,6 @@ public class App {
         System.out.println(new Gson().toJson(transactionList));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTransactionsForTxBlock("2")
-puts ret
 ```
 
 ```python
@@ -2681,7 +2471,7 @@ Returns the validated transactions included within a specified final transaction
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2720,13 +2510,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetTxnBodiesForTxBlock("2")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -2746,42 +2529,42 @@ func GetTxnBodiesForTxBlock() {
 
 ```json
 {
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": [
-        {
-            "ID": "562432bc45c14c788c43c469756453375cbe80cc9c1bc30fa0dfbe77e4220221",
-            "amount": "1",
-            "gasLimit": "1",
-            "gasPrice": "1000000000",
-            "nonce": "1",
-            "receipt": {
-                "cumulative_gas": "1",
-                "epoch_num": "2",
-                "success": true
-            },
-            "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
-            "signature": "0xCC12816DCE156FECFA1D6EF129D13FA2A5677E159CDF0CAFADF2CD33FBA0D239EE1284D4083BFBA4B895B97419FE78AB249C99AA7A7B7F314F17D353F44E784D",
-            "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
-            "version": "131073"
-        },
-        {
-            "ID": "9ebc07e3e15b08dd82b2f2d57eead1b7dea4d06bef33364bbec5f80fc1d1d130",
-            "amount": "2",
-            "gasLimit": "1",
-            "gasPrice": "1000000000",
-            "nonce": "2",
-            "receipt": {
-                "cumulative_gas": "1",
-                "epoch_num": "2",
-                "success": true
-            },
-            "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
-            "signature": "0x846D90B698B4739979AB8B7F25BDEE5125A36447770D4AC6386606ACD25704747B38DEDE85F0AD26A663F0863199CA336109EB080A6354BB7CC3683C8FC47796",
-            "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
-            "version": "131073"
-        }
-    ]
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "ID": "562432bc45c14c788c43c469756453375cbe80cc9c1bc30fa0dfbe77e4220221",
+      "amount": "1",
+      "gasLimit": "1",
+      "gasPrice": "1000000000",
+      "nonce": "1",
+      "receipt": {
+        "cumulative_gas": "1",
+        "epoch_num": "2",
+        "success": true
+      },
+      "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
+      "signature": "0xCC12816DCE156FECFA1D6EF129D13FA2A5677E159CDF0CAFADF2CD33FBA0D239EE1284D4083BFBA4B895B97419FE78AB249C99AA7A7B7F314F17D353F44E784D",
+      "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
+      "version": "131073"
+    },
+    {
+      "ID": "9ebc07e3e15b08dd82b2f2d57eead1b7dea4d06bef33364bbec5f80fc1d1d130",
+      "amount": "2",
+      "gasLimit": "1",
+      "gasPrice": "1000000000",
+      "nonce": "2",
+      "receipt": {
+        "cumulative_gas": "1",
+        "epoch_num": "2",
+        "success": true
+      },
+      "senderPubKey": "0x03393C256D33127CE18FC3646EC88FCE62DBF661300B4017E2FE57E8023B55BCFE",
+      "signature": "0x846D90B698B4739979AB8B7F25BDEE5125A36447770D4AC6386606ACD25704747B38DEDE85F0AD26A663F0863199CA336109EB080A6354BB7CC3683C8FC47796",
+      "toAddr": "b07065cfde6060ad36af3913c65bfb04211608d1",
+      "version": "131073"
+    }
+  ]
 }
 ```
 
@@ -2795,7 +2578,7 @@ Returns the validated transactions (in verbose form) included within a specified
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2834,13 +2617,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNumTxnsTxEpoch
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -2862,7 +2638,7 @@ func GetNumTxnsTxEpoch() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "0"
+  "result": "38"
 }
 ```
 
@@ -2874,7 +2650,7 @@ Returns the number of validated transactions included in this Transaction epoch.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2913,13 +2689,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetNumTxnsDSEpoch
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -2941,7 +2710,7 @@ func GetNumTxnsDSEpoch() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "0"
+  "result": "416"
 }
 ```
 
@@ -2953,7 +2722,7 @@ Returns the number of validated transactions included in this DS epoch. <br> Thi
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2992,13 +2761,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetMinimumGasPrice
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -3020,7 +2782,7 @@ func GetMinimumGasPrice() {
 {
   "id": "1",
   "jsonrpc": "2.0",
-  "result": "100"
+  "result": "1000000000"
 }
 ```
 
@@ -3033,7 +2795,7 @@ Returns the minimum gas price for this DS epoch, measured in the smallest price 
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3076,13 +2838,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetSmartContractCode("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -3118,7 +2873,7 @@ Returns the Scilla code associated with a smart contract address. <br> This is r
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3157,13 +2912,6 @@ public class App {
         System.out.println(new Gson().toJson(smartContractInit));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetSmartContractInit("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
-puts ret
 ```
 
 ```python
@@ -3220,7 +2968,7 @@ Returns the initialization (immutable) parameters of a given smart contract, rep
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3265,13 +3013,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetSmartContractSubState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -3289,17 +3030,16 @@ func GetSmartContractSubState() {
 
 > **Example response:**
 
-
 ```json
 {
-   "admins" : {
-      "0xdfa89866ae86632b36361d53b76c1373448c28fa" : {
-         "argtypes" : [],
-         "arguments" : [],
-         "constructor" : "True"
-      }
-   }
-} 
+  "admins": {
+    "0xdfa89866ae86632b36361d53b76c1373448c28fa": {
+      "argtypes": [],
+      "arguments": [],
+      "constructor": "True"
+    }
+  }
+}
 ```
 
 Returns the state (or a part specified) of a smart contract address, represented in a JSON format.
@@ -3310,30 +3050,28 @@ Returns the state (or a part specified) of a smart contract address, represented
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
-| Parameter | Type   | Required | Description                                                                                      |
-| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
-| `id`      | string | Required | `"1"`                                                                                            |
-| `jsonrpc` | string | Required | `"2.0"`                                                                                          |
-| `method`  | string | Required | `"GetSmartContractSubState"`                                                                     |
-| `params`  | array  | Required | State params                                                                                     |
-
+| Parameter | Type   | Required | Description                  |
+| --------- | ------ | -------- | ---------------------------- |
+| `id`      | string | Required | `"1"`                        |
+| `jsonrpc` | string | Required | `"2.0"`                      |
+| `method`  | string | Required | `"GetSmartContractSubState"` |
+| `params`  | array  | Required | State params                 |
 
 ### STATE PARAMS
 
-| Parameter     | Type       | Required     | Description                                                                                      |
-|---------------|------------|--------------|--------------------------------------------------------------------------------------------------|
-|`Address`      | string     | Required     | A smart contract address of 20 bytes.                                                            |
-|`Variable Name`| string     | Can be empty | Name of the variable in the Smart Contract                                                       |
-|`Indices`      | JSON Array | Can be empty | If the variable is of map type, you can specify an index (or indices)                            |
-
+| Parameter       | Type       | Required     | Description                                                           |
+| --------------- | ---------- | ------------ | --------------------------------------------------------------------- |
+| `Address`       | string     | Required     | A smart contract address of 20 bytes.                                 |
+| `Variable Name` | string     | Can be empty | Name of the variable in the Smart Contract                            |
+| `Indices`       | JSON Array | Can be empty | If the variable is of map type, you can specify an index (or indices) |
 
 The `params` is JSON array <br> Example: `"params"`:`["fe001824823b12b58708bf24edd94d8b5e1cfcf7","admins",[\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\""]]`
 
-*Note: If Variable Name and Indices Array are both empty, the response would be same as GetSmartContractState*
+_Note: If Variable Name and Indices Array are both empty, the response would be same as GetSmartContractState_
 
 ## GetSmartContractState
 
@@ -3365,13 +3103,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetSmartContractState("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -3389,19 +3120,19 @@ func GetSmartContractState() {
 
 > **Example response:**
 
-*Note: The format of response has been changed*
+_Note: The format of response has been changed_
 
 ```json
 {
-   "_balance" : "0",
-   "admins" : {
-      "0xdfa89866ae86632b36361d53b76c1373448c28fa" : {
-         "argtypes" : [],
-         "arguments" : [],
-         "constructor" : "True"
-      }
-   }
-} 
+  "_balance": "0",
+  "admins": {
+    "0xdfa89866ae86632b36361d53b76c1373448c28fa": {
+      "argtypes": [],
+      "arguments": [],
+      "constructor": "True"
+    }
+  }
+}
 ```
 
 Returns the state (mutable) variables of a smart contract address, represented in a JSON format.
@@ -3412,7 +3143,7 @@ Returns the state (mutable) variables of a smart contract address, represented i
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3451,13 +3182,6 @@ public class App {
         System.out.println(new Gson().toJson(smartContracts));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetSmartContracts("fe001824823b12b58708bf24edd94d8b5e1cfcf7")
-puts ret
 ```
 
 ```python
@@ -3515,7 +3239,7 @@ Returns the list of smart contract addresses created by an User's account and th
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3525,7 +3249,6 @@ Returns the list of smart contract addresses created by an User's account and th
 | `jsonrpc` | string | Required | `"2.0"`                                                                                           |
 | `method`  | string | Required | `"GetSmartContracts"`                                                                             |
 | `params`  | string | Required | An User's account address of 20 bytes. <br> Example: `"1eefc4f453539e5ee732b49eb4792b268c2f3908"` |
-
 
 ## GetContractAddressFromTransactionID
 
@@ -3555,13 +3278,6 @@ public class App {
         System.out.println(new Gson().toJson(contractAddress));
     }
 }
-```
-
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetContractAddressFromTransactionID("AAF3089596437A7C6984FA2627B6F38B5F5B80FAEAAC6993C2E82C6A8EE2615E")
-puts ret
 ```
 
 ```python
@@ -3600,7 +3316,7 @@ Returns a smart contract address of 20 bytes. This is represented as a `String`.
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3643,13 +3359,6 @@ public class App {
 }
 ```
 
-```ruby
-provider = Laksa::Jsonrpc::Provider.new('https://api.zilliqa.com')
-
-ret = provider.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908")
-puts ret
-```
-
 ```python
 from pyzil.zilliqa import chain
 chain.set_active_chain(chain.MainNet)
@@ -3687,7 +3396,7 @@ func TestGetBalance() {
 | --------------------- | ---------------------------- |
 | **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:4201/       |
+| **Local testnet**     | http://localhost:5555/       |
 
 ### ARGUMENTS
 

@@ -27,9 +27,10 @@ The JSON-RPC API server runs on:
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 All API calls are POST requests.
 
@@ -112,7 +113,7 @@ Returns the `CHAIN_ID` of the specified network. This is represented as a `Strin
 
 | Chain(s)              | `CHAIN_ID` |
 | --------------------- | ---------- |
-| **Zilliqa Mainnet**   | `1`        |
+| **Zilliqa mainnet**   | `1`        |
 | **Developer testnet** | `333`      |
 
 **NOTE:** `CHAIN_ID` from `2` to `9` are reserved for Zilliqa Core use.
@@ -121,9 +122,10 @@ Returns the `CHAIN_ID` of the specified network. This is represented as a `Strin
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -208,9 +210,10 @@ Returns the current network statistics for the specified network.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -292,9 +295,10 @@ Returns the details of a specified Directory Service block.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -386,9 +390,10 @@ Returns the details of the most recent Directory Service block.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -458,9 +463,10 @@ Returns the current number of validated Directory Service blocks in the network.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -530,9 +536,10 @@ Returns the current Directory Service blockrate per second.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -647,9 +654,10 @@ Returns a paginated list of up to **10** Directory Service (DS) blocks and their
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -757,9 +765,10 @@ Returns the details of a specified Transaction block.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -872,9 +881,10 @@ Returns the details of the most recent Transaction block.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -944,9 +954,10 @@ Returns the current number of Transaction blocks in the network. <br> This is re
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1016,9 +1027,10 @@ Returns the current Transaction blockrate per second for the network.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1133,9 +1145,10 @@ Returns a paginated list of up to **10** Transaction blocks and their block hash
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1205,9 +1218,10 @@ Returns the current number of validated Transactions in the network. <br> This i
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1277,9 +1291,10 @@ Returns the current Transaction rate per second **(TPS)** of the network. <br> T
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1349,9 +1364,10 @@ Returns the current TX block number of the network. <br> This is represented as 
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1421,9 +1437,10 @@ Returns the current number of DS blocks in the network. <br> This is represented
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1493,9 +1510,10 @@ Returns the minimum shard difficulty of the previous block. <br> This is represe
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1565,9 +1583,10 @@ Returns the minimum DS difficulty of the previous block. <br> This is represente
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1648,9 +1667,10 @@ Returns the total supply (ZIL) of coins in the network. This is represented as a
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1745,15 +1765,16 @@ Returns the mining nodes (i.e., the members of the DS committee and shards) at t
 
 1. Nodes owned by Zilliqa Research are omitted.
 2. `dscommittee` has no `size` field since the DS committee size is fixed for a given chain.
-3. For the Zilliqa Mainnet, this API is only available from DS block 5500 onwards.
+3. For the Zilliqa mainnet, this API is only available from DS block 5500 onwards.
 
 ### HTTP REQUEST
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -1915,9 +1936,10 @@ Create a new Transaction object and send it to the network to be process. <br> S
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2111,9 +2133,10 @@ Returns the details of a specified Transaction.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2189,9 +2212,10 @@ Possible results are:
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2271,9 +2295,10 @@ For each entry, the possible results are:
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2368,9 +2393,10 @@ Returns the most recent **100** transactions that are validated by the Zilliqa n
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2469,9 +2495,10 @@ Returns the validated transactions included within a specified final transaction
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2576,9 +2603,10 @@ Returns the validated transactions (in verbose form) included within a specified
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2648,9 +2676,10 @@ Returns the number of validated transactions included in this Transaction epoch.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2720,9 +2749,10 @@ Returns the number of validated transactions included in this DS epoch. <br> Thi
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2793,9 +2823,10 @@ Returns the minimum gas price for this DS epoch, measured in the smallest price 
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2871,9 +2902,10 @@ Returns the Scilla code associated with a smart contract address. <br> This is r
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -2966,9 +2998,10 @@ Returns the initialization (immutable) parameters of a given smart contract, rep
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3048,9 +3081,10 @@ Returns the state (or a part specified) of a smart contract address, represented
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3141,9 +3175,10 @@ Returns the state (mutable) variables of a smart contract address, represented i
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3237,9 +3272,10 @@ Returns the list of smart contract addresses created by an User's account and th
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3314,9 +3350,10 @@ Returns a smart contract address of 20 bytes. This is represented as a `String`.
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 
@@ -3394,9 +3431,10 @@ func TestGetBalance() {
 
 | Chain(s)              | URL(s)                       |
 | --------------------- | ---------------------------- |
-| **Zilliqa Mainnet**   | https://api.zilliqa.com/     |
+| **Zilliqa mainnet**   | https://api.zilliqa.com/     |
 | **Developer testnet** | https://dev-api.zilliqa.com/ |
-| **Local testnet**     | http://localhost:5555/       |
+| **Local testnet**     | http://localhost:4201/       |
+| **Isolated server**   | http://localhost:5555/       |
 
 ### ARGUMENTS
 

@@ -2107,21 +2107,39 @@ func GetTransaction() {
   "id": "1",
   "jsonrpc": "2.0",
   "result": {
-    "ID": "e83b118685719aace64e0969ea178fe5e9fcc321ae009df27f14c61cb27f3956",
-    "amount": "100",
-    "data": "{\"_tag\":\"getHello\",\"params\":[]}",
-    "gasLimit": "10000",
+    "ID": "9b00b3b7d80dfb3818a6aaab0cb6fd3822b1bd7b3c6d5c6260579d12ae631a96",
+    "amount": "0",
+    "data": "{\"_tag\":\"ConfigureUsers\",\"params\":[{\"vname\":\"twitter_id\",\"type\":\"String\",\"value\":\"269576234\"},{\"vname\":\"recipient_address\",\"type\":\"ByStr20\",\"value\":\"0xAA9ED51950c75bEe16C8c27E529eDaFfcb27f547\"}]}",
+    "gasLimit": "9000",
     "gasPrice": "1000000000",
-    "nonce": "58",
+    "nonce": "8260",
     "receipt": {
-      "accepted": true,
-      "cumulative_gas": "478",
-      "epoch_num": "537641",
-      "success": true
+      "cumulative_gas": "1220",
+      "epoch_num": "588004",
+      "errors": {
+        "0": [
+          7
+        ]
+      },
+      "exceptions": [
+        {
+          "line": 87,
+          "message": "Exception thrown: (Message [(_exception : (String \"Error\")) ; (code : (Int32 -2))])"
+        },
+        {
+          "line": 100,
+          "message": "Raised from IsAdmin"
+        },
+        {
+          "line": 137,
+          "message": "Raised from ConfigureUsers"
+        }
+      ],
+      "success": false
     },
-    "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
-    "signature": "0xC926588B1E40629031EE1083AF65092560D355125DD8A1A34EC101F314FE8CDE0C45F1A304EB1B54B624D2FFD0B3D5702026E885A483EAD81DCD78C47C7413E1",
-    "toAddr": "f046f94b75f26733c9dc93f265be02f63ee480cb",
+    "senderPubKey": "0x037B1722AAE35694A9F6E6C57DF5DD1274CBF568463AB50CEB6CBAD18C9BE291AA",
+    "signature": "0x26676494B528757E602943DD2524277ED3850FE3F8E1060E8F36D8E18B5CB6D347698DB00DF0DD2C6786594BF420585ECA30D030C56FE946574AAD59456F110B",
+    "toAddr": "7587a6d9b4def93c9c02475f5854c45eb4d9dac4",
     "version": "65537"
   }
 }

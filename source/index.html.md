@@ -2211,7 +2211,7 @@ curl -d '{
     "id": "1",
     "jsonrpc": "2.0",
     "method": "GetPendingTxns",
-    "params": ["b9e545ab3ed0b61a4d326425569605255e0990da7dda18b4658fdb17b390844e"]
+    "params": []
 }' -H "Content-Type: application/json" -X POST "https://api.zilliqa.com/"
 ```
 

@@ -2109,7 +2109,7 @@ func GetTransaction() {
   "result": {
     "ID": "9b00b3b7d80dfb3818a6aaab0cb6fd3822b1bd7b3c6d5c6260579d12ae631a96",
     "amount": "0",
-    "data": "{\"_tag\":\"ConfigureUsers\",\"params\":[{\"vname\":\"twitter_id\",\"type\":\"String\",\"value\":\"269576234\"},{\"vname\":\"recipient_address\",\"type\":\"ByStr20\",\"value\":\"0xAA9ED51950c75bEe16C8c27E529eDaFfcb27f547\"}]}",
+    "data": "{\"_tag\":\"ConfigureUsers\",\"params\":[{\"vname\":\"twitter_id\",\"type\":\"String\",\"value\":\"111111111\"},{\"vname\":\"recipient_address\",\"type\":\"ByStr20\",\"value\":\"0xAA9AC51920c75bDe16C8c27E529eDaFfcb15f530\"}]}",
     "gasLimit": "9000",
     "gasPrice": "1000000000",
     "nonce": "8260",

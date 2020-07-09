@@ -2209,9 +2209,9 @@ func GetPendingTxn() {
   "id": "1",
   "jsonrpc": "2.0",
   "result": {
-    "code": 0,
+    "code": 24,
     "confirmed": false,
-    "info": "Txn not pending"
+    "pending": false
   }
 }
 ```
@@ -2290,8 +2290,36 @@ func GetPendingTxns() {
   "result": {
     "Txns": [
       {
-        "Status": 1,
-        "TxnHash": "ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"
+        "TxnHash": "3c31005d90b80e21b69d941d7fe3dd5a1abd2b6095e9c1a98e389b8511e2fa21",
+        "code": 1
+      },
+      {
+        "TxnHash": "f8f28b14f9def29f71d7ff7e14fd17d0839155470525dc30a32e0f34f803d5b6",
+        "code": 1
+      },
+      {
+        "TxnHash": "8a67537ee90aad5c7d192ecb6c868e29cf0c99bbfb4ef3803f9cb85fa7d2cd24",
+        "code": 1
+      },
+      {
+        "TxnHash": "793cecffcb2ffb6b89d8092311e854876aba340f9f795f6992f2003b98d92dde",
+        "code": 1
+      },
+      {
+        "TxnHash": "5cadeec5e07296eb78c9a24bfc89a1024e0c4d130eb9acbfc6730fae0211bc77",
+        "code": 1
+      },
+      {
+        "TxnHash": "1e9096d60ab615785d0db788bd46a159a74373b83b066600885cf3a8b88feba6",
+        "code": 1
+      },
+      {
+        "TxnHash": "b2ca8af72eca5c983feb39ab282b6f7ab3b16c6b9a7f2c3f23b4d84ae9f2f0f8",
+        "code": 1
+      },
+      {
+        "TxnHash": "ec6676260a0e9e83815b1fecb17cf702cc0434c77933efb5b0e99f0f1b3b16e7",
+        "code": 24
       }
     ]
   }

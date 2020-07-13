@@ -2204,6 +2204,8 @@ func GetPendingTxn() {
 
 > **Example response:**
 
+> **Since Zilliqa V6.3.0**
+
 ```json
 {
   "id": "1",
@@ -2212,6 +2214,20 @@ func GetPendingTxn() {
     "code": 24,
     "confirmed": false,
     "pending": false
+  }
+}
+```
+
+> **Zilliqa V6.2.0 and before**
+
+```json
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "code": 0,
+    "confirmed": false,
+    "info": "Txn not pending"
   }
 }
 ```
@@ -2230,6 +2246,8 @@ A created transaction will be included in this API if:
 Hence, we recommend calling `GetPendingTxn` around 1-2 transaction epochs after transaction creation to get accurate results.
 
 ### STATUS CODES
+
+From Zilliqa `V6.3.0` onwards
 
 **Confirmed Transactions**
 
@@ -2274,6 +2292,15 @@ Hence, we recommend calling `GetPendingTxn` around 1-2 transaction epochs after 
 | 26     | Failed to add contract account to state     |
 
 _Note: Dropped transactions are available for querying for up to 5 transaction epochs only._
+
+Zilliqa `V6.2.0`
+
+| `confirmed` | `code` | `info`                                           |
+| ----------- | ------ | ------------------------------------------------ |
+| false       | 0      | Txn not pending                                  |
+| false       | 1      | Nonce too high                                   |
+| false       | 2      | Could not fit in as microblock gas limit reached |
+| false       | 3      | Transaction valid but consensus not reached      |
 
 ### HTTP REQUEST
 
@@ -2332,6 +2359,8 @@ func GetPendingTxns() {
 
 > **Example response:**
 
+> **Since Zilliqa V6.3.0**
+
 ```json
 {
   "id": "1",
@@ -2345,6 +2374,23 @@ func GetPendingTxns() {
       {
         "TxnHash": "cf546d80fa2e0cc0b5b8f9fbb639050fe292d1601aa5d4a7c48106c624311bf9",
         "code": 24
+      }
+    ]
+  }
+}
+```
+
+> **Zilliqa V6.2.0 and before**
+
+```json
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "Txns": [
+      {
+        "Status": 1,
+        "TxnHash": "ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3",
       }
     ]
   }

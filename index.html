@@ -3150,14 +3150,29 @@ The JSON-RPC API server runs on:</p>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight go tab-go"><code><span class="k">func</span><span class="x"> </span><span class="n">GetPendingTxn</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    </span><span class="n">provider</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">NewProvider</span><span class="p">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="p">)</span><span class="x">
-    </span><span class="n">response</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">provider</span><span class="o">.</span><span class="n">GetPendingTxn</span><span class="p">(</span><span class="s">"2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c"</span><span class="p">)</span><span class="x">
-    </span><span class="n">result</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="x">
-    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="x">
+  </span><span class="n">provider</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">NewProvider</span><span class="p">(</span><span class="s">"https://api.zilliqa.com/"</span><span class="p">)</span><span class="x">
+  </span><span class="n">response</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">provider</span><span class="o">.</span><span class="n">GetPendingTxn</span><span class="p">(</span><span class="s">"2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c"</span><span class="p">)</span><span class="x">
+  </span><span class="n">result</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
+
+<p><strong>Since Zilliqa V6.3.0</strong></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pending"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Zilliqa V6.2.0 and before</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -3169,8 +3184,152 @@ The JSON-RPC API server runs on:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the pending status of a specified Transaction.
-Possible results are:</p>
+<p>Returns the status (code) of a specified unconfirmed Transaction.</p>
+<h3 id='api-availability'>API AVAILABILITY</h3>
+<p>Please note that the status of newly created transactions (using <code>CreateTransaction</code>) may not immediately be available for checking using this API.</p>
+
+<p>A created transaction will be included in this API if:</p>
+
+<ol>
+<li>It has already been dispatched to the network (this may require one transaction epoch)</li>
+<li>The network has acknowledged receiving this transaction (this occurs at the end of every transaction epoch)</li>
+</ol>
+
+<p>Hence, we recommend calling <code>GetPendingTxn</code> around 1-2 transaction epochs after transaction creation to get accurate results.</p>
+<h3 id='status-codes'>STATUS CODES</h3>
+<p>From Zilliqa <code>V6.3.0</code> onwards</p>
+
+<p><strong>Confirmed Transactions</strong></p>
+
+<table><thead>
+<tr>
+<th><code>code</code></th>
+<th>Transaction Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Transaction is not pending</td>
+</tr>
+</tbody></table>
+
+<p><strong>Pending Transactions</strong></p>
+
+<table><thead>
+<tr>
+<th><code>code</code></th>
+<th>Transaction Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Nonce is higher than expected</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Microblock gas limit exceeded</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Consensus failure in network</td>
+</tr>
+</tbody></table>
+
+<p><strong>Unknown Transactions</strong></p>
+
+<table><thead>
+<tr>
+<th><code>code</code></th>
+<th>Transaction Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4</td>
+<td>Transaction not found</td>
+</tr>
+</tbody></table>
+
+<p><strong>Dropped / Rejected Transactions</strong></p>
+
+<table><thead>
+<tr>
+<th><code>code</code></th>
+<th>Transaction Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10</td>
+<td>Transaction caused math error</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Scilla invocation error</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Contract account initialization error</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Invalid source account</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Gas limit higher than shard gas limit</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Unknown transaction type</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Transaction sent to wrong shard</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Contract &amp; source account cross-shard issue</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Code size exceeded limit</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Transaction verification failed</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Gas limit too low</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Insufficient balance</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Insufficient gas to invoke Scilla checker</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Duplicate transaction exists</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Transaction with higher gas price exists</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Invalid destination address</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Failed to add contract account to state</td>
+</tr>
+</tbody></table>
+
+<p><em>Note: Dropped transactions are available for querying for up to 5 transaction epochs only.</em></p>
+
+<p>Zilliqa <code>V6.2.0</code></p>
 
 <table><thead>
 <tr>
@@ -3286,6 +3445,28 @@ Possible results are:</p>
 </span></code></pre>
 <blockquote>
 <p><strong>Example response:</strong></p>
+
+<p><strong>Since Zilliqa V6.3.0</strong></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Txns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"TxnHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"TxnHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf546d80fa2e0cc0b5b8f9fbb639050fe292d1601aa5d4a7c48106c624311bf9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Zilliqa V6.2.0 and before</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -3294,44 +3475,15 @@ Possible results are:</p>
     </span><span class="s2">"Txns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"TxnHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"</span><span class="w">
+        </span><span class="s2">"TxnHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"</span><span class="p">,</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the pending status of all unvalidated Transactions.</p>
+<p>Returns the status (code) of all unconfirmed Transactions.</p>
 
-<p>For each entry, the possible results are:</p>
-
-<table><thead>
-<tr>
-<th><code>confirmed</code></th>
-<th><code>code</code></th>
-<th><code>info</code></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>false</td>
-<td>0</td>
-<td>Txn not pending</td>
-</tr>
-<tr>
-<td>false</td>
-<td>1</td>
-<td>Nonce too high</td>
-</tr>
-<tr>
-<td>false</td>
-<td>2</td>
-<td>Could not fit in as microblock gas limit reached</td>
-</tr>
-<tr>
-<td>false</td>
-<td>3</td>
-<td>Transaction valid but consensus not reached</td>
-</tr>
-</tbody></table>
+<p>Please refer to <a href="#getpendingtxn">GetPendingTxn</a> for details on API availability and status codes.</p>
 <h3 id='http-request-24'>HTTP REQUEST</h3>
 <table><thead>
 <tr>

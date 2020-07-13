@@ -2195,10 +2195,10 @@ public class App {
 
 ```go
 func GetPendingTxn() {
-	provider := NewProvider("https://api.zilliqa.com/")
-	response := provider.GetPendingTxn("2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c")
-	result, _ := json.Marshal(response)
-	fmt.Println(string(result))
+  provider := NewProvider("https://api.zilliqa.com/")
+  response := provider.GetPendingTxn("2cf109b25f2132c08a4248e2be8add6b95b92aef5b2c77e737faefbc9353ee7c")
+  result, _ := json.Marshal(response)
+  fmt.Println(string(result))
 }
 ```
 
@@ -2209,22 +2209,71 @@ func GetPendingTxn() {
   "id": "1",
   "jsonrpc": "2.0",
   "result": {
-    "code": 0,
+    "code": 24,
     "confirmed": false,
-    "info": "Txn not pending"
+    "pending": false
   }
 }
 ```
 
-Returns the pending status of a specified Transaction.
-Possible results are:
+Returns the status (code) of a specified unconfirmed Transaction.
 
-| `confirmed` | `code` | `info`                                           |
-| ----------- | ------ | ------------------------------------------------ |
-| false       | 0      | Txn not pending                                  |
-| false       | 1      | Nonce too high                                   |
-| false       | 2      | Could not fit in as microblock gas limit reached |
-| false       | 3      | Transaction valid but consensus not reached      |
+### API AVAILABILITY
+
+Please note that the status of newly created transactions (using `CreateTransaction`) may not immediately be available for checking using this API.
+
+A created transaction will be included in this API if:
+
+1. It has already been dispatched to the network (this may require one transaction epoch)
+2. The network has acknowledged receiving this transaction (this occurs at the end of every transaction epoch)
+
+Hence, we recommend calling `GetPendingTxn` around 1-2 transaction epochs after transaction creation to get accurate results.
+
+### STATUS CODES
+
+**Confirmed Transactions**
+
+| `code` | Transaction Status          |
+| ------ | --------------------------- |
+| 0      | Transaction is not pending  |
+
+**Pending Transactions**
+
+| `code` | Transaction Status             |
+| ------ | ------------------------------ |
+| 1      | Nonce is higher than expected  |
+| 2      | Microblock gas limit exceeded  |
+| 3      | Consensus failure in network   |
+
+**Unknown Transactions**
+
+| `code` | Transaction Status     |
+| ------ | ---------------------- |
+| 4      | Transaction not found  |
+
+**Dropped / Rejected Transactions**
+
+| `code` | Transaction Status                          |
+| ------ | ------------------------------------------- |
+| 10     | Transaction caused math error               |
+| 11     | Scilla invocation error                     |
+| 12     | Contract account initialization error       |
+| 13     | Invalid source account                      |
+| 14     | Gas limit higher than shard gas limit       |
+| 15     | Unknown transaction type                    |
+| 16     | Transaction sent to wrong shard             |
+| 17     | Contract & source account cross-shard issue |
+| 18     | Code size exceeded limit                    |
+| 19     | Transaction verification failed             |
+| 20     | Gas limit too low                           |
+| 21     | Insufficient balance                        |
+| 22     | Insufficient gas to invoke Scilla checker   |
+| 23     | Duplicate transaction exists                |
+| 24     | Transaction with higher gas price exists    |
+| 25     | Invalid destination address                 |
+| 26     | Failed to add contract account to state     |
+
+_Note: Dropped transactions are available for querying for up to 5 transaction epochs only._
 
 ### HTTP REQUEST
 
@@ -2290,24 +2339,21 @@ func GetPendingTxns() {
   "result": {
     "Txns": [
       {
-        "Status": 1,
-        "TxnHash": "ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3"
+        "TxnHash": "ec5ef8110a285563d0104269081aa77820058067091a9b3f3ae70f38b94abda3",
+        "code": 1
+      },
+      {
+        "TxnHash": "cf546d80fa2e0cc0b5b8f9fbb639050fe292d1601aa5d4a7c48106c624311bf9",
+        "code": 24
       }
     ]
   }
 }
 ```
 
-Returns the pending status of all unvalidated Transactions.
+Returns the status (code) of all unconfirmed Transactions.
 
-For each entry, the possible results are:
-
-| `confirmed` | `code` | `info`                                           |
-| ----------- | ------ | ------------------------------------------------ |
-| false       | 0      | Txn not pending                                  |
-| false       | 1      | Nonce too high                                   |
-| false       | 2      | Could not fit in as microblock gas limit reached |
-| false       | 3      | Transaction valid but consensus not reached      |
+Please refer to [GetPendingTxn](#getpendingtxn) for details on API availability and status codes.
 
 ### HTTP REQUEST
 

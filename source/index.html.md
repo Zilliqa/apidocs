@@ -2247,27 +2247,28 @@ Hence, we recommend calling `GetPendingTxn` around 1-2 transaction epochs after 
 
 ### STATUS CODES
 
-From Zilliqa `V6.3.0` onwards
+From Zilliqa `V7.0.0` onwards
 
 **Confirmed Transactions**
 
-| `code` | Transaction Status          |
-| ------ | --------------------------- |
-| 0      | Transaction is not pending  |
+| `code` | Transaction Status            |
+| ------ | ----------------------------- |
+| 3      | Transaction is confirmed      |
+| 2      | Transaction is soft-confirmed |
 
 **Pending Transactions**
 
 | `code` | Transaction Status             |
 | ------ | ------------------------------ |
-| 1      | Nonce is higher than expected  |
-| 2      | Microblock gas limit exceeded  |
-| 3      | Consensus failure in network   |
+| 4      | Nonce is higher than expected  |
+| 5      | Microblock gas limit exceeded  |
+| 6      | Consensus failure in network   |
 
-**Unknown Transactions**
+**Dispatched Transactions**
 
-| `code` | Transaction Status     |
-| ------ | ---------------------- |
-| 4      | Transaction not found  |
+| `code` | Transaction Status                      |
+| ------ | --------------------------------------- |
+| 1      | Transaction was received by the lookup  |
 
 **Dropped / Rejected Transactions**
 
@@ -2287,9 +2288,10 @@ From Zilliqa `V6.3.0` onwards
 | 21     | Insufficient balance                        |
 | 22     | Insufficient gas to invoke Scilla checker   |
 | 23     | Duplicate transaction exists                |
-| 24     | Transaction with higher gas price exists    |
+| 24     | Transaction with same nonce but higher(or same) gas price exists in the pool |
 | 25     | Invalid destination address                 |
 | 26     | Failed to add contract account to state     |
+| 27     | A txn with same nonce was already confirmed |
 
 _Note: Dropped transactions are available for querying for up to 5 transaction epochs only._
 

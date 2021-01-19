@@ -2268,7 +2268,7 @@ From Zilliqa `V7.0.0` onwards
 
 | `code` | Transaction Status                      |
 | ------ | --------------------------------------- |
-| 1      | Transaction was recieved by the lookup  |
+| 1      | Transaction was received by the lookup  |
 
 **Dropped / Rejected Transactions**
 
